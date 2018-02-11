@@ -7,17 +7,17 @@
   
   <title>Online Chat Room-Client | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="package com.company; import java.io.*;import java.net.Socket;import java.util.Scanner; public class Client { private static final int PORT = 5000; private String host = &amp;quot;localhost&amp;quot;; private">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta name="keywords" content="Java Project">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Online Chat Room-Client">
 <meta property="og:url" content="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="package com.company; import java.io.*;import java.net.Socket;import java.util.Scanner; public class Client { private static final int PORT = 5000; private String host = &amp;quot;localhost&amp;quot;; private">
-<meta property="og:updated_time" content="2018-02-11T19:52:26.000Z">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:updated_time" content="2018-02-11T19:55:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Online Chat Room-Client">
-<meta name="twitter:description" content="package com.company; import java.io.*;import java.net.Socket;import java.util.Scanner; public class Client { private static final int PORT = 5000; private String host = &amp;quot;localhost&amp;quot;; private">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,113 +86,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>package com.company;</p>
-<p>import java.io.*;<br>import java.net.Socket;<br>import java.util.Scanner;</p>
-<p>public class Client {</p>
-<pre><code>private static final int PORT = 5000;
-private String host = &quot;localhost&quot;;
-private Socket socket;
-public Client() {
-    try {
-        this.socket = new Socket(host, PORT);
-        System.out.println(&quot;客户端链接成功&quot;);
-    } catch (IOException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
-}
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PORT = <span class="number">5000</span>;</span><br><span class="line">    <span class="keyword">private</span> String host = <span class="string">"localhost"</span>;</span><br><span class="line">    <span class="keyword">private</span> Socket socket;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.socket = <span class="keyword">new</span> Socket(host, PORT);</span><br><span class="line">            System.out.println(<span class="string">"客户端链接成功"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Client().talkToServer();</span><br><span class="line">        System.out.println(<span class="string">"client over"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 测试写数据到服务器的连通性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testServerWriter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        BufferedWriter bWriter = getWriter(socket);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            bWriter.write(<span class="string">"vincent ok"</span>);</span><br><span class="line">            bWriter.newLine();</span><br><span class="line">            bWriter.flush();<span class="comment">// 这个动作非常重要</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// <span class="doctag">TODO:</span> handle exception</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">talkToServer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        BufferedReader bReader = getReader(socket);</span><br><span class="line">        BufferedWriter bWriter = getWriter(socket);</span><br><span class="line">        BufferedReader localbr;</span><br><span class="line">        String mString = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">// 构建本地客户端终端的输入流</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            localbr = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in, <span class="string">"UTF-8"</span>));</span><br><span class="line">            System.out.println(<span class="string">"server print  "</span> + bReader.readLine());</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> ((mString = localbr.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// readLine方法必须读取到行分割符才返回读取。所以传递给输入流的字符串必须包含行分割符</span></span><br><span class="line">                <span class="comment">//System.out.println("client print  " + mString);</span></span><br><span class="line">                bWriter.write(mString);</span><br><span class="line">                bWriter.newLine();<span class="comment">// 插入一个行分隔符,作为服务器端readline函数判断这个字符串结束的标识</span></span><br><span class="line">                <span class="comment">// 非常重要的是必须显式的将数据推送到服务器哪里去</span></span><br><span class="line">                bWriter.flush();</span><br><span class="line">                <span class="comment">//System.out.println("输出到server的数据");</span></span><br><span class="line">                <span class="comment">// 读取到服务器的数据，readline方法是阻塞的</span></span><br><span class="line">               <span class="comment">// System.out.println("获得了服务器响应数据： " + "server print  " + bReader.readLine());</span></span><br><span class="line">                System.out.println(bReader.readLine());</span><br><span class="line">                <span class="keyword">if</span> (mString.equals(<span class="string">"bye"</span>)) &#123;</span><br><span class="line">                    socket.close();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"退出while循环"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// <span class="doctag">TODO:</span> handle exception</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (socket != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    socket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> BufferedWriter <span class="title">getWriter</span><span class="params">(Socket socket)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            OutputStream outputStream = <span class="keyword">null</span>;</span><br><span class="line">            BufferedWriter bWriter = <span class="keyword">null</span>;</span><br><span class="line">            outputStream = socket.getOutputStream();</span><br><span class="line">            bWriter = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(outputStream, <span class="string">"UTF-8"</span>));</span><br><span class="line">            <span class="keyword">return</span> bWriter;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// <span class="doctag">TODO:</span> handle exception</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> BufferedReader <span class="title">getReader</span><span class="params">(Socket socket)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InputStream ins = <span class="keyword">null</span>;</span><br><span class="line">            BufferedReader brReader = <span class="keyword">null</span>;</span><br><span class="line">            ins = socket.getInputStream();</span><br><span class="line">            brReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(ins, <span class="string">"UTF-8"</span>));</span><br><span class="line">            <span class="keyword">return</span> brReader;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// <span class="doctag">TODO:</span> handle exception</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public static void main(String[] args) {
-    new Client().talkToServer();
-    System.out.println(&quot;client over&quot;);
-}
-
-// 测试写数据到服务器的连通性
-public void testServerWriter() {
-    BufferedWriter bWriter = getWriter(socket);
-    try {
-        bWriter.write(&quot;vincent ok&quot;);
-        bWriter.newLine();
-        bWriter.flush();// 这个动作非常重要
-    } catch (Exception e) {
-        // TODO: handle exception
-    }
-}
-
-public void talkToServer() {
-    BufferedReader bReader = getReader(socket);
-    BufferedWriter bWriter = getWriter(socket);
-    BufferedReader localbr;
-    String mString = null;
-    // 构建本地客户端终端的输入流
-    try {
-        localbr = new BufferedReader(new InputStreamReader(System.in, &quot;UTF-8&quot;));
-        System.out.println(&quot;server print  &quot; + bReader.readLine());
-
-        while ((mString = localbr.readLine()) != null) {
-            // readLine方法必须读取到行分割符才返回读取。所以传递给输入流的字符串必须包含行分割符
-            //System.out.println(&quot;client print  &quot; + mString);
-            bWriter.write(mString);
-            bWriter.newLine();// 插入一个行分隔符,作为服务器端readline函数判断这个字符串结束的标识
-            // 非常重要的是必须显式的将数据推送到服务器哪里去
-            bWriter.flush();
-            //System.out.println(&quot;输出到server的数据&quot;);
-            // 读取到服务器的数据，readline方法是阻塞的
-           // System.out.println(&quot;获得了服务器响应数据： &quot; + &quot;server print  &quot; + bReader.readLine());
-            System.out.println(bReader.readLine());
-            if (mString.equals(&quot;bye&quot;)) {
-                socket.close();
-                break;
-            }
-
-        }
-        System.out.println(&quot;退出while循环&quot;);
-    } catch (Exception e) {
-        // TODO: handle exception
-    } finally {
-        if (socket != null) {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-    }
-
-}
-
-private BufferedWriter getWriter(Socket socket) {
-    try {
-        OutputStream outputStream = null;
-        BufferedWriter bWriter = null;
-        outputStream = socket.getOutputStream();
-        bWriter = new BufferedWriter(new OutputStreamWriter(outputStream, &quot;UTF-8&quot;));
-        return bWriter;
-    } catch (Exception e) {
-        // TODO: handle exception
-    }
-    return null;
-
-}
-
-private BufferedReader getReader(Socket socket) {
-    try {
-        InputStream ins = null;
-        BufferedReader brReader = null;
-        ins = socket.getInputStream();
-        brReader = new BufferedReader(new InputStreamReader(ins, &quot;UTF-8&quot;));
-        return brReader;
-    } catch (Exception e) {
-        // TODO: handle exception
-    }
-    return null;
-}
-</code></pre><h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjdj7i7ss000072f2v8q7s2t3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjdj7lqgq00007mf24aoo6v0y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -205,7 +104,7 @@ private BufferedReader getReader(Socket socket) {
   
   
     <a href="/2017/12/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -242,7 +141,7 @@ private BufferedReader getReader(Socket socket) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -252,7 +151,7 @@ private BufferedReader getReader(Socket socket) {
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
