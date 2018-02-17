@@ -64,6 +64,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Counter-php" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/Counter-php/" class="article-date">
+  <time datetime="2018-02-17T21:55:24.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/Counter-php/">Counter.php</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">Simple counter script</span><br><span class="line">$ourFileName = <span class="string">"counter.txt"</span>;</span><br><span class="line">$ourFileHandle = fopen($ourFileName, <span class="string">"r"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"can't open file"</span>);</span><br><span class="line">$num = fread($ourFileHandle, filesize($ourFileName));</span><br><span class="line">fclose($ourFileHandle);</span><br><span class="line">$ourFileHandle = fopen($ourFileName,<span class="string">"w"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"can't open file"</span>);</span><br><span class="line">$num++;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h1&gt;Welcome Visitor #"</span> . $num . <span class="string">"&lt;/h1&gt;"</span>;</span><br><span class="line">fwrite($ourFileHandle, $num);</span><br><span class="line">fclose($ourFileHandle);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;h3&gt;Simple Counter PHP Example&lt;/h3&gt;</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">&lt;li&gt;The PHP script reads in the txt file <span class="keyword">and</span> gets the current</span><br><span class="line">   value.&lt;/li&gt;</span><br><span class="line">&lt;li&gt;Then, it increments that current value by <span class="number">1</span>, prints out the visitor <span class="comment">#, and writes it to the file.&lt;/li&gt;</span></span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjdrwqrvg0001ytf2lit6tv70" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Least-Common-Ancester" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/13/Least-Common-Ancester/" class="article-date">
@@ -111,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjdneoxy80006lrf2ry29d5lv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjdrwqrvs0004ytf2mjzg8vg2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -158,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjdneoxxl0001lrf23071pvrt" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjdrwqrva0000ytf2ivhhyfs0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data/">Big Data</a></li></ul>
@@ -198,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjdneoxy90007lrf204lw075h" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjdrwqrvw0005ytf2xp8mck34" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -237,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjdneoxyi000flrf23qn2wdsq" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjdrwqrwg000mytf2lev785qw" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -276,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjdneoxyh000elrf28l58rrvn" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjdrwqrw3000bytf2lsfxg1wo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -316,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cjdneoxyo000ilrf2fpo7kr1i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cjdrwqrw6000fytf2qrg5wvjo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -362,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjdneoxxd0000lrf2wqq6n4yt" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjdrwqrvp0003ytf221532nbm" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
@@ -404,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjdneoxyd0009lrf24chpn6ne" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjdrwqrw10009ytf27jpcait4" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -444,52 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjdneoxye000alrf2iuzeujo4" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-200" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/11/Leetcode-200/" class="article-date">
-  <time datetime="2018-02-12T06:42:16.000Z" itemprop="datePublished">2018-02-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/11/Leetcode-200/">Leetcode_200</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>DFS search.</li>
-<li>When we meet a ‘1’, we mark all connected ‘1’s to 0, count++.</li>
-<li>Time Complexity: O(m*n).</li>
-<li>Space Complexity: worst case : full of ‘1’s, O(m*n).</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">leetcode_200_NumberOfIslands</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;</span><br><span class="line">x = grid.length;</span><br><span class="line"><span class="keyword">if</span>(x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">y = grid[<span class="number">0</span>].length;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; x;i++)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; y;j++)&#123;</span><br><span class="line"><span class="keyword">if</span>(grid[i][j] == <span class="string">'1'</span>)&#123;</span><br><span class="line">dfs(grid,i,j);</span><br><span class="line">count++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= x || j &gt;= y || grid[i][j] != <span class="string">'1'</span>) <span class="keyword">return</span>;</span><br><span class="line">grid[i][j] = <span class="string">'0'</span>;</span><br><span class="line"></span><br><span class="line">dfs(grid,i-<span class="number">1</span>,j);</span><br><span class="line">dfs(grid,i,j-<span class="number">1</span>);</span><br><span class="line">dfs(grid,i+<span class="number">1</span>,j);</span><br><span class="line">dfs(grid,i,j+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjdneoxyg000blrf2q5u9du4u" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjdrwqrvz0008ytf2qm8qajba" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -519,7 +513,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
     </div>
   </div>
 
@@ -529,7 +523,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 10px;">Cracking the Interview</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 15px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a>
+      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 10px;">Cracking the Interview</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 15px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a>
     </div>
   </div>
 
@@ -551,6 +545,10 @@
       <ul>
         
           <li>
+            <a href="/2018/02/17/Counter-php/">Counter.php</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/13/Least-Common-Ancester/">Least Common Ancester</a>
           </li>
         
@@ -564,10 +562,6 @@
         
           <li>
             <a href="/2018/02/12/Leetcode-229/">Leetcode-229</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/12/Leetcode-169/">Leetcode-169</a>
           </li>
         
       </ul>
