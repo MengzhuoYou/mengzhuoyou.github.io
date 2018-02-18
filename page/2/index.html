@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,52 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Java-JVM(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/12/Java-JVM(1)/" class="article-date">
+  <time datetime="2018-02-12T08:04:44.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/Java-JVM(1)/">深入理解 Java 虚拟机 （一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天开始看 <code>深入理解Java虚拟机</code> 这本书，首先是关于内存区域的概念。</p>
+<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>Java 虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个区域。</p>
+<h3 id="1-程序计数器-（Program-Counter-Register）"><a href="#1-程序计数器-（Program-Counter-Register）" class="headerlink" title="1. 程序计数器 （Program Counter Register）"></a>1. 程序计数器 （Program Counter Register）</h3><p>程序计数器可以看作是当前线程所执行的字节码的行号指示器。<br>由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器都只会执行一条线程中的指令。因此，每条线程都需要又一个独立的程序计数器。</p>
+<h3 id="2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><a href="#2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）" class="headerlink" title="2. Java虚拟机栈 （Java Virtual Machine Stacks）"></a>2. Java虚拟机栈 （Java Virtual Machine Stacks）</h3><p>虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息。每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+<p>Java内存区域分为堆内存和栈内存，虚拟机栈就是在栈内存中，局部变量表就是在虚拟机栈中的。</p>
+<h3 id="3-Java堆-（Java-Heap）"><a href="#3-Java堆-（Java-Heap）" class="headerlink" title="3. Java堆 （Java Heap）"></a>3. Java堆 （Java Heap）</h3><p>Java堆是被所有线程所共享的一块内存区域：所有的对象实例以及数组都要在堆上分配（虽然现在不是那么绝对了）。<br>Java堆是垃圾收集器管理的主要区域。</p>
+<h3 id="4-方法区（Method-Area）"><a href="#4-方法区（Method-Area）" class="headerlink" title="4. 方法区（Method Area）"></a>4. 方法区（Method Area）</h3><p>方法区是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息，常量，静态变量等。</p>
+<h3 id="5-运行时常量池（Runtime-Constant-Pool）"><a href="#5-运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="5. 运行时常量池（Runtime Constant Pool）"></a>5. 运行时常量池（Runtime Constant Pool）</h3><p>运行时常量池是方法区的一部分，用于存放编译期生成的各种字面量和符号引用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjdsa3ahp0004o0f2p848k14v" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Leetcode-110" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -94,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjds21k1i000de8f2pnzuewkf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjdsa3ahz000bo0f21sk2330y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -134,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjds21k1j000ee8f2f7ylaal4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjdsa3ai2000do0f2atropxid" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -179,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjds21k1o000ie8f2xov3atf5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjdsa3ai4000fo0f2trhgam4w" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -219,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjds21k1y000qe8f2mvo3qpm9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjdsa3aiw0013o0f2q1myi963" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -259,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjds21k20000se8f2j8b8vdi2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjdsa3aiy0014o0f2431qex5r" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -306,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjds21k27000xe8f2yhtpl4gf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjdsa3aj10017o0f292a6l6po" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -320,7 +366,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 </section>
@@ -344,14 +390,14 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 10px;">Cracking the Interview</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 15px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a>
+      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 10px;">Cracking the Interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 15px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -361,9 +407,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/02/17/Deep-Learning-2/">Deep Learning(2)</a>
+          </li>
         
           <li>
             <a href="/2018/02/17/Deep-Learning-1/">Deep Learning(1)</a>
@@ -379,10 +429,6 @@
         
           <li>
             <a href="/2018/02/13/Least-Common-Ancester/">Least Common Ancester</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/13/Big-Data-Process/">Big Data Process</a>
           </li>
         
       </ul>

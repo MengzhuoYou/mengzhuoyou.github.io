@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Deep Learning(2) | Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.svm 是什么support vector machine. SVM 就是个分类器，它用于回归的时候称为SVR（Support Vector Regression），SVM和SVR本质上都一样。下图就是SVM分类：  边界上的点就是支持向量，这些点很关键，这也是”支持向量机“命名的由来. SVM的目的：寻找到一个超平面使样本分成两类，并且间隔最大。而我们求得的w就代表着我们需要寻找的超平面的系">
+<meta name="keywords" content="Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning(2)">
+<meta property="og:url" content="http://yoursite.com/2018/02/17/Deep-Learning-2/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="1.svm 是什么support vector machine. SVM 就是个分类器，它用于回归的时候称为SVR（Support Vector Regression），SVM和SVR本质上都一样。下图就是SVM分类：  边界上的点就是支持向量，这些点很关键，这也是”支持向量机“命名的由来. SVM的目的：寻找到一个超平面使样本分成两类，并且间隔最大。而我们求得的w就代表着我们需要寻找的超平面的系">
+<meta property="og:image" content="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d68171f42.jpg?imageMogr2/format/jpg/quality/90">
+<meta property="og:image" content="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d69b301f3.jpg?imageMogr2/format/jpg/quality/90">
+<meta property="og:image" content="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d7bb67d35.jpg?imageMogr2/format/jpg/quality/90">
+<meta property="og:image" content="https://www.youtube.com/watch?v=3liCbRZPrZA">
+<meta property="og:updated_time" content="2018-02-18T04:14:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep Learning(2)">
+<meta name="twitter:description" content="1.svm 是什么support vector machine. SVM 就是个分类器，它用于回归的时候称为SVR（Support Vector Regression），SVM和SVR本质上都一样。下图就是SVM分类：  边界上的点就是支持向量，这些点很关键，这也是”支持向量机“命名的由来. SVM的目的：寻找到一个超平面使样本分成两类，并且间隔最大。而我们求得的w就代表着我们需要寻找的超平面的系">
+<meta name="twitter:image" content="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d68171f42.jpg?imageMogr2/format/jpg/quality/90">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Deep-Learning-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/Deep-Learning-2/" class="article-date">
+  <time datetime="2018-02-18T03:10:31.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Deep Learning(2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-svm-是什么"><a href="#1-svm-是什么" class="headerlink" title="1.svm 是什么"></a>1.svm 是什么</h3><p>support vector machine. SVM 就是个分类器，它用于回归的时候称为SVR（Support Vector Regression），SVM和SVR本质上都一样。下图就是SVM分类：</p>
+<p><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d68171f42.jpg?imageMogr2/format/jpg/quality/90" alt="SVM分类"></p>
+<p>边界上的点就是支持向量，这些点很关键，这也是”支持向量机“命名的由来.</p>
+<p>SVM的目的：寻找到一个超平面使样本分成两类，并且间隔最大。而我们求得的w就代表着我们需要寻找的超平面的系数。</p>
+<p>用数学语言描述：<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d69b301f3.jpg?imageMogr2/format/jpg/quality/90" alt=""><br>这就是SVM的基本型。</p>
+<h3 id="2-核函数"><a href="#2-核函数" class="headerlink" title="2.核函数"></a>2.核函数</h3><p>现实任务中，原始样本空间也许并不能存在一个能正确划分出两类样本的超平面，而且这是很经常的事。你说说要是遇到这样的数据，怎么划分好呢：<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d7bb67d35.jpg?imageMogr2/format/jpg/quality/90" alt=""><br>于是引入了一个新的概念：核函数。它可以将样本从原始空间映射到一个更高维的特质空间中，使得样本在这个新的高维空间中可以被线性划分为两类，即在空间内线性划分。</p>
+<p>这个过程可以观看视频感受感受:<br><img src="https://www.youtube.com/watch?v=3liCbRZPrZA" alt="vedio"></p>
+<p>核函数的选择变成了支持向量机的最大变数（如果必须得用上核函数，即核化），因此选用什么样的核函数会影响最后的结果。而最常用的核函数有：线性核、多项式核、高斯核、拉普拉斯核、sigmoid核、通过核函数之间的线性组合或直积等运算得出的新核函数。</p>
+<h3 id="3-svm和LR的区别"><a href="#3-svm和LR的区别" class="headerlink" title="3.svm和LR的区别"></a>3.svm和LR的区别</h3><p>两种方法都是常见的分类算法，从目标函数来看，区别在于逻辑回归采用的是logistical loss，svm采用的是hinge loss。这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重。SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重。两者的根本目的都是一样的。此外，根据需要，两个方法都可以增加不同的正则化项，如l1,l2等等。所以在很多实验中，两种算法的结果是很接近的。</p>
+<p>但是逻辑回归相对来说模型更简单，好理解，实现起来，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些。但是SVM的理论基础更加牢固，有一套结构化风险最小化的理论基础，虽然一般使用的人不太会去关注。还有很重要的一点，SVM转化为对偶问题后，分类只需要计算与少数几个支持向量的距离，这个在进行复杂核函数计算时优势很明显，能够大大简化模型和计算量。</p>
+<p>总结：在Andrew NG的课里讲到过：</p>
+<ol>
+<li>如果Feature的数量很大，跟样本数量差不多，这时候选用LR或者是Linear Kernel的SVM</li>
+<li>如果Feature的数量比较小，样本数量一般，不算大也不算小，选用SVM+Gaussian Kernel</li>
+<li>如果Feature的数量比较小，而样本数量很多，需要手工添加一些feature变成第一种情况</li>
+</ol>
+<h3 id="4-LR中为什么要离散化"><a href="#4-LR中为什么要离散化" class="headerlink" title="4.LR中为什么要离散化"></a>4.LR中为什么要离散化</h3><p>在工业界，很少直接将连续值作为逻辑回归模型的特征输入，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：</p>
+<ol>
+<li>离散特征的增加和减少都很容易，易于模型的快速迭代；</li>
+<li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
+<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合；</li>
+<li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力；</li>
+<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjdsa3ahg0001o0f2fcalb3hv" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/17/Deep-Learning-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Deep Learning(1)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 10px;">Cracking the Interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 15px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/17/Deep-Learning-2/">Deep Learning(2)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/17/Deep-Learning-1/">Deep Learning(1)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/17/PHP-Tutorial/">PHP_Tutorial</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/17/Counter-php/">Counter.php</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/13/Least-Common-Ancester/">Least Common Ancester</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
