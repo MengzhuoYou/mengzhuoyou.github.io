@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,65 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Least-Common-Ancester" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/13/Least-Common-Ancester/" class="article-date">
+  <time datetime="2018-02-14T06:31:42.000Z" itemprop="datePublished">2018-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/13/Least-Common-Ancester/">Least Common Ancester</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最近公共祖先-问题"><a href="#最近公共祖先-问题" class="headerlink" title="最近公共祖先 问题"></a>最近公共祖先 问题</h1><p>今天面了Wish， 一共两道coding，做的时候觉得还行，后来上网查了资料后，觉得对于<code>最近公共祖先</code> 这类问题，掌握的还是不够，所以趁热总结了一下，希望下次遇到的时候，能解的更好。</p>
+<h2 id="类型1-是一棵二叉搜索树"><a href="#类型1-是一棵二叉搜索树" class="headerlink" title="类型1 是一棵二叉搜索树"></a>类型1 <code>是一棵二叉搜索树</code></h2><p>那么从树根开始：</p>
+<ul>
+<li>如果当前结点t 大于结点u、v，说明u、v都在t 的左侧，所以它们的共同祖先必定在t 的左子树中，故从t 的左子树中继续查找；</li>
+<li>如果当前结点t 小于结点u、v，说明u、v都在t 的右侧，所以它们的共同祖先必定在t 的右子树中，故从t 的右子树中继续查找；</li>
+<li>如果当前结点t 满足 u &lt;t &lt; v，说明u和v分居在t 的两侧，故当前结点t 即为最近公共祖先；</li>
+</ul>
+<h2 id="类型2-是一棵普通的树"><a href="#类型2-是一棵普通的树" class="headerlink" title="类型2 是一棵普通的树"></a>类型2 <code>是一棵普通的树</code></h2><p>树不一定是二叉树，每个结点都有一个指针指向它的父结点。于是我们可以从任何一个结点出发，得到一个到达树根结点的单向链表。因此这个问题转换为两个单向链表的第一个公共结点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* FindFirstCommonNode( ListNode *pHead1, ListNode *pHead2) &#123;</span><br><span class="line">            ListNode *p1 = pHead1;</span><br><span class="line">            ListNode *p2 = pHead2;</span><br><span class="line">            while(p1!=p2)&#123;</span><br><span class="line">                p1 = (p1==NULL ? pHead2 : p1-&gt;next);</span><br><span class="line">                p2 = (p2==NULL ? pHead1 : p2-&gt;next);</span><br><span class="line">                          &#125;</span><br><span class="line">                return p1;</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="类型3-批量查询时-离线算法Tarjan"><a href="#类型3-批量查询时-离线算法Tarjan" class="headerlink" title="类型3 批量查询时-离线算法Tarjan"></a>类型3 <code>批量查询时-离线算法Tarjan</code></h2><p>不论我们所面对的二叉树是二叉查找树，或不是二叉查找树，都可以把求任意两个结点的最近公共祖先，当做是查询的问题，如果是只求一次，则是单次查询；如果要求多个任意两个结点的最近公共祖先，则相当于是批量查询。<br>涉及到批量查询的时候，我们可以借鉴离线处理的方式，这就引出了解决此LCA问题的Tarjan离线算法。<br>3.1、什么是Tarjan算法<br>Tarjan算法 （以发现者Robert Tarjan命名）是一个在图中寻找强连通分量的算法。算法的基本思想为：任选一结点开始进行深度优先搜索dfs（若深度优先搜索结束后仍有未访问的结点，则再从中任选一点再次进行）。搜索过程中已访问的结点不再访问。搜索树的若干子树构成了图的强连通分量。<br>应用到要解决的LCA问题上，则是：对于新搜索到的一个结点u，先创建由u构成的集合，再对u的每颗子树进行搜索，每搜索完一棵子树，这时候子树中所有的结点的最近公共祖先就是u了。</p>
+<p><img src="http://img.blog.csdn.net/20140116174819390" alt="例子"></p>
+<p>假设遍历完10的孩子,要处理关于10的请求了，取根节点到当前正在遍历的节点的路径为关键路径,即1-3-8-10，集合的祖先便是关键路径上距离集合最近的点。<br>比如：</p>
+<ul>
+<li>1，2，5，6为一个集合,祖先为1，集合中点和10的LCA为1</li>
+<li>3，7为一个集合，祖先为3，集合中点和10的LCA为3</li>
+<li>8，9，11为一个集合，祖先为8，集合中点和10的LCA为8</li>
+<li>10，12为一个集合，祖先为10，集合中点和10的LCA为10<br>得出的结论便是：LCA(u,v)便是根至u的路径上到节点v最近的点。</li>
+</ul>
+<h2 id="类型4-批量查询时-线段树-Segment-Tree"><a href="#类型4-批量查询时-线段树-Segment-Tree" class="headerlink" title="类型4 批量查询时-线段树(Segment Tree)"></a>类型4 <code>批量查询时-线段树(Segment Tree)</code></h2><p>线段树的建造：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initialize</span><span class="params">(<span class="keyword">int</span> node, <span class="keyword">int</span> b, <span class="keyword">int</span> e, <span class="keyword">int</span> M[MAXIND], <span class="keyword">int</span> A[MAXN], <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (b == e)</span><br><span class="line">M[node] = b;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//compute the values in the left and right subtrees</span></span><br><span class="line">initialize(<span class="number">2</span> * node, b, (b + e) / <span class="number">2</span>, M, A, N);</span><br><span class="line">initialize(<span class="number">2</span> * node + <span class="number">1</span>, (b + e) / <span class="number">2</span> + <span class="number">1</span>, e, M, A, N);</span><br><span class="line"></span><br><span class="line"><span class="comment">//search for the minimum value in the first and</span></span><br><span class="line"><span class="comment">//second half of the interval</span></span><br><span class="line"><span class="keyword">if</span> (A[M[<span class="number">2</span> * node]] &lt;= A[M[<span class="number">2</span> * node + <span class="number">1</span>]])</span><br><span class="line">M[node] = M[<span class="number">2</span> * node];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">M[node] = M[<span class="number">2</span> * node + <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>线段树的查询<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> node, <span class="keyword">int</span> b, <span class="keyword">int</span> e, <span class="keyword">int</span> M[MAXIND], <span class="keyword">int</span> A[MAXN], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> p1, p2;</span><br><span class="line"><span class="comment">//if the current interval doesn't intersect</span></span><br><span class="line"><span class="comment">//the query interval return -1</span></span><br><span class="line"><span class="keyword">if</span> (i &gt; e || j &lt; b)</span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if the current interval is included in</span></span><br><span class="line"><span class="comment">//the query interval return M[node]</span></span><br><span class="line"><span class="keyword">if</span> (b &gt;= i &amp;&amp; e &lt;= j)</span><br><span class="line"><span class="keyword">return</span> M[node];</span><br><span class="line"></span><br><span class="line"><span class="comment">//compute the minimum position in the</span></span><br><span class="line"><span class="comment">//left and right part of the interval</span></span><br><span class="line">p1 = query(<span class="number">2</span> * node, b, (b + e) / <span class="number">2</span>, M, A, i, j);</span><br><span class="line">p2 = query(<span class="number">2</span> * node + <span class="number">1</span>, (b + e) / <span class="number">2</span> + <span class="number">1</span>, e, M, A, i, j);</span><br><span class="line"></span><br><span class="line"><span class="comment">//return the position where the overall</span></span><br><span class="line"><span class="comment">//minimum is</span></span><br><span class="line"><span class="keyword">if</span> (p1 == <span class="number">-1</span>)</span><br><span class="line"><span class="keyword">return</span> M[node] = p2;</span><br><span class="line"><span class="keyword">if</span> (p2 == <span class="number">-1</span>)</span><br><span class="line"><span class="keyword">return</span> M[node] = p1;</span><br><span class="line"><span class="keyword">if</span> (A[p1] &lt;= A[p2])</span><br><span class="line"><span class="keyword">return</span> M[node] = p1;</span><br><span class="line"><span class="keyword">return</span> M[node] = p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cje4s1w0q000i3kf2xucs1lf2" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Big-Data-Process" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -99,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cje13j2in0009caf2k7u1iuu0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cje4s1w0f00083kf2pgzjg0vc" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -139,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cje13j2iy000lcaf2vi89imt2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cje4s1w0x000p3kf27hmlv2ae" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -178,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cje13j2jd000vcaf2o44rerh1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cje4s1w17000w3kf263u51wq7" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -217,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cje13j2j1000ncaf21hejdowk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cje4s1w10000r3kf2drtlsrij" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -257,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cje13j2jf000wcaf2n6qxeq1m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cje4s1w19000x3kf2hzugxixu" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -303,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cje13j2ir000dcaf2ub5gg9yx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cje4s1w0m000g3kf22ngxfmru" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
@@ -345,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cje13j2j4000ocaf26h4so7fc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cje4s1w0u000m3kf286r8xkcw" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -385,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cje13j2j8000rcaf25pt1uorz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cje4s1w15000t3kf2j0jdp9hd" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -430,50 +489,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cje13j2ja000scaf2f76si5qv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cje4s1w1d00103kf2tq57euq7" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Online-Chat-Room-Server" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/11/Online-Chat-Room-Server/" class="article-date">
-  <time datetime="2018-02-12T06:07:47.000Z" itemprop="datePublished">2018-02-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/11/Online-Chat-Room-Server/">Online Chat Room-Server</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The server side programming code.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Server</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PORT = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">private</span> ServerSocket serverSocket;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Server</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.serverSocket = <span class="keyword">new</span> ServerSocket(PORT);</span><br><span class="line">System.out.println(<span class="string">"服务器启动， 在 "</span> + PORT + <span class="string">" 端口监听连接请求"</span>);</span><br><span class="line">InetAddress ip = InetAddress.getLocalHost();</span><br><span class="line"></span><br><span class="line">System.out.println(ip.getHostAddress());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">echo</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="string">"echo: "</span> + msg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">Socket socket = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">System.out.println(<span class="string">"开始监听"</span>);</span><br><span class="line">socket = serverSocket.accept();</span><br><span class="line">System.out.println(<span class="string">"New connection"</span> + <span class="string">"accepted"</span> + socket.getInetAddress() + <span class="string">": "</span> + socket.getPort());</span><br><span class="line"></span><br><span class="line">BufferedReader br = getReader(socket);</span><br><span class="line">BufferedWriter bw = getWriter(socket);</span><br><span class="line">String msg = <span class="keyword">null</span>;</span><br><span class="line">bw.write(socket.getInetAddress() + <span class="string">": "</span> + socket.getPort() + <span class="string">" 你好\n"</span>);</span><br><span class="line"><span class="comment">// 强制flush，将数据推送到客户端哪里去。</span></span><br><span class="line">bw.flush();</span><br><span class="line"><span class="comment">// System.out.println("获得了输入流和输出流了");</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ((msg = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line"><span class="comment">// 服务器读取客户端数据时候readline函数阻塞了，</span></span><br><span class="line"><span class="comment">// 如果客户端断开了链接，说明到了流的末尾，将返回null，</span></span><br><span class="line"><span class="comment">//或者一串字符串跟着换行符也将不在阻塞，string返回。</span></span><br><span class="line"><span class="comment">// System.out.println("获得了" + socket.getInetAddress() + "数据：" + msg + "\t将回显回去");</span></span><br><span class="line">System.out.println(msg);</span><br><span class="line">Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">String word = scanner.nextLine();</span><br><span class="line">bw.write(word);<span class="comment">//回显</span></span><br><span class="line">bw.newLine();<span class="comment">// 这个操作也是必须的，相当于插入一个行分割符，readline方法用来判定一行字符串有没结束</span></span><br><span class="line">bw.flush();<span class="comment">// 刷新输出缓冲区</span></span><br><span class="line"><span class="keyword">if</span> (msg.equals(<span class="string">"bye"</span>)) &#123;</span><br><span class="line">System.out.println(<span class="string">"链接断开，监听下一次链接"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// (!socket.isClosed()&amp;&amp; socket.isConnected())表示链接还在</span></span><br><span class="line"><span class="keyword">if</span> (!(!socket.isClosed() &amp;&amp; socket.isConnected())) &#123;</span><br><span class="line">System.out.println(<span class="string">"链接断开，监听下一次链接"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"><span class="keyword">try</span> &#123;<span class="comment">// 一次链接后把这个socket销毁。等待下一次的</span></span><br><span class="line"><span class="comment">//socket链接</span></span><br><span class="line"><span class="keyword">if</span> (socket != <span class="keyword">null</span>)</span><br><span class="line">socket.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> BufferedReader <span class="title">getReader</span><span class="params">(Socket socket)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">InputStream ins = socket.getInputStream();</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(ins, <span class="string">"UTF-8"</span>));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> BufferedWriter <span class="title">getWriter</span><span class="params">(Socket socket)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">OutputStream ous = socket.getOutputStream();</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(ous, <span class="string">"UTF-8"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String arg[])</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"><span class="keyword">new</span> Server().service();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过这个函数测试后，客户端函数可以发送数据到服务器进程中。发现了客户端那边发送过来时候flush了一下。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testClientReader</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Socket socket = serverSocket.accept();</span><br><span class="line">BufferedReader br = getReader(socket);</span><br><span class="line">System.out.println(br.readLine());</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cje13j2ji0010caf2k0mo2pl1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
 
     </footer>
   </div>
@@ -486,7 +505,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Précédent</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Suivant &raquo;</a>
   </nav>
 
 </section>
@@ -498,9 +517,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
     </div>
   </div>
 
@@ -508,9 +527,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Big-Data-Process/" style="font-size: 13.33px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 10px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 13.33px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 13.33px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a>
+      <a href="/tags/Big-Data-Process/" style="font-size: 16.67px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 13.33px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 13.33px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 13.33px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a>
     </div>
   </div>
 
@@ -527,9 +546,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/02/26/Cracking-the-Interview-Wish/">Cracking the Interview - HashMap</a>
+          </li>
         
           <li>
             <a href="/2018/02/24/Bid-Data-Process-3/">Bid-Data-Process 3</a>
@@ -547,10 +570,6 @@
             <a href="/2018/02/17/Basic-Knowledge/">Basic Knowledge</a>
           </li>
         
-          <li>
-            <a href="/2018/02/17/GBDT-梯度下降树/">GBDT 梯度下降树</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -564,7 +583,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Mengzhuo You<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
