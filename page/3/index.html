@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,179 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Java-JVM(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/12/Java-JVM(1)/" class="article-date">
+  <time datetime="2018-02-12T08:04:44.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/Java-JVM(1)/">深入理解 Java 虚拟机 （一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天开始看 <code>深入理解Java虚拟机</code> 这本书，首先是关于内存区域的概念。</p>
+<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>Java 虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个区域。</p>
+<h3 id="1-程序计数器-（Program-Counter-Register）"><a href="#1-程序计数器-（Program-Counter-Register）" class="headerlink" title="1. 程序计数器 （Program Counter Register）"></a>1. 程序计数器 （Program Counter Register）</h3><p>程序计数器可以看作是当前线程所执行的字节码的行号指示器。<br>由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器都只会执行一条线程中的指令。因此，每条线程都需要又一个独立的程序计数器。</p>
+<h3 id="2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><a href="#2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）" class="headerlink" title="2. Java虚拟机栈 （Java Virtual Machine Stacks）"></a>2. Java虚拟机栈 （Java Virtual Machine Stacks）</h3><p>虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息。每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+<p>Java内存区域分为堆内存和栈内存，虚拟机栈就是在栈内存中，局部变量表就是在虚拟机栈中的。</p>
+<h3 id="3-Java堆-（Java-Heap）"><a href="#3-Java堆-（Java-Heap）" class="headerlink" title="3. Java堆 （Java Heap）"></a>3. Java堆 （Java Heap）</h3><p>Java堆是被所有线程所共享的一块内存区域：所有的对象实例以及数组都要在堆上分配（虽然现在不是那么绝对了）。<br>Java堆是垃圾收集器管理的主要区域。</p>
+<h3 id="4-方法区（Method-Area）"><a href="#4-方法区（Method-Area）" class="headerlink" title="4. 方法区（Method Area）"></a>4. 方法区（Method Area）</h3><p>方法区是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息，常量，静态变量等。</p>
+<h3 id="5-运行时常量池（Runtime-Constant-Pool）"><a href="#5-运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="5. 运行时常量池（Runtime Constant Pool）"></a>5. 运行时常量池（Runtime Constant Pool）</h3><p>运行时常量池是方法区的一部分，用于存放编译期生成的各种字面量和符号引用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjedjlpmt000kiof2afudk70i" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-110" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/11/Leetcode-110/" class="article-date">
+  <time datetime="2018-02-12T07:46:06.000Z" itemprop="datePublished">2018-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/11/Leetcode-110/">Leetcode-110</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Definition for a binary tree node:</p>
+<p>public class TreeNode {<br>int val;<br>TreeNode left;<br>TreeNode right;</p>
+<p>TreeNode(int x) {<br>val = x;<br>}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_110_BalancedTree</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">return</span> Math.max(depth(root.left), depth(root.right)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">int</span> left = depth(root.left);</span><br><span class="line"><span class="keyword">int</span> right = depth(root.right);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (Math.abs(left - right) &lt;= <span class="number">1</span>) &amp;&amp; (isBalanced(root.left)) &amp;&amp; (isBalanced(root.right));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjedjlpna000viof27fsii6at" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-128" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/11/Leetcode-128/" class="article-date">
+  <time datetime="2018-02-12T07:03:08.000Z" itemprop="datePublished">2018-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/11/Leetcode-128/">Leetcode-128</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Time Complexity : O(n);<br>Space Complexity : O(n); For the HashSet to store the nums, so that can look up value in O(1);</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_128_LCS</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">Set&lt;Integer&gt; nums_set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums) nums_set.add(num);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line"><span class="keyword">if</span>(!nums_set.contains(num - <span class="number">1</span>))&#123;</span><br><span class="line"><span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> cur_num = num;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(nums_set.contains(cur_num + <span class="number">1</span>))&#123;</span><br><span class="line">cur++;</span><br><span class="line">cur_num++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(cur &gt; res) res = cur;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjedjlpnd000xiof2oa6vi1mm" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-200" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/11/Leetcode-200/" class="article-date">
+  <time datetime="2018-02-12T06:42:16.000Z" itemprop="datePublished">2018-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/11/Leetcode-200/">Leetcode_200</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>DFS search.</li>
+<li>When we meet a ‘1’, we mark all connected ‘1’s to 0, count++.</li>
+<li>Time Complexity: O(m*n).</li>
+<li>Space Complexity: worst case : full of ‘1’s, O(m*n).</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">leetcode_200_NumberOfIslands</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;</span><br><span class="line">x = grid.length;</span><br><span class="line"><span class="keyword">if</span>(x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">y = grid[<span class="number">0</span>].length;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; x;i++)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; y;j++)&#123;</span><br><span class="line"><span class="keyword">if</span>(grid[i][j] == <span class="string">'1'</span>)&#123;</span><br><span class="line">dfs(grid,i,j);</span><br><span class="line">count++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= x || j &gt;= y || grid[i][j] != <span class="string">'1'</span>) <span class="keyword">return</span>;</span><br><span class="line">grid[i][j] = <span class="string">'0'</span>;</span><br><span class="line"></span><br><span class="line">dfs(grid,i-<span class="number">1</span>,j);</span><br><span class="line">dfs(grid,i,j-<span class="number">1</span>);</span><br><span class="line">dfs(grid,i+<span class="number">1</span>,j);</span><br><span class="line">dfs(grid,i,j+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjedjlpng0011iof2s70ch62a" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Online-Chat-Room-Server" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cje4s1w1j00143kf2x55p40be" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjedjlpob0020iof21kmfwplo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -132,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cje4s1w1f00113kf2lzrq04z0" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjedjlpnn0018iof2hibw5eze" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -179,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cje4s1w27001q3kf2t4jsmp6x" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjedjlpnw001diof2h8d2wiha" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -193,7 +366,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Précédent</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 </section>
@@ -205,9 +378,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
     </div>
   </div>
 
@@ -215,18 +388,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Big-Data-Process/" style="font-size: 16.67px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 13.33px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 13.33px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 16.67px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 13.33px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a>
+      <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 15px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 10px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 10px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/http/" style="font-size: 10px;">http</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -234,28 +407,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
+            <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/">What Happened in first seconds of an Https Connection</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/http/">Difference between http and https</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/26/JVM-GC/">JVM-GC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/26/Cracking-the-Interview-Thread-Creation/">Cracking the Interview - Thread Creation</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/26/Cracking-the-Interview-Wish/">Cracking the Interview - HashMap</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/24/Bid-Data-Process-3/">Bid-Data-Process 3</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/23/Bid-Data-Process-2/">Bid-Data-Process 2</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/18/JavaScript-Interview-Questions/">JavaScript Interview Questions</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/17/Basic-Knowledge/">Basic Knowledge</a>
           </li>
         
       </ul>
@@ -271,7 +444,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Mengzhuo You<br>
-      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
