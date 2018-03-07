@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Cracking the Interview | Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. RBFRBF Network 通常只有三层。输入层、中间层计算输入 x 矢量与样本矢量 c 欧式距离的 Radial Basis Function (RBF) 的值，输出层算它们的线性组合。如此可见，和普通的三层神经网络，RBF 神经网络的区别在中间层。中间层采用 RBF Kernel 对输入作非线性变换，以便输出层训练线性分类器。那么RBF Kernel 有什么特点呢？ RBF 拥有较小的">
+<meta name="keywords" content="Cracking the Interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cracking the Interview">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/Cracking-the-Interview/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="1. RBFRBF Network 通常只有三层。输入层、中间层计算输入 x 矢量与样本矢量 c 欧式距离的 Radial Basis Function (RBF) 的值，输出层算它们的线性组合。如此可见，和普通的三层神经网络，RBF 神经网络的区别在中间层。中间层采用 RBF Kernel 对输入作非线性变换，以便输出层训练线性分类器。那么RBF Kernel 有什么特点呢？ RBF 拥有较小的">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-6ca339af711c3e1f4bc0faec67183765_hd.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-eee3757340da292aa37e7041e431a8d3_hd.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-414076018e191d3ed7cf50bc1f49b0c1_hd.jpg">
+<meta property="og:updated_time" content="2018-03-07T23:57:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cracking the Interview">
+<meta name="twitter:description" content="1. RBFRBF Network 通常只有三层。输入层、中间层计算输入 x 矢量与样本矢量 c 欧式距离的 Radial Basis Function (RBF) 的值，输出层算它们的线性组合。如此可见，和普通的三层神经网络，RBF 神经网络的区别在中间层。中间层采用 RBF Kernel 对输入作非线性变换，以便输出层训练线性分类器。那么RBF Kernel 有什么特点呢？ RBF 拥有较小的">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-6ca339af711c3e1f4bc0faec67183765_hd.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Cracking-the-Interview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/06/Cracking-the-Interview/" class="article-date">
+  <time datetime="2018-03-07T07:33:57.000Z" itemprop="datePublished">2018-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cracking the Interview
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-RBF"><a href="#1-RBF" class="headerlink" title="1. RBF"></a>1. RBF</h2><p>RBF Network 通常只有三层。输入层、中间层计算输入 x 矢量与样本矢量 c 欧式距离的 Radial Basis Function (RBF) 的值，输出层算它们的线性组合。<br><img src="https://pic4.zhimg.com/80/v2-6ca339af711c3e1f4bc0faec67183765_hd.jpg" alt=""><br>如此可见，和普通的三层神经网络，RBF 神经网络的区别在中间层。中间层采用 RBF Kernel 对输入作非线性变换，以便输出层训练线性分类器。<br>那么RBF Kernel 有什么特点呢？<br><img src="https://pic2.zhimg.com/80/v2-eee3757340da292aa37e7041e431a8d3_hd.jpg" alt=""></p>
+<p>RBF 拥有较小的支集。针对选定的样本点，它只对样本附近的输入有反应，如下图。<br><img src="https://pic3.zhimg.com/80/v2-414076018e191d3ed7cf50bc1f49b0c1_hd.jpg" alt=""></p>
+<p>第一阶段为非监督学习，从数据中选取记忆样本（图四中的紫色中心）。例如聚类算法可在该阶段使用。<br>第二阶段为监督学习，训练记忆样本与样本输出的联系。该阶段根据需要可使用 AD/BP。</p>
+<h2 id="2-数据流的中位数"><a href="#2-数据流的中位数" class="headerlink" title="2. 数据流的中位数"></a>2. 数据流的中位数</h2><p>这是我面google intern时的一道题，现在再看这道题，发现当时解的实在是不够好。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MedianFinder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    PriorityQueue&lt;Integer&gt; min = <span class="keyword">new</span> PriorityQueue();</span><br><span class="line">    PriorityQueue&lt;Integer&gt; max = <span class="keyword">new</span> PriorityQueue(<span class="number">1000</span>, Collections.reverseOrder());</span><br><span class="line">    <span class="comment">// Adds a number into the data structure.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        max.offer(num);</span><br><span class="line">        min.offer(max.poll());</span><br><span class="line">        <span class="keyword">if</span> (max.size() &lt; min.size())&#123;</span><br><span class="line">            max.offer(min.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns the median of current data stream</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (max.size() == min.size()) <span class="keyword">return</span> (max.peek() + min.peek()) /  <span class="number">2.0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> max.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj.addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj.findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjehqtu0x00080ff2ith03xii" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">What Happened in first seconds of an Https Connection</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Big-Data-Process/" style="font-size: 13.33px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 16.67px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 10px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 13.33px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 10px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/http/" style="font-size: 10px;">http</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/06/Cracking-the-Interview/">Cracking the Interview</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/">What Happened in first seconds of an Https Connection</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/http/">Difference between http and https</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/26/JVM-GC/">JVM-GC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/26/Cracking-the-Interview-Thread-Creation/">Cracking the Interview - Thread Creation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
