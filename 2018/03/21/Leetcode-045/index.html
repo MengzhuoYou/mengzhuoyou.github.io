@@ -5,17 +5,19 @@
   
 
   
-  <title>Tag: Deep Learning | Mengzhuo You</title>
+  <title>Leetcode-045 | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Graduate Student, Computer Science, University Of Southern California">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mengzhuo You">
-<meta property="og:url" content="http://yoursite.com/tags/Deep-Learning/index.html">
+  <meta name="description" content="12345678910111213141516class Solution &amp;#123;        public int jump(int[] nums) &amp;#123;            int step = 0;            int curEnd = 0, curFarthest = 0;            for(int i = 0;i &amp;lt; nums.length">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode-045">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/Leetcode-045/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="Graduate Student, Computer Science, University Of Southern California">
+<meta property="og:description" content="12345678910111213141516class Solution &amp;#123;        public int jump(int[] nums) &amp;#123;            int step = 0;            int curEnd = 0, curFarthest = 0;            for(int i = 0;i &amp;lt; nums.length">
+<meta property="og:updated_time" content="2018-03-21T20:12:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mengzhuo You">
-<meta name="twitter:description" content="Graduate Student, Computer Science, University Of Southern California">
+<meta name="twitter:title" content="Leetcode-045">
+<meta name="twitter:description" content="12345678910111213141516class Solution &amp;#123;        public int jump(int[] nums) &amp;#123;            int step = 0;            int curEnd = 0, curFarthest = 0;            for(int i = 0;i &amp;lt; nums.length">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -62,78 +64,53 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/17/GBDT-梯度下降树/" class="archive-article-date">
-  <time datetime="2018-02-18T04:15:21.000Z" itemprop="datePublished">Feb 17</time>
+        <section id="main"><article id="post-Leetcode-045" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/21/Leetcode-045/" class="article-date">
+  <time datetime="2018-03-21T20:11:01.000Z" itemprop="datePublished">2018-03-21</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/17/GBDT-梯度下降树/">GBDT 梯度下降树</a>
+    <h1 class="article-title" itemprop="name">
+      Leetcode-045
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/17/Deep-Learning-2/" class="archive-article-date">
-  <time datetime="2018-02-18T03:10:31.000Z" itemprop="datePublished">Feb 17</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/17/Deep-Learning-2/">Deep Learning(2)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/17/Deep-Learning-1/" class="archive-article-date">
-  <time datetime="2018-02-17T23:53:18.000Z" itemprop="datePublished">Feb 17</time>
-</a>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> curEnd = <span class="number">0</span>, curFarthest = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length - <span class="number">1</span>;i++)&#123;</span><br><span class="line">                curFarthest = Math.max(curFarthest, i+nums[i]);</span><br><span class="line">                <span class="keyword">if</span>(i == curEnd)&#123;</span><br><span class="line">                    step++;</span><br><span class="line">                    curEnd = curFarthest;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> step;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/17/Deep-Learning-1/">Deep Learning(1)</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjf1ixsk6000n1uf2u5zoqrx3" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/18/hadoop-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">hadoop tutorial</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

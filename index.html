@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,44 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Leetcode-045" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/21/Leetcode-045/" class="article-date">
+  <time datetime="2018-03-21T20:11:01.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/Leetcode-045/">Leetcode-045</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> curEnd = <span class="number">0</span>, curFarthest = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length - <span class="number">1</span>;i++)&#123;</span><br><span class="line">                curFarthest = Math.max(curFarthest, i+nums[i]);</span><br><span class="line">                <span class="keyword">if</span>(i == curEnd)&#123;</span><br><span class="line">                    step++;</span><br><span class="line">                    curEnd = curFarthest;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> step;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjf1ixsk6000n1uf2u5zoqrx3" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-hadoop-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -135,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjexc8s2l001vr2f2wcwiird4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjf1ixsl0001j1uf2el2bpegd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
@@ -177,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjexc8s0p0009r2f2ikwjded6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjf1ixsjq00091uf2xwxuky3o" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -225,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjexc8s2a001lr2f2nkz96805" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjf1ixsky001h1uf241nov8q9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -272,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/http/" data-id="cjexc8s2n001xr2f2vqxoiq8l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/04/http/" data-id="cjf1ixsl2001l1uf2jgjdufn2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -316,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjexc8s16000mr2f2zv71pq0w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjf1ixsk2000j1uf2yejg5s5s" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
@@ -360,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjexc8s0j0005r2f20sis36w6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjf1ixsjo00081uf2cvue5k7v" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -447,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjexc8s0y000gr2f2zyeso6vc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjf1ixsjt000b1uf2ottt6u7u" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -493,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjexc8rzx0000r2f2q60dbp2s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjf1ixsje00031uf2gz1d0ugh" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -534,53 +572,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjexc8s0c0003r2f24ajsn5xj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjf1ixsj600011uf2xe07hdx1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript-Interview-Questions" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/18/JavaScript-Interview-Questions/" class="article-date">
-  <time datetime="2018-02-19T00:31:38.000Z" itemprop="datePublished">2018-02-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/18/JavaScript-Interview-Questions/">JavaScript Interview Questions</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="How-do-you-judge-a-JavaScript-programmer-by-only-5-questions"><a href="#How-do-you-judge-a-JavaScript-programmer-by-only-5-questions" class="headerlink" title="How do you judge a JavaScript programmer by only 5 questions?"></a>How do you judge a JavaScript programmer by only 5 questions?</h2><h3 id="1-Can-you-explain-the-difference-between-“call”-and-“apply”-to-me"><a href="#1-Can-you-explain-the-difference-between-“call”-and-“apply”-to-me" class="headerlink" title="1. Can you explain the difference between “call” and “apply” to me?"></a>1. Can you explain the difference between “call” and “apply” to me?</h3><p>The answer to this question is a bit of a factoid, so that someone can answer it doesn’t give you any information, but if they cannot, it gives a truckload. Almost all JavaScript programmer that has written a library or two (which most curious ones will, after programming it a few years) will know this.<br>Addendum: Several people are calling #1 into question. I must be very clear here that I stand firm on this one. If you haven’t used apply, you are most likely missing out on the most powerful and overlooked aspects of the language. It’s also an indicator that you haven’t tried your hand at building a library yet, because when building libraries, apply and call are very commonly used.</p>
-<h3 id="2-Can-you-explain-“map”-to-me"><a href="#2-Can-you-explain-“map”-to-me" class="headerlink" title="2. Can you explain “map” to me?"></a>2. Can you explain “map” to me?</h3><p>Map is a an extremely useful functional programming concept that any computer science person will know. If someone doesn’t know this, it’s a sign that they lack an understanding of computer science and/or lack an understanding of the language. In addition, the explanation itself will give you a sense of how much the person knows about the language just in the way they talk. If the person does well on this question, ask about reduce as a follow up. If you do not know what map is, it means that you have done zero functional programming and you’re missing out. Severely.</p>
-<h3 id="3-Can-you-explain-“bind”-to-me"><a href="#3-Can-you-explain-“bind”-to-me" class="headerlink" title="3. Can you explain “bind” to me?"></a>3. Can you explain “bind” to me?</h3><p>This is a really great question, because it delves into the concept of this. You can basically drill the interviewee for quite some time on this, as it is a very large subject. You’ll get a good sense of a programmer by having this discussion.</p>
-<h3 id="4-Can-you-explain-how-“closures”-work-to-me"><a href="#4-Can-you-explain-how-“closures”-work-to-me" class="headerlink" title="4. Can you explain how “closures” work to me?"></a>4. Can you explain how “closures” work to me?</h3><p>This is a great question to ask programmers that claim to be experienced in general, but not with JavaScript. Closures are a general programming concept that is extraordinarily important in JavaScript. If they understand closures well, they will learn JavaScript pretty quickly.</p>
-<h3 id="5-Can-you-please-tell-me-a-story-about-a-JavaScript-performance-problem-that-you’ve-encountered-and-how-you-approached-solving-it"><a href="#5-Can-you-please-tell-me-a-story-about-a-JavaScript-performance-problem-that-you’ve-encountered-and-how-you-approached-solving-it" class="headerlink" title="5. Can you please tell me a story about a JavaScript performance problem that you’ve encountered and how you approached solving it?"></a>5. Can you please tell me a story about a JavaScript performance problem that you’ve encountered and how you approached solving it?</h3><p>This will tell you a lot about how much programming a person has actually done, in their own words. A big one to keep an eye out for is that they should be praising the Google Developer tools, and not rely too much on theoretical time complexity.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjexc8s18000or2f2zvf5v64m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
 
     </footer>
   </div>
@@ -593,7 +588,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -624,7 +619,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -634,9 +629,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/21/Leetcode-045/">Leetcode-045</a>
+          </li>
         
           <li>
             <a href="/2018/03/18/hadoop-tutorial/">hadoop tutorial</a>
@@ -652,10 +651,6 @@
         
           <li>
             <a href="/2018/03/04/http/">Difference between http and https</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/26/JVM-GC/">JVM-GC</a>
           </li>
         
       </ul>
