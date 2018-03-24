@@ -64,6 +64,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JVM-GC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/26/JVM-GC/" class="article-date">
+  <time datetime="2018-02-26T23:06:18.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/26/JVM-GC/">JVM-GC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>深入理解Java虚拟机（二） – 垃圾回收器</p>
+<h2 id="1-引用"><a href="#1-引用" class="headerlink" title="1. 引用"></a>1. 引用</h2><p>Java将引用分为强引用，软引用，弱引用，虚引用四种类型，这4种引用强度依次减弱。</p>
+<h3 id="1-强引用"><a href="#1-强引用" class="headerlink" title="1.强引用"></a>1.强引用</h3><p>是普遍存在的，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure></p>
+<p>只要强引用还在，垃圾回收器就永远不会回收掉被引用的对象。</p>
+<h3 id="2-软引用"><a href="#2-软引用" class="headerlink" title="2.软引用"></a>2.软引用</h3><h3 id="3-弱引用"><a href="#3-弱引用" class="headerlink" title="3.弱引用"></a>3.弱引用</h3><h3 id="4-虚引用"><a href="#4-虚引用" class="headerlink" title="4.虚引用"></a>4.虚引用</h3><h2 id="2-垃圾收集算法"><a href="#2-垃圾收集算法" class="headerlink" title="2. 垃圾收集算法"></a>2. 垃圾收集算法</h2><h3 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记-清除算法"></a>1. 标记-清除算法</h3><p>有两个问题：<br>（1）效率问题<br>（2）空间问题</p>
+<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h3><h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3. 标记-整理算法"></a>3. 标记-整理算法</h3><h3 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4. 分代收集算法"></a>4. 分代收集算法</h3><p>新生代：复制算法<br>老年代：标记-清除，标记-整理算法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjf60vevl000hv9f240yu1cql" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Cracking-the-Interview-Thread-Creation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/26/Cracking-the-Interview-Thread-Creation/" class="article-date">
@@ -96,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjf60rglz0008uef2acqonjhv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjf60veva0008v9f27dmd5a16" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -183,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjf60rgm6000duef2nz3anpn5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjf60vevh000dv9f2ashh9dsl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -229,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjf60rglp0003uef2l8f1p1jd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjf60vev00003v9f2ts519l5j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -270,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjf60rglh0001uef2ii5ji7ec" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjf60veus0001v9f28tkxmbvm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -313,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjf60rgmj000nuef2kydnbve7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjf60vevr000nv9f2g9y704nt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -374,7 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjf60rgl90000uef2r4pn6pht" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjf60veum0000v9f2ucq86qcz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -413,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjf60rgm8000fuef22ir1de7v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjf60vevn000jv9f26z2ypjoa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -477,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjf60rgma000huef258smqdnw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjf60vevj000fv9f29t5zftlw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -523,58 +567,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjf60rgm4000buef25ajdd6mo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjf60vevc0009v9f232od5gbw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-PHP-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/17/PHP-Tutorial/" class="article-date">
-  <time datetime="2018-02-17T22:03:09.000Z" itemprop="datePublished">2018-02-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/17/PHP-Tutorial/">PHP_Tutorial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Post-method-sends-all-contents-of-a-form-with-basically-hidden-headers-not-easily-visible-to-users"><a href="#1-Post-method-sends-all-contents-of-a-form-with-basically-hidden-headers-not-easily-visible-to-users" class="headerlink" title="1.Post method sends all contents of a form with basically hidden headers (not easily visible to users)"></a>1.Post method sends all contents of a form with basically hidden headers (not easily visible to users)</h3><h3 id="2-Get-method-sends-all-form-input-in-the-URL-requested-using-name-value-pairs-separated-by-ampersands-amp"><a href="#2-Get-method-sends-all-form-input-in-the-URL-requested-using-name-value-pairs-separated-by-ampersands-amp" class="headerlink" title="2.Get method sends all form input in the URL requested using name=value pairs separated by ampersands (&amp;)"></a>2.Get method sends all form input in the URL requested using name=value pairs separated by ampersands (&amp;)</h3><ul>
-<li>E.g., process.php?name=trevor&amp;number=345 </li>
-<li>Is visible in the URL shown in the browser</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Form elements contain input elements</li>
-<li>Each input element has an id</li>
-<li>If a form is posted, the file stated as the action can use:<br>$_POST[“inputid”]</li>
-<li>If a form uses the get method:<br>$_GET[“inputid”]</li>
-</ul>
-<h3 id="PHP-Sessions-store-the-information-on-the-web-server-in-a-location-that-you-chose-in-special-files-These-files-are-connected-to-the-user’s-web-browser-via-the-server-and-a-special-ID-called-a-“Session-ID”-This-is-virtually-invisible-to-the-user"><a href="#PHP-Sessions-store-the-information-on-the-web-server-in-a-location-that-you-chose-in-special-files-These-files-are-connected-to-the-user’s-web-browser-via-the-server-and-a-special-ID-called-a-“Session-ID”-This-is-virtually-invisible-to-the-user" class="headerlink" title="PHP Sessions store the information on the web server in a location that you chose in special files. These files are connected to the user’s web browser via the server and a special ID called a “Session ID”. This is virtually invisible to the user."></a>PHP Sessions store the information on the web server in a location that you chose in special files. These files are connected to the user’s web browser via the server and a special ID called a “Session ID”. This is virtually invisible to the user.</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjf60rgnl001guef2147g9p6s" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
 
     </footer>
   </div>
@@ -633,6 +629,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/24/Leetcode-035/">Leetcode-035</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/24/Leetcode-042/">Leetcode-042</a>
           </li>
         
@@ -646,10 +646,6 @@
         
           <li>
             <a href="/2018/03/21/Leetcode-055/">Leetcode-055</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/21/Leetcode-045/">Leetcode-045</a>
           </li>
         
       </ul>
