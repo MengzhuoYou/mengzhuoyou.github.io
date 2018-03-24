@@ -5,19 +5,17 @@
   
 
   
-  <title>JVM-GC | Mengzhuo You</title>
+  <title>Mot-clé: Leetcode | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深入理解Java虚拟机（二） – 垃圾回收器 1. 引用Java将引用分为强引用，软引用，弱引用，虚引用四种类型，这4种引用强度依次减弱。 1.强引用是普遍存在的，比如：1Object obj = new Object(); 只要强引用还在，垃圾回收器就永远不会回收掉被引用的对象。 2.软引用3.弱引用4.虚引用2. 垃圾收集算法1. 标记-清除算法有两个问题：（1）效率问题（2）空间问题 2.">
-<meta name="keywords" content="JVM">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JVM-GC">
-<meta property="og:url" content="http://yoursite.com/2018/02/26/JVM-GC/index.html">
+  <meta name="description" content="Graduate Student, Computer Science, University Of Southern California">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/tags/Leetcode/page/2/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="深入理解Java虚拟机（二） – 垃圾回收器 1. 引用Java将引用分为强引用，软引用，弱引用，虚引用四种类型，这4种引用强度依次减弱。 1.强引用是普遍存在的，比如：1Object obj = new Object(); 只要强引用还在，垃圾回收器就永远不会回收掉被引用的对象。 2.软引用3.弱引用4.虚引用2. 垃圾收集算法1. 标记-清除算法有两个问题：（1）效率问题（2）空间问题 2.">
-<meta property="og:updated_time" content="2018-03-05T01:05:54.000Z">
+<meta property="og:description" content="Graduate Student, Computer Science, University Of Southern California">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM-GC">
-<meta name="twitter:description" content="深入理解Java虚拟机（二） – 垃圾回收器 1. 引用Java将引用分为强引用，软引用，弱引用，虚引用四种类型，这4种引用强度依次减弱。 1.强引用是普遍存在的，比如：1Object obj = new Object(); 只要强引用还在，垃圾回收器就永远不会回收掉被引用的对象。 2.软引用3.弱引用4.虚引用2. 垃圾收集算法1. 标记-清除算法有两个问题：（1）效率问题（2）空间问题 2.">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="Graduate Student, Computer Science, University Of Southern California">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -64,68 +62,45 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-JVM-GC" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/26/JVM-GC/" class="article-date">
-  <time datetime="2018-02-26T23:06:18.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      JVM-GC
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/02/11/Leetcode-200/" class="archive-article-date">
+  <time datetime="2018-02-12T06:42:16.000Z" itemprop="datePublished">Feb 11</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/02/11/Leetcode-200/">Leetcode_200</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>深入理解Java虚拟机（二） – 垃圾回收器</p>
-<h2 id="1-引用"><a href="#1-引用" class="headerlink" title="1. 引用"></a>1. 引用</h2><p>Java将引用分为强引用，软引用，弱引用，虚引用四种类型，这4种引用强度依次减弱。</p>
-<h3 id="1-强引用"><a href="#1-强引用" class="headerlink" title="1.强引用"></a>1.强引用</h3><p>是普遍存在的，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure></p>
-<p>只要强引用还在，垃圾回收器就永远不会回收掉被引用的对象。</p>
-<h3 id="2-软引用"><a href="#2-软引用" class="headerlink" title="2.软引用"></a>2.软引用</h3><h3 id="3-弱引用"><a href="#3-弱引用" class="headerlink" title="3.弱引用"></a>3.弱引用</h3><h3 id="4-虚引用"><a href="#4-虚引用" class="headerlink" title="4.虚引用"></a>4.虚引用</h3><h2 id="2-垃圾收集算法"><a href="#2-垃圾收集算法" class="headerlink" title="2. 垃圾收集算法"></a>2. 垃圾收集算法</h2><h3 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记-清除算法"></a>1. 标记-清除算法</h3><p>有两个问题：<br>（1）效率问题<br>（2）空间问题</p>
-<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h3><h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3. 标记-整理算法"></a>3. 标记-整理算法</h3><h3 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4. 分代收集算法"></a>4. 分代收集算法</h3><p>新生代：复制算法<br>老年代：标记-清除，标记-整理算法</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjf5w1wfw000lmdf2w8uw15ra" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/03/04/http/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          Difference between http and https
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/02/26/Cracking-the-Interview-Thread-Creation/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">Cracking the Interview - Thread Creation</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/tags/Leetcode/">&laquo; Précédent</a><a class="page-number" href="/tags/Leetcode/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
