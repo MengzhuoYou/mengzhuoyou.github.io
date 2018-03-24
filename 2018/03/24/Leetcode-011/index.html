@@ -5,17 +5,19 @@
   
 
   
-  <title>Archives | Mengzhuo You</title>
+  <title>Leetcode-011 | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Graduate Student, Computer Science, University Of Southern California">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mengzhuo You">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="Container With Most Water  1 2 3 4 5 6 1 x ------- o 2 x x - o o o 3 x x x o | | 4 x x x x | | 5 x x x x x | 6 x x x x x x 1234567891011121314151617public class Leetcode_011_ContainerMostWater&amp;#123;">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode-011">
+<meta property="og:url" content="http://yoursite.com/2018/03/24/Leetcode-011/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="Graduate Student, Computer Science, University Of Southern California">
+<meta property="og:description" content="Container With Most Water  1 2 3 4 5 6 1 x ------- o 2 x x - o o o 3 x x x o | | 4 x x x x | | 5 x x x x x | 6 x x x x x x 1234567891011121314151617public class Leetcode_011_ContainerMostWater&amp;#123;">
+<meta property="og:updated_time" content="2018-03-24T20:56:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mengzhuo You">
-<meta name="twitter:description" content="Graduate Student, Computer Science, University Of Southern California">
+<meta name="twitter:title" content="Leetcode-011">
+<meta name="twitter:description" content="Container With Most Water  1 2 3 4 5 6 1 x ------- o 2 x x - o o o 3 x x x o | | 4 x x x x | | 5 x x x x x | 6 x x x x x x 1234567891011121314151617public class Leetcode_011_ContainerMostWater&amp;#123;">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -62,93 +64,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/11/Online-Chat-Room-Server/" class="archive-article-date">
-  <time datetime="2018-02-12T06:07:47.000Z" itemprop="datePublished">Feb 11</time>
+        <section id="main"><article id="post-Leetcode-011" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/24/Leetcode-011/" class="article-date">
+  <time datetime="2018-03-24T20:55:11.000Z" itemprop="datePublished">2018-03-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/11/Online-Chat-Room-Server/">Online Chat Room-Server</a>
+    <h1 class="article-title" itemprop="name">
+      Leetcode-011
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Container-With-Most-Water"><a href="#Container-With-Most-Water" class="headerlink" title="Container With Most Water"></a>Container With Most Water</h2><pre><code>  1 2 3 4 5 6
+1 x ------- o
+2 x x - o o o
+3 x x x o | |
+4 x x x x | |
+5 x x x x x |
+6 x x x x x x
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_011_ContainerMostWater</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height == <span class="keyword">null</span> || height.length == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> curLeft = height[left], curRight = height[right];</span><br><span class="line">            max = Math.max(max, (right-left)*Math.min(curLeft,curRight));</span><br><span class="line">            <span class="keyword">if</span>(curLeft &lt; curRight) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjf5uup9x000lgtf2mnyfpxqu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/22/proxy-server/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">proxy_server</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/11/Online-Chat-Room-Client/" class="archive-article-date">
-  <time datetime="2018-02-11T19:46:11.000Z" itemprop="datePublished">Feb 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/11/Online-Chat-Room-Client/">Online Chat Room-Client</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/24/hello-world/" class="archive-article-date">
-  <time datetime="2017-12-25T02:47:42.000Z" itemprop="datePublished">Dec 24</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
 
 </section>
         
