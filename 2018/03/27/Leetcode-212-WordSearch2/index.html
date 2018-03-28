@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Leetcode_212_WordSearch2 | Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Trie Tree 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &amp;#123;    public List&amp;lt;String&amp;gt; findWords(char[][] board, String[] words) &amp;#12">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode_212_WordSearch2">
+<meta property="og:url" content="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="Trie Tree 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &amp;#123;    public List&amp;lt;String&amp;gt; findWords(char[][] board, String[] words) &amp;#12">
+<meta property="og:updated_time" content="2018-03-28T04:02:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode_212_WordSearch2">
+<meta name="twitter:description" content="Trie Tree 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &amp;#123;    public List&amp;lt;String&amp;gt; findWords(char[][] board, String[] words) &amp;#12">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Leetcode-212-WordSearch2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/Leetcode-212-WordSearch2/" class="article-date">
+  <time datetime="2018-03-28T04:01:45.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode_212_WordSearch2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trie Tree</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">findWords</span><span class="params">(<span class="keyword">char</span>[][] board, String[] words)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        TrieNode root = buildTrie(words);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; board.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                dfs(board,i,j,root,res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] board,<span class="keyword">int</span> x,<span class="keyword">int</span> y,TrieNode p,List&lt;String&gt; res)</span></span>&#123;</span><br><span class="line">            <span class="keyword">char</span> c = board[x][y];</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'#'</span> || p.next[c - <span class="string">'a'</span>] == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">            p = p.next[c - <span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">if</span> (p.word != <span class="keyword">null</span>) &#123;   <span class="comment">// found one</span></span><br><span class="line">                res.add(p.word);</span><br><span class="line">                p.word = <span class="keyword">null</span>;     <span class="comment">// de-duplicate</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            board[x][y] = <span class="string">'#'</span>;</span><br><span class="line">            <span class="keyword">if</span> (x &gt; <span class="number">0</span>) dfs(board, x - <span class="number">1</span>, y ,p, res); </span><br><span class="line">            <span class="keyword">if</span> (y &gt; <span class="number">0</span>) dfs(board, x, y - <span class="number">1</span>, p, res);</span><br><span class="line">            <span class="keyword">if</span> (x &lt; board.length - <span class="number">1</span>) dfs(board, x + <span class="number">1</span>, y, p, res); </span><br><span class="line">            <span class="keyword">if</span> (y &lt; board[<span class="number">0</span>].length - <span class="number">1</span>) dfs(board, x, y + <span class="number">1</span>, p, res); </span><br><span class="line">            board[x][y] = c;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">buildTrie</span><span class="params">(String[] words)</span></span>&#123;</span><br><span class="line">            TrieNode root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">            <span class="keyword">for</span>(String w : words)&#123;</span><br><span class="line">                TrieNode p = root;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">char</span> c : w.toCharArray()) &#123;</span><br><span class="line">                 <span class="keyword">int</span> i = c - <span class="string">'a'</span>;</span><br><span class="line">                 <span class="keyword">if</span> (p.next[i] == <span class="keyword">null</span>) p.next[i] = <span class="keyword">new</span> TrieNode();</span><br><span class="line">                 p = p.next[i];</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">               p.word = w;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span></span>&#123;</span><br><span class="line">        TrieNode[] next = <span class="keyword">new</span> TrieNode[<span class="number">26</span>];</span><br><span class="line">        String word;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjfakdhdz001hg3f2fz586k1w" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/27/Leetcode-079-WordSearch/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Leetcode_079_WordSearch</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/27/Leetcode-212-WordSearch2/">Leetcode_212_WordSearch2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/27/Leetcode-078-subset/">Leetcode_078_subset</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/24/Leetcode-035/">Leetcode-035</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/24/Leetcode-042/">Leetcode-042</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

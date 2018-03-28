@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Leetcode-212-WordSearch2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/Leetcode-212-WordSearch2/" class="article-date">
+  <time datetime="2018-03-28T04:01:45.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/Leetcode-212-WordSearch2/">Leetcode_212_WordSearch2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trie Tree</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">findWords</span><span class="params">(<span class="keyword">char</span>[][] board, String[] words)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        TrieNode root = buildTrie(words);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; board.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                dfs(board,i,j,root,res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] board,<span class="keyword">int</span> x,<span class="keyword">int</span> y,TrieNode p,List&lt;String&gt; res)</span></span>&#123;</span><br><span class="line">            <span class="keyword">char</span> c = board[x][y];</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'#'</span> || p.next[c - <span class="string">'a'</span>] == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">            p = p.next[c - <span class="string">'a'</span>];</span><br><span class="line">            <span class="keyword">if</span> (p.word != <span class="keyword">null</span>) &#123;   <span class="comment">// found one</span></span><br><span class="line">                res.add(p.word);</span><br><span class="line">                p.word = <span class="keyword">null</span>;     <span class="comment">// de-duplicate</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            board[x][y] = <span class="string">'#'</span>;</span><br><span class="line">            <span class="keyword">if</span> (x &gt; <span class="number">0</span>) dfs(board, x - <span class="number">1</span>, y ,p, res); </span><br><span class="line">            <span class="keyword">if</span> (y &gt; <span class="number">0</span>) dfs(board, x, y - <span class="number">1</span>, p, res);</span><br><span class="line">            <span class="keyword">if</span> (x &lt; board.length - <span class="number">1</span>) dfs(board, x + <span class="number">1</span>, y, p, res); </span><br><span class="line">            <span class="keyword">if</span> (y &lt; board[<span class="number">0</span>].length - <span class="number">1</span>) dfs(board, x, y + <span class="number">1</span>, p, res); </span><br><span class="line">            board[x][y] = c;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TrieNode <span class="title">buildTrie</span><span class="params">(String[] words)</span></span>&#123;</span><br><span class="line">            TrieNode root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">            <span class="keyword">for</span>(String w : words)&#123;</span><br><span class="line">                TrieNode p = root;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">char</span> c : w.toCharArray()) &#123;</span><br><span class="line">                 <span class="keyword">int</span> i = c - <span class="string">'a'</span>;</span><br><span class="line">                 <span class="keyword">if</span> (p.next[i] == <span class="keyword">null</span>) p.next[i] = <span class="keyword">new</span> TrieNode();</span><br><span class="line">                 p = p.next[i];</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">               p.word = w;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span></span>&#123;</span><br><span class="line">        TrieNode[] next = <span class="keyword">new</span> TrieNode[<span class="number">26</span>];</span><br><span class="line">        String word;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjfakdhdz001hg3f2fz586k1w" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Leetcode-079-WordSearch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -91,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfadc65i0017z5f2uqv72tyy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfakdhdo0018g3f2yhj08zv0" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfadc65f0014z5f20ln4zse2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfakdhdj0015g3f2kehtar6y" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -170,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfadc654000xz5f2cws2tk1x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfakdhd7000vg3f24xh4bht6" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -208,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfadc656000zz5f2cipxmr0w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfakdhda000yg3f2wf96uxuo" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -253,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfadc651000uz5f2cnv9lta1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfakdhd6000tg3f2ruju3yvx" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -304,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjfadc66c001xz5f2ncalw2wj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjfakdhej0024g3f26bqyh9ss" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
@@ -342,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjfadc65b0013z5f2pyd7jofv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjfakdhdh0014g3f2a3jzbl6j" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -380,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjfadc6580011z5f2aaf2nzo4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjfakdhde0011g3f2otke3ic6" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -463,52 +502,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjfadc66e001zz5f2a6bgnvmj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjfakdhed001vg3f2ilbdhbrg" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Cracking-the-Interview" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/06/Cracking-the-Interview/" class="article-date">
-  <time datetime="2018-03-07T07:33:57.000Z" itemprop="datePublished">2018-03-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/Cracking-the-Interview/">Cracking the Interview</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-RBF"><a href="#1-RBF" class="headerlink" title="1. RBF"></a>1. RBF</h2><p>RBF Network 通常只有三层。输入层、中间层计算输入 x 矢量与样本矢量 c 欧式距离的 Radial Basis Function (RBF) 的值，输出层算它们的线性组合。<br><img src="https://pic4.zhimg.com/80/v2-6ca339af711c3e1f4bc0faec67183765_hd.jpg" alt=""><br>如此可见，和普通的三层神经网络，RBF 神经网络的区别在中间层。中间层采用 RBF Kernel 对输入作非线性变换，以便输出层训练线性分类器。<br>那么RBF Kernel 有什么特点呢？<br><img src="https://pic2.zhimg.com/80/v2-eee3757340da292aa37e7041e431a8d3_hd.jpg" alt=""></p>
-<p>RBF 拥有较小的支集。针对选定的样本点，它只对样本附近的输入有反应，如下图。<br><img src="https://pic3.zhimg.com/80/v2-414076018e191d3ed7cf50bc1f49b0c1_hd.jpg" alt=""></p>
-<p>第一阶段为非监督学习，从数据中选取记忆样本（图四中的紫色中心）。例如聚类算法可在该阶段使用。<br>第二阶段为监督学习，训练记忆样本与样本输出的联系。该阶段根据需要可使用 AD/BP。</p>
-<h2 id="2-数据流的中位数"><a href="#2-数据流的中位数" class="headerlink" title="2. 数据流的中位数"></a>2. 数据流的中位数</h2><p>这是我面google intern时的一道题，现在再看这道题，发现当时解的实在是不够好。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MedianFinder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    PriorityQueue&lt;Integer&gt; min = <span class="keyword">new</span> PriorityQueue();</span><br><span class="line">    PriorityQueue&lt;Integer&gt; max = <span class="keyword">new</span> PriorityQueue(<span class="number">1000</span>, Collections.reverseOrder());</span><br><span class="line">    <span class="comment">// Adds a number into the data structure.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        max.offer(num);</span><br><span class="line">        min.offer(max.poll());</span><br><span class="line">        <span class="keyword">if</span> (max.size() &lt; min.size())&#123;</span><br><span class="line">            max.offer(min.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns the median of current data stream</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (max.size() == min.size()) <span class="keyword">return</span> (max.peek() + min.peek()) /  <span class="number">2.0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> max.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj.addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj.findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjfadc64e0009z5f2yzi2fwh1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
 
     </footer>
   </div>
@@ -521,7 +518,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Suivant &raquo;</a>
   </nav>
 
 </section>
@@ -533,7 +530,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -543,7 +540,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
@@ -562,9 +559,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/27/Leetcode-212-WordSearch2/">Leetcode_212_WordSearch2</a>
+          </li>
         
           <li>
             <a href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
@@ -582,10 +583,6 @@
             <a href="/2018/03/24/Leetcode-042/">Leetcode-042</a>
           </li>
         
-          <li>
-            <a href="/2018/03/24/Leetcode-011/">Leetcode-011</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -599,7 +596,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Mengzhuo You<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
