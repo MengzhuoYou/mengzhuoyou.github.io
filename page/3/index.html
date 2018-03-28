@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Deep-Learning-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/Deep-Learning-1/" class="article-date">
+  <time datetime="2018-02-17T23:53:18.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/Deep-Learning-1/">Deep Learning(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>卷积神经网络的第一层是卷积层，第一件事是你要记住卷积层的输入时什么。像我们之前提到的，输入的是一个32×32×3的系列像素值。解释卷积层的最好方式是想象一个手电筒正在图像的左上方进行照射，假设手电照射的区域是5 x 5的范围。再想象下这个手电筒在输入图像的各个区域进行滑动。在机器学习术语中，这个手电筒叫做过滤器（有时候也称为神经元或者核心），它照射着的区域被称为接受场。这个过滤器也是一系列的数据（这些数据被称为权重或者参数）。必须提到的是这个过滤器的深度必须是和输入的深度相同（这样才能保证数学正常工作），所以这个过滤器的尺寸是5×5×3。</p>
+<p>现在，让我们先拿第一个位置的过滤器为例。由于过滤器在输入图像上是滑动或卷积的，它是相乘的值在滤波器的原始图像的像素值（又名计算元素的乘法），这些乘法全部相加（从数学上讲，这将是75次乘法总和）。所以现在你有一个数字。请记住，这个数字只是当过滤器在图像的左上角时才有代表性，现在我们在每一个位置上重复这个过程。（下一步将过滤器移动到右边的1个单位，然后再向右移动1个单位，等等），每一个输入层上独特的位置都会产生一个数字。将过滤器滑动完所有位置的，你会发现剩下的是一个28×28×1的系列数字，我们称之为激活图或者特征图。你得到一个28×28阵列的原因是有784个不同的位置，一个5×5的过滤器可以适配一个32×32的输入图像，这组784个数字可以被映射到一个28×28阵列。</p>
+<p><img src="https://static.leiphone.com/uploads/new/article/740_740/201607/579b29837408f.png?imageMogr2/format/jpg/quality/90" alt="原始图中的5*5*3部分转换为特征图中的第一个点"></p>
+<p>目前我们使用两个5 x 5 x 3的过滤器，我们的输出量将是28×28×2。通过使用更多的过滤器，我们能够更好地维持空间尺寸。在数学层面上来说，这些是在一个卷积层中进行的任务。</p>
+<h2 id="池化层／采样层"><a href="#池化层／采样层" class="headerlink" title="池化层／采样层"></a>池化层／采样层</h2><p>通过卷积层获得了图像的特征之后，理论上我们可以直接使用这些特征训练分类器（如softmax），但是这样做将面临巨大的计算量的挑战，而且容易产生过拟合的现象。为了进一步降低网络训练参数及模型的过拟合程度，我们对卷积层进行池化/采样(Pooling)处理。池化/采样的方式通常有以下两种：</p>
+<p>Max-Pooling: 选择Pooling窗口中的最大值作为采样值；<br>Mean-Pooling: 将Pooling窗口中的所有值相加取平均，以平均值作为采样值；<br>如下图所示。</p>
+<p><img src="http://i.imgur.com/bHBUsr4.png" alt="Pooling"></p>
+<h3 id="LeNet-5-网络详解"><a href="#LeNet-5-网络详解" class="headerlink" title="LeNet-5 网络详解"></a>LeNet-5 网络详解</h3><p><img src="http://i.imgur.com/2AuotA0.png" alt=""><br><img src="http://i.imgur.com/Zzm048o.png" alt=""><br><img src="http://i.imgur.com/aJlgVHg.png" alt=""><br><img src="http://i.imgur.com/SiVPyWR.png" alt=""><br><img src="http://i.imgur.com/gTphBu6.png" alt=""><br><img src="http://i.imgur.com/6L3CmUc.png" alt=""><br><img src="http://i.imgur.com/SNLgNWe.png" alt=""><br><img src="http://i.imgur.com/kJtbaEz.png" alt=""><br><img src="http://i.imgur.com/cXSxkVY.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjfabtac1000auuf2pdf2neao" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PHP-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/17/PHP-Tutorial/" class="article-date">
@@ -100,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjf60vewy001kv9f259kulwny" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjfabtadn001juuf2txwa4ptk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -139,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjf60vev60005v9f22ovsvpyc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjfabtaby0008uuf22ti2ut4l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -198,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjf60vevx000sv9f2l1srrc75" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjfabtacl000quuf2nmj3zopi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -245,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjf60vev20004v9f2ups1jqko" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjfabtabv0005uuf225mxq9mj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -285,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjf60vew0000uv9f2otjp7lx1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjfabtacp000vuuf28kty9fk2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -324,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjf60vewo001cv9f22xb3bbm8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjfabtadf001fuuf2xjnbu814" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -363,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjf60vewl0018v9f2zquqes9i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjfabtad80019uuf2pnj6kwnn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -403,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cjf60vewp001ev9f2jy9wcyvg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cjfabtadi001huuf2p7yrmxby" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -449,52 +495,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjf60vevp000lv9f24xjf8b5t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjfabtach000ouuf2jq7ke9pw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-110" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/11/Leetcode-110/" class="article-date">
-  <time datetime="2018-02-12T07:46:06.000Z" itemprop="datePublished">2018-02-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/11/Leetcode-110/">Leetcode-110</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Definition for a binary tree node:</p>
-<p>public class TreeNode {<br>int val;<br>TreeNode left;<br>TreeNode right;</p>
-<p>TreeNode(int x) {<br>val = x;<br>}</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_110_BalancedTree</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">return</span> Math.max(depth(root.left), depth(root.right)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">int</span> left = depth(root.left);</span><br><span class="line"><span class="keyword">int</span> right = depth(root.right);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (Math.abs(left - right) &lt;= <span class="number">1</span>) &amp;&amp; (isBalanced(root.left)) &amp;&amp; (isBalanced(root.right));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjf60vew60010v9f2d5s76dmf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
 
     </footer>
   </div>
@@ -553,6 +557,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/27/Leetcode-075-subset/">Leetcode_075_subset</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/24/Leetcode-035/">Leetcode-035</a>
           </li>
         
@@ -566,10 +574,6 @@
         
           <li>
             <a href="/2018/03/22/proxy-server/">proxy_server</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/21/Leetcode-055/">Leetcode-055</a>
           </li>
         
       </ul>

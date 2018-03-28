@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Leetcode-110" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/11/Leetcode-110/" class="article-date">
+  <time datetime="2018-02-12T07:46:06.000Z" itemprop="datePublished">2018-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/11/Leetcode-110/">Leetcode-110</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Definition for a binary tree node:</p>
+<p>public class TreeNode {<br>int val;<br>TreeNode left;<br>TreeNode right;</p>
+<p>TreeNode(int x) {<br>val = x;<br>}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_110_BalancedTree</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">return</span> Math.max(depth(root.left), depth(root.right)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">int</span> left = depth(root.left);</span><br><span class="line"><span class="keyword">int</span> right = depth(root.right);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (Math.abs(left - right) &lt;= <span class="number">1</span>) &amp;&amp; (isBalanced(root.left)) &amp;&amp; (isBalanced(root.right));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjfabtad30018uuf2yte3vwod" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Leetcode-128" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/11/Leetcode-128/" class="article-date">
@@ -92,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjf60vewh0017v9f23uid3bzi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjfabtada001cuuf2ure0eohj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -137,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjf60vewn001bv9f2rsj56zfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjfabtadc001duuf2cya07b9b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -177,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjf60veww001iv9f22kc6mz75" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjfabtadp001luuf2he04l43p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -217,7 +259,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjf60vews001gv9f2io6idnm4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjfabtads001ouuf2lfhxghxh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -264,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjf60vex4001ov9f2ih92kues" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjfabtadx001suuf21pb1sau2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,6 +366,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/27/Leetcode-075-subset/">Leetcode_075_subset</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/24/Leetcode-035/">Leetcode-035</a>
           </li>
         
@@ -337,10 +383,6 @@
         
           <li>
             <a href="/2018/03/22/proxy-server/">proxy_server</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/21/Leetcode-055/">Leetcode-055</a>
           </li>
         
       </ul>
