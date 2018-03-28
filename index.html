@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Leetcode-079-WordSearch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/Leetcode-079-WordSearch/" class="article-date">
+  <time datetime="2018-03-28T00:43:54.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Here use the ^ to make a marker.<br>board[x][y] ^= 256 to make board[x][y] invalid.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] w = word.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; board.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(exist(board,i,j,w,<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">char</span>[] w,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == w.length) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || x == board.length || y &lt; <span class="number">0</span> || y == board[<span class="number">0</span>].length || board[x][y] != w[i]) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        board[x][y] ^= <span class="number">256</span>;</span><br><span class="line">        <span class="keyword">boolean</span> flag = exist(board,x-<span class="number">1</span>,y,w,i+<span class="number">1</span>) || exist(board,x,y-<span class="number">1</span>,w,i+<span class="number">1</span>) || exist(board,x+<span class="number">1</span>,y,w,i+<span class="number">1</span>) ||                   exist(board,x,y+<span class="number">1</span>,w,i+<span class="number">1</span>);</span><br><span class="line">        board[x][y] ^= <span class="number">256</span>;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfadc65i0017z5f2uqv72tyy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Leetcode-078-subset" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfac452h0018w0f2n0zds0n4" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfadc65f0014z5f20ln4zse2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfac4520000yw0f2ilfxm7d0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfadc654000xz5f2cws2tk1x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -169,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfac45230010w0f204x8jqx9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfadc656000zz5f2cipxmr0w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -214,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfac451r000tw0f2vtg2a5gw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfadc651000uz5f2cnv9lta1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -265,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjfac453l002rw0f2rjwztilg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjfadc66c001xz5f2ncalw2wj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
@@ -303,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjfac452a0014w0f24fafbybw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjfadc65b0013z5f2pyd7jofv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -341,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjfac45260011w0f2l1shpwfp" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjfadc6580011z5f2aaf2nzo4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -424,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjfac4536001sw0f22zfz56p6" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjfadc66e001zz5f2a6bgnvmj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
@@ -466,58 +505,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjfac450z000cw0f2t2hgwhhj" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjfadc64e0009z5f2yzi2fwh1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-What-Happened-in-first-seconds-of-an-Https-Connection" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" class="article-date">
-  <time datetime="2018-03-05T01:06:48.000Z" itemprop="datePublished">2018-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/">What Happened in first seconds of an Https Connection</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Suppose now Bob eagerly clicked “Proceed to Checkout” for his gallon of Tuscan Whole Milk on amazon, what happened next?</p>
-<p>By agreement of RFC 2818, Firefox knew that “https” meant it should connect to port 443 at Amazon.com:<br><img src="http://www.moserware.com/assets/first-few-milliseconds-of-https/httpsport.png" alt=""></p>
-<p>TLS(Transport Layer Security) wraps all traffic in “records” of different types. We see that the first byte out of our browser is the hex byte 0x16 = 22 which means that this is a “handshake” record:<br><img src="http://www.moserware.com/assets/first-few-milliseconds-of-https/clienthellowithannotations.png" alt=""></p>
-<p>The next two bytes are 0x0301 which indicate that this is a version 3.1 record which shows that TLS 1.0 is essentially SSL 3.1.</p>
-<p>Amazon.com replies with a handshake record that’s a massive two packets in size (2,551 bytes). The record has version bytes of 0x0301 meaning that Amazon agreed to our request to use TLS 1.0. This record has three sub-messages with some interesting data:</p>
-<ol>
-<li>“Server Hello” Message (2). </li>
-<li>Certificate Message (11).</li>
-<li>“Server Hello Done” Message (14).</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjfac4532001pw0f2uk74n3eq" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
 
     </footer>
   </div>
@@ -530,7 +521,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -561,7 +552,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -571,9 +562,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
+          </li>
         
           <li>
             <a href="/2018/03/27/Leetcode-078-subset/">Leetcode_078_subset</a>
@@ -589,10 +584,6 @@
         
           <li>
             <a href="/2018/03/24/Leetcode-011/">Leetcode-011</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/22/proxy-server/">proxy_server</a>
           </li>
         
       </ul>

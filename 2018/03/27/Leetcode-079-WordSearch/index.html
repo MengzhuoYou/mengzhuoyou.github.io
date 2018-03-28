@@ -5,19 +5,19 @@
   
 
   
-  <title>proxy_server | Mengzhuo You</title>
+  <title>Leetcode_079_WordSearch | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Definition of Proxy Server:An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache. Implications: A proxy server is a web server A">
-<meta name="keywords" content="web">
+  <meta name="description" content="Here use the ^ to make a marker.board[x][y] ^= 256 to make board[x][y] invalid. 1234567891011121314151617181920212223class Solution &amp;#123;    public boolean exist(char[][] board, String word) &amp;#123;">
+<meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="proxy_server">
-<meta property="og:url" content="http://yoursite.com/2018/03/22/proxy-server/index.html">
+<meta property="og:title" content="Leetcode_079_WordSearch">
+<meta property="og:url" content="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="Definition of Proxy Server:An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache. Implications: A proxy server is a web server A">
-<meta property="og:updated_time" content="2018-03-22T23:23:58.000Z">
+<meta property="og:description" content="Here use the ^ to make a marker.board[x][y] ^= 256 to make board[x][y] invalid. 1234567891011121314151617181920212223class Solution &amp;#123;    public boolean exist(char[][] board, String word) &amp;#123;">
+<meta property="og:updated_time" content="2018-03-28T00:45:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="proxy_server">
-<meta name="twitter:description" content="Definition of Proxy Server:An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache. Implications: A proxy server is a web server A">
+<meta name="twitter:title" content="Leetcode_079_WordSearch">
+<meta name="twitter:description" content="Here use the ^ to make a marker.board[x][y] ^= 256 to make board[x][y] invalid. 1234567891011121314151617181920212223class Solution &amp;#123;    public boolean exist(char[][] board, String word) &amp;#123;">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-proxy-server" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Leetcode-079-WordSearch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/22/proxy-server/" class="article-date">
-  <time datetime="2018-03-22T22:51:11.000Z" itemprop="datePublished">2018-03-22</time>
+    <a href="/2018/03/27/Leetcode-079-WordSearch/" class="article-date">
+  <time datetime="2018-03-28T00:43:54.000Z" itemprop="datePublished">2018-03-27</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      proxy_server
+      Leetcode_079_WordSearch
     </h1>
   
 
@@ -86,27 +86,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Definition-of-Proxy-Server"><a href="#Definition-of-Proxy-Server" class="headerlink" title="Definition of Proxy Server:"></a>Definition of Proxy Server:</h3><p>An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache.</p>
-<h3 id="Implications"><a href="#Implications" class="headerlink" title="Implications:"></a>Implications:</h3><ol>
-<li>A proxy server is a web server</li>
-<li>A proxy server acts as a server to the client that makes a request, and it acts as a client to the servers it connects to</li>
-<li>A proxy server can monitor all documents provided by server responses</li>
-<li>A proxy server can monitor all client requests to other servers</li>
-<li>Also called a “forward proxy”</li>
-</ol>
-<h3 id="HTTP-Protocol-and-Proxy-Servers"><a href="#HTTP-Protocol-and-Proxy-Servers" class="headerlink" title="HTTP Protocol and Proxy Servers"></a>HTTP Protocol and Proxy Servers</h3><ol>
-<li>The protocol between client and proxy server, or between proxy servers is HTTP, even if the request is for ftp, telnet, mailto, etc.</li>
-<li>e.g. an ftp request is sent as an HTTP request to a proxy server as:<br>GET ftp://ftp.usc.edu/pub/softeng.txt HTTP/1.0<br>User-agent: Mozilla/4.0<br>Accept: <em>/</em></li>
-<li>only the last proxy server has to speak the ftp protocol to the ftp server, in this case ftp.usc.edu</li>
-</ol>
-
+        <p>Here use the ^ to make a marker.<br>board[x][y] ^= 256 to make board[x][y] invalid.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] w = word.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; board.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(exist(board,i,j,w,<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">char</span>[] w,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == w.length) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || x == board.length || y &lt; <span class="number">0</span> || y == board[<span class="number">0</span>].length || board[x][y] != w[i]) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        board[x][y] ^= <span class="number">256</span>;</span><br><span class="line">        <span class="keyword">boolean</span> flag = exist(board,x-<span class="number">1</span>,y,w,i+<span class="number">1</span>) || exist(board,x,y-<span class="number">1</span>,w,i+<span class="number">1</span>) || exist(board,x+<span class="number">1</span>,y,w,i+<span class="number">1</span>) ||                   exist(board,x,y+<span class="number">1</span>,w,i+<span class="number">1</span>);</span><br><span class="line">        board[x][y] ^= <span class="number">256</span>;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjfadc66c001xz5f2ncalw2wj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfadc65i0017z5f2uqv72tyy" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
 
     </footer>
   </div>
@@ -114,19 +102,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/03/24/Leetcode-011/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Leetcode-011
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/21/Leetcode-055/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/27/Leetcode-078-subset/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Leetcode-055</div>
+      <div class="article-nav-title">Leetcode_078_subset</div>
     </a>
   
 </nav>

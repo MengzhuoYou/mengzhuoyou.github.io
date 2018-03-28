@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,54 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-What-Happened-in-first-seconds-of-an-Https-Connection" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" class="article-date">
+  <time datetime="2018-03-05T01:06:48.000Z" itemprop="datePublished">2018-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/">What Happened in first seconds of an Https Connection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Suppose now Bob eagerly clicked “Proceed to Checkout” for his gallon of Tuscan Whole Milk on amazon, what happened next?</p>
+<p>By agreement of RFC 2818, Firefox knew that “https” meant it should connect to port 443 at Amazon.com:<br><img src="http://www.moserware.com/assets/first-few-milliseconds-of-https/httpsport.png" alt=""></p>
+<p>TLS(Transport Layer Security) wraps all traffic in “records” of different types. We see that the first byte out of our browser is the hex byte 0x16 = 22 which means that this is a “handshake” record:<br><img src="http://www.moserware.com/assets/first-few-milliseconds-of-https/clienthellowithannotations.png" alt=""></p>
+<p>The next two bytes are 0x0301 which indicate that this is a version 3.1 record which shows that TLS 1.0 is essentially SSL 3.1.</p>
+<p>Amazon.com replies with a handshake record that’s a massive two packets in size (2,551 bytes). The record has version bytes of 0x0301 meaning that Amazon agreed to our request to use TLS 1.0. This record has three sub-messages with some interesting data:</p>
+<ol>
+<li>“Server Hello” Message (2). </li>
+<li>Certificate Message (11).</li>
+<li>“Server Hello Done” Message (14).</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjfadc669001sz5f2z68b4n2s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -99,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/http/" data-id="cjfac453a001ww0f2a6rx72v0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/04/http/" data-id="cjfadc66b001vz5f233hn1n0o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -143,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjfac451g000mw0f2jczyqz5z" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjfadc64n000hz5f2u4d8o0u6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
@@ -187,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjfac450t0008w0f2t1wb6u7q" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjfadc64b0008z5f21pfq9zj0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -274,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjfac450w000aw0f26chi9vfi" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjfadc64h000bz5f2niu5219y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -320,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjfac450h0003w0f2cjplbrnw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjfadc6420003z5f2x8lgux8y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -361,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjfac45020000w0f22axzeh8i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjfadc63v0001z5f2sjn7x2nd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -404,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjfac451k000ow0f2dqa6htwo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjfadc64t000nz5f2p73lshzi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -465,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjfac45090001w0f2f2fs76vk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjfadc63o0000z5f2g4ymkw2v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -504,71 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjfac4519000iw0f2euobtc0h" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Deep-Learning-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/17/Deep-Learning-2/" class="article-date">
-  <time datetime="2018-02-18T03:10:31.000Z" itemprop="datePublished">2018-02-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/17/Deep-Learning-2/">Deep Learning(2)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-svm-是什么"><a href="#1-svm-是什么" class="headerlink" title="1.svm 是什么"></a>1.svm 是什么</h3><p>support vector machine. SVM 就是个分类器，它用于回归的时候称为SVR（Support Vector Regression），SVM和SVR本质上都一样。下图就是SVM分类：</p>
-<p><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d68171f42.jpg?imageMogr2/format/jpg/quality/90" alt="SVM分类"></p>
-<p>边界上的点就是支持向量，这些点很关键，这也是”支持向量机“命名的由来.</p>
-<p>SVM的目的：寻找到一个超平面使样本分成两类，并且间隔最大。而我们求得的w就代表着我们需要寻找的超平面的系数。</p>
-<p>用数学语言描述：<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d69b301f3.jpg?imageMogr2/format/jpg/quality/90" alt=""><br>这就是SVM的基本型。</p>
-<h3 id="2-核函数"><a href="#2-核函数" class="headerlink" title="2.核函数"></a>2.核函数</h3><p>现实任务中，原始样本空间也许并不能存在一个能正确划分出两类样本的超平面，而且这是很经常的事。你说说要是遇到这样的数据，怎么划分好呢：<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d7bb67d35.jpg?imageMogr2/format/jpg/quality/90" alt=""><br>于是引入了一个新的概念：核函数。它可以将样本从原始空间映射到一个更高维的特质空间中，使得样本在这个新的高维空间中可以被线性划分为两类，即在空间内线性划分。</p>
-<p>这个过程可以观看视频感受感受:<br><img src="https://www.youtube.com/watch?v=3liCbRZPrZA" alt="vedio"></p>
-<p>核函数的选择变成了支持向量机的最大变数（如果必须得用上核函数，即核化），因此选用什么样的核函数会影响最后的结果。而最常用的核函数有：线性核、多项式核、高斯核、拉普拉斯核、sigmoid核、通过核函数之间的线性组合或直积等运算得出的新核函数。</p>
-<h3 id="3-svm和LR的区别"><a href="#3-svm和LR的区别" class="headerlink" title="3.svm和LR的区别"></a>3.svm和LR的区别</h3><p>两种方法都是常见的分类算法，从目标函数来看，区别在于逻辑回归采用的是logistical loss，svm采用的是hinge loss。这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重。SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重。两者的根本目的都是一样的。此外，根据需要，两个方法都可以增加不同的正则化项，如l1,l2等等。所以在很多实验中，两种算法的结果是很接近的。</p>
-<p>但是逻辑回归相对来说模型更简单，好理解，实现起来，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些。但是SVM的理论基础更加牢固，有一套结构化风险最小化的理论基础，虽然一般使用的人不太会去关注。还有很重要的一点，SVM转化为对偶问题后，分类只需要计算与少数几个支持向量的距离，这个在进行复杂核函数计算时优势很明显，能够大大简化模型和计算量。</p>
-<p>总结：在Andrew NG的课里讲到过：</p>
-<ol>
-<li>如果Feature的数量很大，跟样本数量差不多，这时候选用LR或者是Linear Kernel的SVM</li>
-<li>如果Feature的数量比较小，样本数量一般，不算大也不算小，选用SVM+Gaussian Kernel</li>
-<li>如果Feature的数量比较小，而样本数量很多，需要手工添加一些feature变成第一种情况</li>
-</ol>
-<h3 id="4-LR中为什么要离散化"><a href="#4-LR中为什么要离散化" class="headerlink" title="4.LR中为什么要离散化"></a>4.LR中为什么要离散化</h3><p>在工业界，很少直接将连续值作为逻辑回归模型的特征输入，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：</p>
-<ol>
-<li>离散特征的增加和减少都很容易，易于模型的快速迭代；</li>
-<li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
-<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
-<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合；</li>
-<li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力；</li>
-<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
-<li>特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjfac4517000gw0f2afcza7ez" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjfadc64l000fz5f274yl801g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -584,7 +568,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -615,7 +599,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -625,9 +609,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
+          </li>
         
           <li>
             <a href="/2018/03/27/Leetcode-078-subset/">Leetcode_078_subset</a>
@@ -643,10 +631,6 @@
         
           <li>
             <a href="/2018/03/24/Leetcode-011/">Leetcode-011</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/22/proxy-server/">proxy_server</a>
           </li>
         
       </ul>
