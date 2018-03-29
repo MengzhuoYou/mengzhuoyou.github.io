@@ -5,19 +5,19 @@
   
 
   
-  <title>Leetcode_079_WordSearch | Mengzhuo You</title>
+  <title>Leetcode_084_LargestRectangle | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Here use the ^ to make a marker.board[x][y] ^= 256 to make board[x][y] invalid. 1234567891011121314151617181920212223class Solution &amp;#123;    public boolean exist(char[][] board, String word) &amp;#123;">
+  <meta name="description" content="Create an empty stack.  Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.……a) If stack is empty or hist[i] is higher than the bar at top of stack, then pu">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_079_WordSearch">
-<meta property="og:url" content="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/index.html">
+<meta property="og:title" content="Leetcode_084_LargestRectangle">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="Here use the ^ to make a marker.board[x][y] ^= 256 to make board[x][y] invalid. 1234567891011121314151617181920212223class Solution &amp;#123;    public boolean exist(char[][] board, String word) &amp;#123;">
-<meta property="og:updated_time" content="2018-03-28T00:45:02.000Z">
+<meta property="og:description" content="Create an empty stack.  Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.……a) If stack is empty or hist[i] is higher than the bar at top of stack, then pu">
+<meta property="og:updated_time" content="2018-03-28T22:06:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_079_WordSearch">
-<meta name="twitter:description" content="Here use the ^ to make a marker.board[x][y] ^= 256 to make board[x][y] invalid. 1234567891011121314151617181920212223class Solution &amp;#123;    public boolean exist(char[][] board, String word) &amp;#123;">
+<meta name="twitter:title" content="Leetcode_084_LargestRectangle">
+<meta name="twitter:description" content="Create an empty stack.  Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.……a) If stack is empty or hist[i] is higher than the bar at top of stack, then pu">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Leetcode-079-WordSearch" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Leetcode-084-LargestRectangle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/27/Leetcode-079-WordSearch/" class="article-date">
-  <time datetime="2018-03-28T00:43:54.000Z" itemprop="datePublished">2018-03-27</time>
+    <a href="/2018/03/28/Leetcode-084-LargestRectangle/" class="article-date">
+  <time datetime="2018-03-28T21:39:11.000Z" itemprop="datePublished">2018-03-28</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Leetcode_079_WordSearch
+      Leetcode_084_LargestRectangle
     </h1>
   
 
@@ -86,12 +86,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Here use the ^ to make a marker.<br>board[x][y] ^= 256 to make board[x][y] invalid.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] w = word.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; board.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(exist(board,i,j,w,<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">char</span>[] w,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == w.length) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || x == board.length || y &lt; <span class="number">0</span> || y == board[<span class="number">0</span>].length || board[x][y] != w[i]) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        board[x][y] ^= <span class="number">256</span>;</span><br><span class="line">        <span class="keyword">boolean</span> flag = exist(board,x-<span class="number">1</span>,y,w,i+<span class="number">1</span>) || exist(board,x,y-<span class="number">1</span>,w,i+<span class="number">1</span>) || exist(board,x+<span class="number">1</span>,y,w,i+<span class="number">1</span>) ||                   exist(board,x,y+<span class="number">1</span>,w,i+<span class="number">1</span>);</span><br><span class="line">        board[x][y] ^= <span class="number">256</span>;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <ol>
+<li><p>Create an empty stack.</p>
+</li>
+<li><p>Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.<br>……a) If stack is empty or hist[i] is higher than the bar at top of stack, then push ‘i’ to stack.<br>……b) If this bar is smaller than the top of stack, then keep removing the top of stack while top of the stack is greater. Let the removed bar be hist[tp]. Calculate area of rectangle with hist[tp] as smallest bar. For hist[tp], the ‘left index’ is previous (previous to tp) item in stack and ‘right index’ is ‘i’ (current index).</p>
+</li>
+<li><p>If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.</p>
+</li>
+<li><p>Time Complexity : O(N).</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] heights)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;</span><br><span class="line">        stack.push(-<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; heights.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span> &amp;&amp; heights[i] &lt; heights[stack.peek()]) </span><br><span class="line">                maxarea = Math.max(maxarea, heights[stack.pop()]*(i - stack.peek() - <span class="number">1</span>));</span><br><span class="line">            stack.push(i);           </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span>)</span><br><span class="line">            maxarea = Math.max(maxarea,heights[stack.pop()]*(heights.length - stack.peek() - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfbsoatn0018zif2vo1lrmns" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjfbsoatq001czif2etz5qzym" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -102,19 +112,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/03/27/Leetcode-212-WordSearch2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/28/Leetcode-085-MaximalRectangle/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          Leetcode_212_WordSearch2
+          Leetcode_085_MaximalRectangle
         
       </div>
     </a>
   
   
-    <a href="/2018/03/27/Leetcode-078-subset/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/27/Leetcode-033-SearchInRotatedArray/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Leetcode_078_subset</div>
+      <div class="article-nav-title">Leetcode_033_SearchInRotatedArray</div>
     </a>
   
 </nav>

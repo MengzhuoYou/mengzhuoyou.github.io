@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,90 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Bid-Data-Process-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/23/Bid-Data-Process-2/" class="article-date">
+  <time datetime="2018-02-24T07:43:50.000Z" itemprop="datePublished">2018-02-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/23/Bid-Data-Process-2/">Bid-Data-Process 2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="多层划分"><a href="#多层划分" class="headerlink" title="多层划分"></a>多层划分</h2><h4 id="适用范围：第k大，中位数，不重复或重复的数字"><a href="#适用范围：第k大，中位数，不重复或重复的数字" class="headerlink" title="适用范围：第k大，中位数，不重复或重复的数字"></a>适用范围：第k大，中位数，不重复或重复的数字</h4><h3 id="2-5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2-5亿个整数。"><a href="#2-5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2-5亿个整数。" class="headerlink" title="2.5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2.5亿个整数。"></a>2.5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2.5亿个整数。</h3><p>有点像鸽巢原理，整数个数为2^32,也就是，我们可以将这2^32个数，划分为2^8个区域(比如用单个文件代表一个区域)，然后将数据分离到不同的区域，然后不同的区域在利用bitmap就可以直接解决了。也就是说只要有足够的磁盘空间，就可以很方便的解决。</p>
+<h3 id="5亿个int找它们的中位数。"><a href="#5亿个int找它们的中位数。" class="headerlink" title="5亿个int找它们的中位数。"></a>5亿个int找它们的中位数。</h3><p>思路一：这个例子比上面那个更明显。首先我们将int划分为2^16个区域，然后读取数据统计落到各个区域里的数的个数，之后我们根据统计结果就可以判断中位数落到那个区域，同时知道这个区域中的第几大数刚好是中位数。然后第二次扫描我们只统计落在这个区域中的那些数就可以了。实际上，如果不是int是int64，我们可以经过3次这样的划分即可降低到可以接受的程度。即可以先将int64分成2^24个区域，然后确定区域的第几大数，在将该区域分成2^20个子区域，然后确定是子区域的第几大数，然后子区域里的数的个数只有2^20，就可以直接利用direct addr table进行统计了。</p>
+<p>思路二：同样需要做两遍统计，如果数据存在硬盘上，就需要读取2次。<br>方法同基数排序有些像，开一个大小为65536的Int数组，第一遍读取，统计Int32的高16位的情况，也就是0-65535，都算作0,65536 - 131071都算作1。就相当于用该数除以65536。Int32 除以 65536的结果不会超过65536种情况，因此开一个长度为65536的数组计数就可以。每读取一个数，数组中对应的计数+1，考虑有负数的情况，需要将结果加32768后，记录在相应的数组内。<br>第一遍统计之后，遍历数组，逐个累加统计，看中位数处于哪个区间，比如处于区间k，那么0- k-1的区间里数字的数量sum应该&lt;n/2（2.5亿）。而k+1 - 65535的计数和也&lt;n/2，第二遍统计同上面的方法类似，但这次只统计处于区间k的情况，也就是说(x / 65536) + 32768 = k。统计只统计低16位的情况。并且利用刚才统计的sum，比如sum = 2.49亿，那么现在就是要在低16位里面找100万个数(2.5亿-2.49亿)。这次计数之后，再统计一下，看中位数所处的区间，最后将高位和低位组合一下就是结果了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjfbsoasd0003zif2zzk5a42i" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript-Interview-Questions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/18/JavaScript-Interview-Questions/" class="article-date">
+  <time datetime="2018-02-19T00:31:38.000Z" itemprop="datePublished">2018-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/18/JavaScript-Interview-Questions/">JavaScript Interview Questions</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="How-do-you-judge-a-JavaScript-programmer-by-only-5-questions"><a href="#How-do-you-judge-a-JavaScript-programmer-by-only-5-questions" class="headerlink" title="How do you judge a JavaScript programmer by only 5 questions?"></a>How do you judge a JavaScript programmer by only 5 questions?</h2><h3 id="1-Can-you-explain-the-difference-between-“call”-and-“apply”-to-me"><a href="#1-Can-you-explain-the-difference-between-“call”-and-“apply”-to-me" class="headerlink" title="1. Can you explain the difference between “call” and “apply” to me?"></a>1. Can you explain the difference between “call” and “apply” to me?</h3><p>The answer to this question is a bit of a factoid, so that someone can answer it doesn’t give you any information, but if they cannot, it gives a truckload. Almost all JavaScript programmer that has written a library or two (which most curious ones will, after programming it a few years) will know this.<br>Addendum: Several people are calling #1 into question. I must be very clear here that I stand firm on this one. If you haven’t used apply, you are most likely missing out on the most powerful and overlooked aspects of the language. It’s also an indicator that you haven’t tried your hand at building a library yet, because when building libraries, apply and call are very commonly used.</p>
+<h3 id="2-Can-you-explain-“map”-to-me"><a href="#2-Can-you-explain-“map”-to-me" class="headerlink" title="2. Can you explain “map” to me?"></a>2. Can you explain “map” to me?</h3><p>Map is a an extremely useful functional programming concept that any computer science person will know. If someone doesn’t know this, it’s a sign that they lack an understanding of computer science and/or lack an understanding of the language. In addition, the explanation itself will give you a sense of how much the person knows about the language just in the way they talk. If the person does well on this question, ask about reduce as a follow up. If you do not know what map is, it means that you have done zero functional programming and you’re missing out. Severely.</p>
+<h3 id="3-Can-you-explain-“bind”-to-me"><a href="#3-Can-you-explain-“bind”-to-me" class="headerlink" title="3. Can you explain “bind” to me?"></a>3. Can you explain “bind” to me?</h3><p>This is a really great question, because it delves into the concept of this. You can basically drill the interviewee for quite some time on this, as it is a very large subject. You’ll get a good sense of a programmer by having this discussion.</p>
+<h3 id="4-Can-you-explain-how-“closures”-work-to-me"><a href="#4-Can-you-explain-how-“closures”-work-to-me" class="headerlink" title="4. Can you explain how “closures” work to me?"></a>4. Can you explain how “closures” work to me?</h3><p>This is a great question to ask programmers that claim to be experienced in general, but not with JavaScript. Closures are a general programming concept that is extraordinarily important in JavaScript. If they understand closures well, they will learn JavaScript pretty quickly.</p>
+<h3 id="5-Can-you-please-tell-me-a-story-about-a-JavaScript-performance-problem-that-you’ve-encountered-and-how-you-approached-solving-it"><a href="#5-Can-you-please-tell-me-a-story-about-a-JavaScript-performance-problem-that-you’ve-encountered-and-how-you-approached-solving-it" class="headerlink" title="5. Can you please tell me a story about a JavaScript performance problem that you’ve encountered and how you approached solving it?"></a>5. Can you please tell me a story about a JavaScript performance problem that you’ve encountered and how you approached solving it?</h3><p>This will tell you a lot about how much programming a person has actually done, in their own words. A big one to keep an eye out for is that they should be praising the Google Developer tools, and not rely too much on theoretical time complexity.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjfbsoat8000nzif2tpcrvz5l" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Basic-Knowledge" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -113,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjfaqrrwm0000uif24r4hv0jm" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjfbsoarz0000zif278bopjlb" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -152,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjfaqrrxh000duif2ff16fpds" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjfbsoasz000jzif2d7a40hip" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -216,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjfaqrrxo000juif2qj5lddls" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjfbsoasw000hzif20wai9ygw" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -262,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjfaqrrxc0009uif2ws91pj6a" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjfbsoass000dzif263yylpa1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -310,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjfaqrrz4001tuif244q4yhyb" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjfbsoaud001wzif2r3zvdkzt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -349,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjfaqrrx70005uif23apih2oy" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjfbsoas50001zif2cjeuxev9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -408,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjfaqrrxw000ruif2a8072jy8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjfbsoata000pzif2m4x6v7yr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -455,89 +539,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjfaqrrx30004uif20pv0dzvr" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjfbsoasm0008zif2ir3waryq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-016" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/12/Leetcode-016/" class="article-date">
-  <time datetime="2018-02-13T00:29:25.000Z" itemprop="datePublished">2018-02-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/Leetcode-016/">Leetcode-016</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Use 3 pointers to point current element, next element and the last element. If the sum is less than target, it means we have to add a larger element so next element move to the next. If the sum is greater, it means we have to add a smaller element so last element move to the second last element. Keep doing this until the end. Each time compare the difference between sum and target, if it is less than minimum difference so far, then replace result with it, otherwise keep iterating.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_016_3SumClosest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> n = nums.length;</span><br><span class="line"><span class="keyword">int</span> res = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[n-<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">Arrays.sort(nums);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">2</span>;i++)&#123;</span><br><span class="line"><span class="keyword">int</span> start = i+<span class="number">1</span>, end = n - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line"><span class="keyword">int</span> tmp = nums[i] + nums[start] + nums[end];</span><br><span class="line"><span class="keyword">if</span>(tmp &gt; target)&#123;</span><br><span class="line">end--;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(tmp &lt; target)&#123;</span><br><span class="line">start++;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">return</span> target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(Math.abs(tmp - target) &lt; Math.abs(res - target)) res = tmp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjfaqrry2000yuif2fpeeqt5i" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-229" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/12/Leetcode-229/" class="article-date">
-  <time datetime="2018-02-13T00:29:17.000Z" itemprop="datePublished">2018-02-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/Leetcode-229/">Leetcode-229</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_229_MajorityElement2</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> num1 = nums[<span class="number">0</span>], num2 = nums[<span class="number">0</span>], count1 = <span class="number">0</span>, count2 = <span class="number">0</span>, len = nums.length;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line"><span class="keyword">if</span>(nums[i] == num1) count1++;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(nums[i] == num2) count2++;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(count1 == <span class="number">0</span>)&#123;</span><br><span class="line">num1 = nums[i];</span><br><span class="line">count1 = <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(count2 == <span class="number">0</span>)&#123;</span><br><span class="line">num2 = nums[i];</span><br><span class="line">count2 = <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">count1--;</span><br><span class="line">count2--;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">count1 = <span class="number">0</span>;</span><br><span class="line">count2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line"><span class="keyword">if</span>(num == num1) count1++;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(num == num2) count2++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(count1 &gt; len/<span class="number">3</span>) res.add(num1);</span><br><span class="line"><span class="keyword">if</span>(count2 &gt; len/<span class="number">3</span>) res.add(num2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjfaqrryv001kuif2x5gstq8e" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
 
     </footer>
   </div>
@@ -550,7 +555,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Précédent</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Suivant &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -562,7 +567,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -572,7 +577,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
@@ -581,7 +586,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -591,9 +596,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/28/Leetcode-085-MaximalRectangle/">Leetcode_085_MaximalRectangle</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/28/Leetcode-084-LargestRectangle/">Leetcode_084_LargestRectangle</a>
+          </li>
         
           <li>
             <a href="/2018/03/27/Leetcode-033-SearchInRotatedArray/">Leetcode_033_SearchInRotatedArray</a>
@@ -605,14 +618,6 @@
         
           <li>
             <a href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/27/Leetcode-078-subset/">Leetcode_078_subset</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/24/Leetcode-035/">Leetcode-035</a>
           </li>
         
       </ul>
@@ -628,7 +633,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Mengzhuo You<br>
-      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

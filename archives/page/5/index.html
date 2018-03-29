@@ -5,19 +5,17 @@
   
 
   
-  <title>Leetcode-128 | Mengzhuo You</title>
+  <title>Archiv | Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Time Complexity : O(n);Space Complexity : O(n); For the HashSet to store the nums, so that can look up value in O(1); 123456789101112131415161718192021222324252627public class Leetcode_128_LCS &amp;#123;c">
-<meta name="keywords" content="Leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-128">
-<meta property="og:url" content="http://yoursite.com/2018/02/11/Leetcode-128/index.html">
+  <meta name="description" content="Graduate Student, Computer Science, University Of Southern California">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/archives/page/5/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="Time Complexity : O(n);Space Complexity : O(n); For the HashSet to store the nums, so that can look up value in O(1); 123456789101112131415161718192021222324252627public class Leetcode_128_LCS &amp;#123;c">
-<meta property="og:updated_time" content="2018-02-12T07:04:13.000Z">
+<meta property="og:description" content="Graduate Student, Computer Science, University Of Southern California">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-128">
-<meta name="twitter:description" content="Time Complexity : O(n);Space Complexity : O(n); For the HashSet to store the nums, so that can look up value in O(1); 123456789101112131415161718192021222324252627public class Leetcode_128_LCS &amp;#123;c">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="Graduate Student, Computer Science, University Of Southern California">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -64,64 +62,45 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Leetcode-128" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/11/Leetcode-128/" class="article-date">
-  <time datetime="2018-02-12T07:03:08.000Z" itemprop="datePublished">2018-02-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Leetcode-128
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/12/24/hello-world/" class="archive-article-date">
+  <time datetime="2017-12-25T02:47:42.000Z" itemprop="datePublished">Dec 24</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/24/hello-world/">Hello World</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Time Complexity : O(n);<br>Space Complexity : O(n); For the HashSet to store the nums, so that can look up value in O(1);</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_128_LCS</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">Set&lt;Integer&gt; nums_set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums) nums_set.add(num);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line"><span class="keyword">if</span>(!nums_set.contains(num - <span class="number">1</span>))&#123;</span><br><span class="line"><span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> cur_num = num;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(nums_set.contains(cur_num + <span class="number">1</span>))&#123;</span><br><span class="line">cur++;</span><br><span class="line">cur_num++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(cur &gt; res) res = cur;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjfbsoatx001gzif2k8myhgr0" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/02/11/Leetcode-110/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Leetcode-110
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/02/11/Leetcode-200/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Leetcode_200</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; zurück</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
 
 </section>
         
