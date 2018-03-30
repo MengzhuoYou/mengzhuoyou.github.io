@@ -64,6 +64,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Leetcode-154-FindMinimumDuplicate" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/" class="article-date">
+  <time datetime="2018-03-30T02:37:30.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/">Leetcode_154_FindMinimumDuplicate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> When num[mid] == num[hi], we couldn’t sure the position of minimum in mid’s left or right, so just let upper bound reduce one.<br> ex: [1,3,3] , [3,1,1]<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) high = mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; nums[high]) low = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> high--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/Leetcode-154-FindMinimumDuplicate/" data-id="cjfdc9hgs001d3qf2p3no5ycf" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Leetcode-085-MaximalRectangle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/28/Leetcode-085-MaximalRectangle/" class="article-date">
@@ -96,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/Leetcode-085-MaximalRectangle/" data-id="cjfbsoatm0017zif2jep966jg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-085-MaximalRectangle/" data-id="cjfdc9hgu001f3qf2k3xurnoj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -145,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjfbsoatq001czif2etz5qzym" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjfdc9hgi00153qf245zngf01" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -190,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjfbsoatf000xzif2b04g8zfj" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjfdc9hg7000x3qf21s10ztb8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -229,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjfbsoau2001mzif2c1i0tkiu" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjfdc9hh5001o3qf2f76ocesd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -268,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfbsoatn0018zif2vo1lrmns" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfdc9hgn00193qf23y7sx4xr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -308,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfbsoatp001azif2x4hf6kl1" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfdc9hgp001b3qf26x9e7s7s" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -347,7 +386,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfbsoatg000zzif2pl98h2vu" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfdc9hga00103qf276ttavxg" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -385,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfbsoath0011zif2x1ye182x" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfdc9hgb00113qf25ag0d24y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -430,61 +469,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfbsoatc000szif2lq4kszwg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfdc9hg2000q3qf26cvga2sx" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-proxy-server" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/22/proxy-server/" class="article-date">
-  <time datetime="2018-03-22T22:51:11.000Z" itemprop="datePublished">2018-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/proxy-server/">proxy_server</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Definition-of-Proxy-Server"><a href="#Definition-of-Proxy-Server" class="headerlink" title="Definition of Proxy Server:"></a>Definition of Proxy Server:</h3><p>An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache.</p>
-<h3 id="Implications"><a href="#Implications" class="headerlink" title="Implications:"></a>Implications:</h3><ol>
-<li>A proxy server is a web server</li>
-<li>A proxy server acts as a server to the client that makes a request, and it acts as a client to the servers it connects to</li>
-<li>A proxy server can monitor all documents provided by server responses</li>
-<li>A proxy server can monitor all client requests to other servers</li>
-<li>Also called a “forward proxy”</li>
-</ol>
-<h3 id="HTTP-Protocol-and-Proxy-Servers"><a href="#HTTP-Protocol-and-Proxy-Servers" class="headerlink" title="HTTP Protocol and Proxy Servers"></a>HTTP Protocol and Proxy Servers</h3><ol>
-<li>The protocol between client and proxy server, or between proxy servers is HTTP, even if the request is for ftp, telnet, mailto, etc.</li>
-<li>e.g. an ftp request is sent as an HTTP request to a proxy server as:<br>GET ftp://ftp.usc.edu/pub/softeng.txt HTTP/1.0<br>User-agent: Mozilla/4.0<br>Accept: <em>/</em></li>
-<li>only the last proxy server has to speak the ftp protocol to the ftp server, in this case ftp.usc.edu</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjfbsoaum002azif27bkvdz1q" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
 
     </footer>
   </div>
@@ -543,6 +531,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/">Leetcode_154_FindMinimumDuplicate</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/28/Leetcode-085-MaximalRectangle/">Leetcode_085_MaximalRectangle</a>
           </li>
         
@@ -556,10 +548,6 @@
         
           <li>
             <a href="/2018/03/27/Leetcode-212-WordSearch2/">Leetcode_212_WordSearch2</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/27/Leetcode-079-WordSearch/">Leetcode_079_WordSearch</a>
           </li>
         
       </ul>
