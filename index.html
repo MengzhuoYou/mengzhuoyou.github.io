@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,142 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Secure Web Communication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/27/Secure Web Communication/" class="article-date">
+  <time datetime="2018-04-28T00:04:29.000Z" itemprop="datePublished">2018-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Secure-Web-Communication"><a href="#Secure-Web-Communication" class="headerlink" title="Secure Web Communication"></a>Secure Web Communication</h2><h2 id="RSA-Public-Key-Encryption"><a href="#RSA-Public-Key-Encryption" class="headerlink" title="RSA Public Key Encryption"></a>RSA Public Key Encryption</h2><ul>
+<li><p>RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission</p>
+</li>
+<li><p>A user of RSA creates two large prime numbers and thenpublishes one of them as his public key</p>
+<p>– the numbers are typically 1024 digits or more</p>
+<p>– there are a few more steps involved</p>
+</li>
+<li><p>The most popular algorithm for public key encryption is</p>
+<p>the RSA algorithm (Rivest, Shamir Adleman)</p>
+<h2 id="Cryptographic-Hash-Functions"><a href="#Cryptographic-Hash-Functions" class="headerlink" title="Cryptographic Hash Functions"></a>Cryptographic Hash Functions</h2></li>
+</ul>
+<ul>
+<li><p>Given a data item X (X could be a word or afile), H is called a cryptographic hash function if it is computationally infeasible to find another data item Y, not equal to X, such that the hash value H(X) is equal to the hash value H(Y).</p>
+<p>– H(X) is called the <strong>message digest</strong> or <strong>digital signature</strong> of X under the hashing algorithm H.</p>
+</li>
+<li><p>Two well known cryptographic hash functions are <strong>MD5</strong> and <strong>SHA</strong>.</p>
+<h2 id="Certificate-Authority"><a href="#Certificate-Authority" class="headerlink" title="Certificate Authority"></a>Certificate Authority</h2></li>
+<li><p>A certificate authority (CA) is an organizationthat both parties involved in a securecommunication, trust</p>
+</li>
+<li><p>the role of the CA is to verify the identity ofan entity (client/server)</p>
+</li>
+<li><p>once the CA verifies the entity, it issues adigitally signed electronic certificate</p>
+<p>– it is signed with the CA s private key</p>
+<p>​</p>
+<h2 id="Introduction-to-SSL"><a href="#Introduction-to-SSL" class="headerlink" title="Introduction to SSL"></a>Introduction to SSL</h2></li>
+<li><p>Given public key encryption, cryptographic hashing, message digests and digital certificates, how are these put together to produce secure electronic commerce?</p>
+</li>
+<li><p>The answer: SSL, is a protocol for establishing an encrypted link between server and client, that uses authentication and encryption of transactional data</p>
+</li>
+<li><p>SSL is occasionally called TLS, <strong>Transport Layer Security protocol</strong>.</p>
+</li>
+<li><p>Secure Sockets Layer (SSL) provides end-to-end security between client and server.</p>
+</li>
+<li><p>SSL for HTTP is referred to as HTTPS and operates on port 443.</p>
+<h2 id="How-SSL-Works-–-Detailed-Steps"><a href="#How-SSL-Works-–-Detailed-Steps" class="headerlink" title="How SSL Works – Detailed Steps"></a>How SSL Works – Detailed Steps</h2></li>
+</ul>
+<ol>
+<li>Client contacts a secure server using https and asks that server identify itself</li>
+<li>Server sends client its digital certificate including the server’s public key, thereby verifying that the server is who he says he is</li>
+<li>Client checks the certificate root against its list of trusted CAs and that the certificate is unexpired; if all is OK, client generates a session key, encrypts it with server s public key and sends the cipher back to the server</li>
+<li>Server decrypts the symmetric session key using its private key and sends back an acknowledgement and a secure channel is established</li>
+<li>Client and server now exchange data that is always encrypted</li>
+<li>Before each data transfer, a message digest calculated from the data is sent on the secure channel</li>
+<li>Receiving party uses the message digest to guarantee the data has not been modified.</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>SSL Protocol Version 3.0 Specification:</li>
+</ol>
+<p>– <a href="http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt" target="_blank" rel="noopener">http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt</a></p>
+<ol>
+<li><p>TLS Protocol Version 1.0 Specification:– <a href="http://www.ietf.org/rfc/rfc2246.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2246.txt</a></p>
+</li>
+<li><p>Extensions to TLS:</p>
+<p>–  Kerberos:<a href="http://www.ietf.org/rfc/rfc2712.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2712.txt</a></p>
+<p>–  TLS with HTTP/1.1:<a href="http://www.ietf.org/rfc/rfc2817.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2817.txt</a></p>
+<p>–  HTTP over TLS:<a href="http://www.ietf.org/rfc/rfc2818.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2818.txt</a></p>
+<p>–  AES Ciphersuites for TLS:<a href="http://www.ietf.org/rfc/rfc3268.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc3268.txt</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/27/Secure Web Communication/" data-id="cjgimlexa002ci7f26n23k7b7" class="article-share-link">공유</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AngularJS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/30/AngularJS/" class="article-date">
+  <time datetime="2018-03-30T21:21:05.000Z" itemprop="datePublished">2018-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/30/AngularJS/">AngularJS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ng-app=” “  定义angularJS的使用范围；</li>
+<li>ng-init=”变量=值;变量=’值’”  初始化变量的值，有多个变量时，中间用分号隔开；</li>
+<li>ng-model=”变量”  定义变量名；</li>
+<li>ng-bind=”变量”  绑定变量名，获取该变量的数据。这里的变量就是第3条的变量名。但是一般都用双重花括号来获取变量的值，比如：。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">p</span>&gt;</span>名字 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>ng-invalid:未通过验证的表单<br>ng-valid:布尔型属性，它指示表单是否通过验证。如果表单当前通过验证，他将为true<br>ng-dirty:布尔值属性，表示用户是否修改了表单。如果为 ture，表示有修改过；false 表示修没有修改过<br>ng-touched:布尔值属性，表示用户是否和控件进行过交互<br>ng-pristine:布尔值属性，表示用户是否修改了表单。如果为ture，表示没有修改过；false表示修改过</p>
+</li>
+<li><p>AngularJS 应用组成如下：<br>View(视图), 即 HTML。<br>Model(模型), 当前视图中可用的数据。<br>Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。<br>scope 是模型。<br>scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/30/AngularJS/" data-id="cjgimleuq0003i7f26yrf64ol" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Leetcode-154-FindMinimumDuplicate" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -91,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/29/Leetcode-154-FindMinimumDuplicate/" data-id="cjfdc9hgs001d3qf2p3no5ycf" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/29/Leetcode-154-FindMinimumDuplicate/" data-id="cjgimlewm001ji7f26fw7nu3t" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -135,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/Leetcode-085-MaximalRectangle/" data-id="cjfdc9hgu001f3qf2k3xurnoj" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-085-MaximalRectangle/" data-id="cjgimlewf001di7f2w96g2rqf" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -184,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjfdc9hgi00153qf245zngf01" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjgimlewh001fi7f290kvmwc4" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -229,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjfdc9hg7000x3qf21s10ztb8" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjgimlevz0011i7f25jcqx1bh" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -268,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjfdc9hh5001o3qf2f76ocesd" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjgimleww001si7f2sjzcjk1c" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -307,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjfdc9hgn00193qf23y7sx4xr" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjgimlewd001bi7f2aifsdh66" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -347,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjfdc9hgp001b3qf26x9e7s7s" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjgimlew90017i7f2gadfia1e" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -386,90 +522,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjfdc9hga00103qf276ttavxg" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-042" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/24/Leetcode-042/" class="article-date">
-  <time datetime="2018-03-24T21:29:26.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/Leetcode-042/">Leetcode-042</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Traaping-Water"><a href="#Traaping-Water" class="headerlink" title="Traaping Water"></a>Traaping Water</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_042_TrappingWater</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(height == <span class="keyword">null</span> || height.length &lt;= <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> left = <span class="number">0</span>, right= height.length-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> leftMax = <span class="number">0</span>, rightMax = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">                <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(height[left] &gt;= leftMax) leftMax = height[left];</span><br><span class="line">                    <span class="keyword">else</span> res += (leftMax - height[left]);</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(height[right] &gt;= rightMax) rightMax = height[right];</span><br><span class="line">                    <span class="keyword">else</span> res += (rightMax - height[right]);</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjfdc9hgb00113qf25ag0d24y" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-011" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/24/Leetcode-011/" class="article-date">
-  <time datetime="2018-03-24T20:55:11.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/Leetcode-011/">Leetcode-011</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Container-With-Most-Water"><a href="#Container-With-Most-Water" class="headerlink" title="Container With Most Water"></a>Container With Most Water</h2><pre><code>  1 2 3 4 5 6
-1 x ------- o
-2 x x - o o o
-3 x x x o | |
-4 x x x x | |
-5 x x x x x |
-6 x x x x x x
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_011_ContainerMostWater</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height == <span class="keyword">null</span> || height.length == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> curLeft = height[left], curRight = height[right];</span><br><span class="line">            max = Math.max(max, (right-left)*Math.min(curLeft,curRight));</span><br><span class="line">            <span class="keyword">if</span>(curLeft &lt; curRight) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjfdc9hg2000q3qf26cvga2sx" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjgimlew20013i7f20hsfu9kf" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -485,7 +538,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">다음 &raquo;</a>
   </nav>
 
 </section>
@@ -497,9 +550,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">태그</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
   </div>
 
@@ -507,18 +560,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">태그 클라우드</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">아카이브</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -526,9 +579,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">최근 포스트</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/04/27/Secure Web Communication/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/AngularJS/">AngularJS</a>
+          </li>
         
           <li>
             <a href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/">Leetcode_154_FindMinimumDuplicate</a>
@@ -540,14 +601,6 @@
         
           <li>
             <a href="/2018/03/28/Leetcode-084-LargestRectangle/">Leetcode_084_LargestRectangle</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/27/Leetcode-033-SearchInRotatedArray/">Leetcode_033_SearchInRotatedArray</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/27/Leetcode-212-WordSearch2/">Leetcode_212_WordSearch2</a>
           </li>
         
       </ul>
