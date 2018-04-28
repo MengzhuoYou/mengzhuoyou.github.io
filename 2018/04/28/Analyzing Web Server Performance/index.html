@@ -5,22 +5,20 @@
   
 
   
-  <title>What Happened in first seconds of an Https Connection | Mengzhuo You</title>
+  <title>Mengzhuo You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Suppose now Bob eagerly clicked “Proceed to Checkout” for his gallon of Tuscan Whole Milk on amazon, what happened next? By agreement of RFC 2818, Firefox knew that “https” meant it should connect to">
-<meta name="keywords" content="http">
+  <meta name="description" content="Analyzing Web Server PerformanceEstimating Server Performance Requirements What is the time required to deliver a request to the server?  is client authenticated or anonymous, the former is much more">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What Happened in first seconds of an Https Connection">
-<meta property="og:url" content="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/index.html">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/Analyzing Web Server Performance/index.html">
 <meta property="og:site_name" content="Mengzhuo You">
-<meta property="og:description" content="Suppose now Bob eagerly clicked “Proceed to Checkout” for his gallon of Tuscan Whole Milk on amazon, what happened next? By agreement of RFC 2818, Firefox knew that “https” meant it should connect to">
-<meta property="og:image" content="http://www.moserware.com/assets/first-few-milliseconds-of-https/httpsport.png">
-<meta property="og:image" content="http://www.moserware.com/assets/first-few-milliseconds-of-https/clienthellowithannotations.png">
-<meta property="og:updated_time" content="2018-03-05T01:24:08.000Z">
+<meta property="og:description" content="Analyzing Web Server PerformanceEstimating Server Performance Requirements What is the time required to deliver a request to the server?  is client authenticated or anonymous, the former is much more">
+<meta property="og:image" content="http://yoursite.com/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180427235452584.png">
+<meta property="og:updated_time" content="2018-04-28T07:00:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What Happened in first seconds of an Https Connection">
-<meta name="twitter:description" content="Suppose now Bob eagerly clicked “Proceed to Checkout” for his gallon of Tuscan Whole Milk on amazon, what happened next? By agreement of RFC 2818, Firefox knew that “https” meant it should connect to">
-<meta name="twitter:image" content="http://www.moserware.com/assets/first-few-milliseconds-of-https/httpsport.png">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="Analyzing Web Server PerformanceEstimating Server Performance Requirements What is the time required to deliver a request to the server?  is client authenticated or anonymous, the former is much more">
+<meta name="twitter:image" content="http://yoursite.com/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180427235452584.png">
   
     <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
   
@@ -67,66 +65,80 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-What-Happened-in-first-seconds-of-an-Https-Connection" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Analyzing Web Server Performance" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" class="article-date">
-  <time datetime="2018-03-05T01:06:48.000Z" itemprop="datePublished">2018-03-04</time>
+    <a href="/2018/04/28/Analyzing Web Server Performance/" class="article-date">
+  <time datetime="2018-04-28T07:00:57.000Z" itemprop="datePublished">2018-04-28</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      What Happened in first seconds of an Https Connection
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Suppose now Bob eagerly clicked “Proceed to Checkout” for his gallon of Tuscan Whole Milk on amazon, what happened next?</p>
-<p>By agreement of RFC 2818, Firefox knew that “https” meant it should connect to port 443 at Amazon.com:<br><img src="http://www.moserware.com/assets/first-few-milliseconds-of-https/httpsport.png" alt=""></p>
-<p>TLS(Transport Layer Security) wraps all traffic in “records” of different types. We see that the first byte out of our browser is the hex byte 0x16 = 22 which means that this is a “handshake” record:<br><img src="http://www.moserware.com/assets/first-few-milliseconds-of-https/clienthellowithannotations.png" alt=""></p>
-<p>The next two bytes are 0x0301 which indicate that this is a version 3.1 record which shows that TLS 1.0 is essentially SSL 3.1.</p>
-<p>Amazon.com replies with a handshake record that’s a massive two packets in size (2,551 bytes). The record has version bytes of 0x0301 meaning that Amazon agreed to our request to use TLS 1.0. This record has three sub-messages with some interesting data:</p>
-<ol>
-<li>“Server Hello” Message (2). </li>
-<li>Certificate Message (11).</li>
-<li>“Server Hello Done” Message (14).</li>
-</ol>
+        <h2 id="Analyzing-Web-Server-Performance"><a href="#Analyzing-Web-Server-Performance" class="headerlink" title="Analyzing Web Server Performance"></a><center>Analyzing Web Server Performance</center></h2><h2 id="Estimating-Server-Performance-Requirements"><a href="#Estimating-Server-Performance-Requirements" class="headerlink" title="Estimating Server Performance Requirements"></a>Estimating Server Performance Requirements</h2><ul>
+<li><p>What is the time required to deliver a request to the server?</p>
+<ul>
+<li>is client <strong>authenticated</strong> or anonymous, the former is much more costly</li>
+<li><strong>how much data</strong> does the client send</li>
+<li>the <strong>bandwidth</strong> <strong>of the slowest link</strong> between client and server can determine the time</li>
+</ul>
+</li>
+<li><p>What is the time required to obtain the result?</p>
+<ul>
+<li><p>is the result a static HTML page：</p>
+<ul>
+<li>is it in the cache, how big is the file</li>
+</ul>
+</li>
+<li><p>is the result a dynamic page：</p>
+<ul>
+<li><p>is the application that creates it a CGI script(CGI: Common Gateway Interface</p>
+<p>)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>What is the time to deliver the result?</p>
+<ul>
+<li>the amount of data sent by the server</li>
+<li>bandwidth of the client-server link</li>
+<li>number of simultaneous requests</li>
+</ul>
+</li>
+<li><p>to estimate what performance is needed, estimate</p>
+<ul>
+<li>the <strong>number of clients</strong> that will connect each second, <strong>connections per sec</strong></li>
+<li>the <strong>number of bytes</strong> the client will send to the server during each transaction</li>
+<li>the number of bytes the server will send to the clientduring each transaction, <strong>bytes transferred</strong></li>
+<li>how much of the link the web server is allowed to use</li>
+</ul>
+</li>
+<li><p>E.g. 120 clients connect twice each minute implies 240 connections per minute or 4 per second. If each client sends 1Kbyte of data and receives 15Kbytes back, then the server needs to support 64Kbytes per second or 512 Kbitsps or roughly 0.5megabits per second.</p>
+<h2 id="DNS-Redirection"><a href="#DNS-Redirection" class="headerlink" title="DNS Redirection"></a>DNS Redirection</h2></li>
+<li><p><img src="/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180427235452584.png" alt="image-20180427235452584"></p>
+<p>​</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjgj1fc5v002cr2f2j4fr9mxv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/28/Analyzing Web Server Performance/" data-id="cjgj1fc3d0001r2f2tw70s1ki" class="article-share-link">Teilen</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/03/06/Cracking-the-Interview/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Cracking the Interview
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/04/http/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/04/27/Secure Web Communication/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Difference between http and https</div>
+      <div class="article-nav-title"></div>
     </a>
   
 </nav>

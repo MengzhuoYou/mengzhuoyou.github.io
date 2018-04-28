@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,50 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-JVM-GC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/26/JVM-GC/" class="article-date">
+  <time datetime="2018-02-26T23:06:18.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/26/JVM-GC/">JVM-GC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>深入理解Java虚拟机（二） – 垃圾回收器</p>
+<h2 id="1-引用"><a href="#1-引用" class="headerlink" title="1. 引用"></a>1. 引用</h2><p>Java将引用分为强引用，软引用，弱引用，虚引用四种类型，这4种引用强度依次减弱。</p>
+<h3 id="1-强引用"><a href="#1-强引用" class="headerlink" title="1.强引用"></a>1.强引用</h3><p>是普遍存在的，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure></p>
+<p>只要强引用还在，垃圾回收器就永远不会回收掉被引用的对象。</p>
+<h3 id="2-软引用"><a href="#2-软引用" class="headerlink" title="2.软引用"></a>2.软引用</h3><h3 id="3-弱引用"><a href="#3-弱引用" class="headerlink" title="3.弱引用"></a>3.弱引用</h3><h3 id="4-虚引用"><a href="#4-虚引用" class="headerlink" title="4.虚引用"></a>4.虚引用</h3><h2 id="2-垃圾收集算法"><a href="#2-垃圾收集算法" class="headerlink" title="2. 垃圾收集算法"></a>2. 垃圾收集算法</h2><h3 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记-清除算法"></a>1. 标记-清除算法</h3><p>有两个问题：<br>（1）效率问题<br>（2）空间问题</p>
+<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h3><h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3. 标记-整理算法"></a>3. 标记-整理算法</h3><h3 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4. 分代收集算法"></a>4. 分代收集算法</h3><p>新生代：复制算法<br>老年代：标记-清除，标记-整理算法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjgj1fc4e000or2f2c3xfnaub" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Cracking-the-Interview-Thread-Creation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -96,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjgimleuw0005i7f2xrd24jqh" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjgj1fc3w0008r2f23wq103zm" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -183,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjgimlevb000ii7f2el4ql17e" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjgj1fc44000fr2f2etqxlvlt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -229,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjgimleuy0008i7f2hz5mn2go" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjgj1fc3y0009r2f215gm8qf6" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -270,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjgimleui0001i7f28qcupef4" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjgj1fc3m0004r2f27pxbupri" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -313,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjgimlevn000ri7f2j17ttk8i" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjgj1fc4f000qr2f2v6zm03p5" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -374,7 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjgimleub0000i7f2lgbd0b4t" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjgj1fc3k0003r2f23nwhu8nf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -413,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjgimlevd000ki7f2chuhprha" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjgj1fc4b000lr2f2zorgav8g" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -477,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjgimlev5000ei7f2lkkbbj6x" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjgj1fc41000dr2f2o5bqr79i" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -523,58 +567,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjgimlev4000ci7f2u5939clr" class="article-share-link">공유</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjgj1fc46000hr2f2rfzpq572" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-PHP-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/17/PHP-Tutorial/" class="article-date">
-  <time datetime="2018-02-17T22:03:09.000Z" itemprop="datePublished">2018-02-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/17/PHP-Tutorial/">PHP_Tutorial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Post-method-sends-all-contents-of-a-form-with-basically-hidden-headers-not-easily-visible-to-users"><a href="#1-Post-method-sends-all-contents-of-a-form-with-basically-hidden-headers-not-easily-visible-to-users" class="headerlink" title="1.Post method sends all contents of a form with basically hidden headers (not easily visible to users)"></a>1.Post method sends all contents of a form with basically hidden headers (not easily visible to users)</h3><h3 id="2-Get-method-sends-all-form-input-in-the-URL-requested-using-name-value-pairs-separated-by-ampersands-amp"><a href="#2-Get-method-sends-all-form-input-in-the-URL-requested-using-name-value-pairs-separated-by-ampersands-amp" class="headerlink" title="2.Get method sends all form input in the URL requested using name=value pairs separated by ampersands (&amp;)"></a>2.Get method sends all form input in the URL requested using name=value pairs separated by ampersands (&amp;)</h3><ul>
-<li>E.g., process.php?name=trevor&amp;number=345 </li>
-<li>Is visible in the URL shown in the browser</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Form elements contain input elements</li>
-<li>Each input element has an id</li>
-<li>If a form is posted, the file stated as the action can use:<br>$_POST[“inputid”]</li>
-<li>If a form uses the get method:<br>$_GET[“inputid”]</li>
-</ul>
-<h3 id="PHP-Sessions-store-the-information-on-the-web-server-in-a-location-that-you-chose-in-special-files-These-files-are-connected-to-the-user’s-web-browser-via-the-server-and-a-special-ID-called-a-“Session-ID”-This-is-virtually-invisible-to-the-user"><a href="#PHP-Sessions-store-the-information-on-the-web-server-in-a-location-that-you-chose-in-special-files-These-files-are-connected-to-the-user’s-web-browser-via-the-server-and-a-special-ID-called-a-“Session-ID”-This-is-virtually-invisible-to-the-user" class="headerlink" title="PHP Sessions store the information on the web server in a location that you chose in special files. These files are connected to the user’s web browser via the server and a special ID called a “Session ID”. This is virtually invisible to the user."></a>PHP Sessions store the information on the web server in a location that you chose in special files. These files are connected to the user’s web browser via the server and a special ID called a “Session ID”. This is virtually invisible to the user.</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjgimlex40024i7f2m6phejcc" class="article-share-link">공유</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
 
     </footer>
   </div>
@@ -587,7 +583,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 이전</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">다음 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -599,7 +595,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">태그</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -609,7 +605,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">태그 클라우드</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
@@ -618,7 +614,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">아카이브</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -628,9 +624,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">최근 포스트</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/04/28/Analyzing Web Server Performance/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2018/04/27/Secure Web Communication/">(no title)</a>
@@ -646,10 +646,6 @@
         
           <li>
             <a href="/2018/03/28/Leetcode-085-MaximalRectangle/">Leetcode_085_MaximalRectangle</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/28/Leetcode-084-LargestRectangle/">Leetcode_084_LargestRectangle</a>
           </li>
         
       </ul>
