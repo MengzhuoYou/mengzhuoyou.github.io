@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,155 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-GBDT-梯度下降树" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/GBDT-梯度下降树/" class="article-date">
+  <time datetime="2018-02-18T04:15:21.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/GBDT-梯度下降树/">GBDT 梯度下降树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>gbdt 是通过采用加法模型（即基函数的线性组合），以及不断减小训练过程产生的残差来达到将数据分类或者回归的算法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjgkhh4cf000nq6f24rvxu52x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Deep-Learning-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/Deep-Learning-2/" class="article-date">
+  <time datetime="2018-02-18T03:10:31.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/Deep-Learning-2/">Deep Learning(2)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-svm-是什么"><a href="#1-svm-是什么" class="headerlink" title="1.svm 是什么"></a>1.svm 是什么</h3><p>support vector machine. SVM 就是个分类器，它用于回归的时候称为SVR（Support Vector Regression），SVM和SVR本质上都一样。下图就是SVM分类：</p>
+<p><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d68171f42.jpg?imageMogr2/format/jpg/quality/90" alt="SVM分类"></p>
+<p>边界上的点就是支持向量，这些点很关键，这也是”支持向量机“命名的由来.</p>
+<p>SVM的目的：寻找到一个超平面使样本分成两类，并且间隔最大。而我们求得的w就代表着我们需要寻找的超平面的系数。</p>
+<p>用数学语言描述：<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d69b301f3.jpg?imageMogr2/format/jpg/quality/90" alt=""><br>这就是SVM的基本型。</p>
+<h3 id="2-核函数"><a href="#2-核函数" class="headerlink" title="2.核函数"></a>2.核函数</h3><p>现实任务中，原始样本空间也许并不能存在一个能正确划分出两类样本的超平面，而且这是很经常的事。你说说要是遇到这样的数据，怎么划分好呢：<br><img src="https://static.leiphone.com/uploads/new/article/740_740/201705/5927d7bb67d35.jpg?imageMogr2/format/jpg/quality/90" alt=""><br>于是引入了一个新的概念：核函数。它可以将样本从原始空间映射到一个更高维的特质空间中，使得样本在这个新的高维空间中可以被线性划分为两类，即在空间内线性划分。</p>
+<p>这个过程可以观看视频感受感受:<br><img src="https://www.youtube.com/watch?v=3liCbRZPrZA" alt="vedio"></p>
+<p>核函数的选择变成了支持向量机的最大变数（如果必须得用上核函数，即核化），因此选用什么样的核函数会影响最后的结果。而最常用的核函数有：线性核、多项式核、高斯核、拉普拉斯核、sigmoid核、通过核函数之间的线性组合或直积等运算得出的新核函数。</p>
+<h3 id="3-svm和LR的区别"><a href="#3-svm和LR的区别" class="headerlink" title="3.svm和LR的区别"></a>3.svm和LR的区别</h3><p>两种方法都是常见的分类算法，从目标函数来看，区别在于逻辑回归采用的是logistical loss，svm采用的是hinge loss。这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重。SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重。两者的根本目的都是一样的。此外，根据需要，两个方法都可以增加不同的正则化项，如l1,l2等等。所以在很多实验中，两种算法的结果是很接近的。</p>
+<p>但是逻辑回归相对来说模型更简单，好理解，实现起来，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些。但是SVM的理论基础更加牢固，有一套结构化风险最小化的理论基础，虽然一般使用的人不太会去关注。还有很重要的一点，SVM转化为对偶问题后，分类只需要计算与少数几个支持向量的距离，这个在进行复杂核函数计算时优势很明显，能够大大简化模型和计算量。</p>
+<p>总结：在Andrew NG的课里讲到过：</p>
+<ol>
+<li>如果Feature的数量很大，跟样本数量差不多，这时候选用LR或者是Linear Kernel的SVM</li>
+<li>如果Feature的数量比较小，样本数量一般，不算大也不算小，选用SVM+Gaussian Kernel</li>
+<li>如果Feature的数量比较小，而样本数量很多，需要手工添加一些feature变成第一种情况</li>
+</ol>
+<h3 id="4-LR中为什么要离散化"><a href="#4-LR中为什么要离散化" class="headerlink" title="4.LR中为什么要离散化"></a>4.LR中为什么要离散化</h3><p>在工业界，很少直接将连续值作为逻辑回归模型的特征输入，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：</p>
+<ol>
+<li>离散特征的增加和减少都很容易，易于模型的快速迭代；</li>
+<li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
+<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合；</li>
+<li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力；</li>
+<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjgkhh4cd000lq6f2832cpzre" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Deep-Learning-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/Deep-Learning-1/" class="article-date">
+  <time datetime="2018-02-17T23:53:18.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/Deep-Learning-1/">Deep Learning(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>卷积神经网络的第一层是卷积层，第一件事是你要记住卷积层的输入时什么。像我们之前提到的，输入的是一个32×32×3的系列像素值。解释卷积层的最好方式是想象一个手电筒正在图像的左上方进行照射，假设手电照射的区域是5 x 5的范围。再想象下这个手电筒在输入图像的各个区域进行滑动。在机器学习术语中，这个手电筒叫做过滤器（有时候也称为神经元或者核心），它照射着的区域被称为接受场。这个过滤器也是一系列的数据（这些数据被称为权重或者参数）。必须提到的是这个过滤器的深度必须是和输入的深度相同（这样才能保证数学正常工作），所以这个过滤器的尺寸是5×5×3。</p>
+<p>现在，让我们先拿第一个位置的过滤器为例。由于过滤器在输入图像上是滑动或卷积的，它是相乘的值在滤波器的原始图像的像素值（又名计算元素的乘法），这些乘法全部相加（从数学上讲，这将是75次乘法总和）。所以现在你有一个数字。请记住，这个数字只是当过滤器在图像的左上角时才有代表性，现在我们在每一个位置上重复这个过程。（下一步将过滤器移动到右边的1个单位，然后再向右移动1个单位，等等），每一个输入层上独特的位置都会产生一个数字。将过滤器滑动完所有位置的，你会发现剩下的是一个28×28×1的系列数字，我们称之为激活图或者特征图。你得到一个28×28阵列的原因是有784个不同的位置，一个5×5的过滤器可以适配一个32×32的输入图像，这组784个数字可以被映射到一个28×28阵列。</p>
+<p><img src="https://static.leiphone.com/uploads/new/article/740_740/201607/579b29837408f.png?imageMogr2/format/jpg/quality/90" alt="原始图中的5*5*3部分转换为特征图中的第一个点"></p>
+<p>目前我们使用两个5 x 5 x 3的过滤器，我们的输出量将是28×28×2。通过使用更多的过滤器，我们能够更好地维持空间尺寸。在数学层面上来说，这些是在一个卷积层中进行的任务。</p>
+<h2 id="池化层／采样层"><a href="#池化层／采样层" class="headerlink" title="池化层／采样层"></a>池化层／采样层</h2><p>通过卷积层获得了图像的特征之后，理论上我们可以直接使用这些特征训练分类器（如softmax），但是这样做将面临巨大的计算量的挑战，而且容易产生过拟合的现象。为了进一步降低网络训练参数及模型的过拟合程度，我们对卷积层进行池化/采样(Pooling)处理。池化/采样的方式通常有以下两种：</p>
+<p>Max-Pooling: 选择Pooling窗口中的最大值作为采样值；<br>Mean-Pooling: 将Pooling窗口中的所有值相加取平均，以平均值作为采样值；<br>如下图所示。</p>
+<p><img src="http://i.imgur.com/bHBUsr4.png" alt="Pooling"></p>
+<h3 id="LeNet-5-网络详解"><a href="#LeNet-5-网络详解" class="headerlink" title="LeNet-5 网络详解"></a>LeNet-5 网络详解</h3><p><img src="http://i.imgur.com/2AuotA0.png" alt=""><br><img src="http://i.imgur.com/Zzm048o.png" alt=""><br><img src="http://i.imgur.com/aJlgVHg.png" alt=""><br><img src="http://i.imgur.com/SiVPyWR.png" alt=""><br><img src="http://i.imgur.com/gTphBu6.png" alt=""><br><img src="http://i.imgur.com/6L3CmUc.png" alt=""><br><img src="http://i.imgur.com/SNLgNWe.png" alt=""><br><img src="http://i.imgur.com/kJtbaEz.png" alt=""><br><img src="http://i.imgur.com/cXSxkVY.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjgkhh4cb000iq6f239c6eyc9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-PHP-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -100,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjgj1fc5q0027r2f2uqni3wre" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjgkhh4ec002dq6f2e467azin" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -139,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjgj1fc40000br2f2awvcxtw9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjgkhh4c20009q6f202spxhzw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -198,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjgj1fc4j000wr2f20em7riv1" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjgkhh4cw0010q6f2plp5v8d1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -245,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjgj1fc3r0005r2f23qgdyx11" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjgkhh4c6000eq6f2r1zkk2x2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -285,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjgj1fc4n0011r2f2n7acz68b" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjgkhh4cu000xq6f2iaahvoo0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -324,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjgj1fc5j001ur2f2tivblp0s" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjgkhh4e30023q6f23n0eo00q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -363,135 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjgj1fc5c001pr2f25b21t39z" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-560" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/12/Leetcode-560/" class="article-date">
-  <time datetime="2018-02-13T00:29:03.000Z" itemprop="datePublished">2018-02-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/Leetcode-560/">Leetcode-560</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>the key to solve this problem is SUM[i, j]. So if we know SUM[0, i - 1] and SUM[0, j], then we can easily get SUM[i, j]. To achieve this, we just need to go through the array, calculate the current sum and save number of all seen PreSum to a HashMap. Time complexity O(n);<br>Space complexity O(n).</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_560_subArrayEqualK</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">Map&lt;Integer, Integer&gt; presum = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">presum.put(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">sum += num;</span><br><span class="line">res += presum.getOrDefault(sum - k, <span class="number">0</span>);</span><br><span class="line">presum.put(sum, presum.getOrDefault(sum, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cjgj1fc5o0022r2f2sepjb2jw" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Java-JVM(1)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/12/Java-JVM(1)/" class="article-date">
-  <time datetime="2018-02-12T08:04:44.000Z" itemprop="datePublished">2018-02-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/Java-JVM(1)/">深入理解 Java 虚拟机 （一）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天开始看 <code>深入理解Java虚拟机</code> 这本书，首先是关于内存区域的概念。</p>
-<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>Java 虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个区域。</p>
-<h3 id="1-程序计数器-（Program-Counter-Register）"><a href="#1-程序计数器-（Program-Counter-Register）" class="headerlink" title="1. 程序计数器 （Program Counter Register）"></a>1. 程序计数器 （Program Counter Register）</h3><p>程序计数器可以看作是当前线程所执行的字节码的行号指示器。<br>由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器都只会执行一条线程中的指令。因此，每条线程都需要又一个独立的程序计数器。</p>
-<h3 id="2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><a href="#2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）" class="headerlink" title="2. Java虚拟机栈 （Java Virtual Machine Stacks）"></a>2. Java虚拟机栈 （Java Virtual Machine Stacks）</h3><p>虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息。每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
-<p>Java内存区域分为堆内存和栈内存，虚拟机栈就是在栈内存中，局部变量表就是在虚拟机栈中的。</p>
-<h3 id="3-Java堆-（Java-Heap）"><a href="#3-Java堆-（Java-Heap）" class="headerlink" title="3. Java堆 （Java Heap）"></a>3. Java堆 （Java Heap）</h3><p>Java堆是被所有线程所共享的一块内存区域：所有的对象实例以及数组都要在堆上分配（虽然现在不是那么绝对了）。<br>Java堆是垃圾收集器管理的主要区域。</p>
-<h3 id="4-方法区（Method-Area）"><a href="#4-方法区（Method-Area）" class="headerlink" title="4. 方法区（Method Area）"></a>4. 方法区（Method Area）</h3><p>方法区是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息，常量，静态变量等。</p>
-<h3 id="5-运行时常量池（Runtime-Constant-Pool）"><a href="#5-运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="5. 运行时常量池（Runtime Constant Pool）"></a>5. 运行时常量池（Runtime Constant Pool）</h3><p>运行时常量池是方法区的一部分，用于存放编译期生成的各种字面量和符号引用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjgj1fc4h000sr2f2x6q7wo26" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-110" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/11/Leetcode-110/" class="article-date">
-  <time datetime="2018-02-12T07:46:06.000Z" itemprop="datePublished">2018-02-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/11/Leetcode-110/">Leetcode-110</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Definition for a binary tree node:</p>
-<p>public class TreeNode {<br>int val;<br>TreeNode left;<br>TreeNode right;</p>
-<p>TreeNode(int x) {<br>val = x;<br>}</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_110_BalancedTree</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">return</span> Math.max(depth(root.left), depth(root.right)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">int</span> left = depth(root.left);</span><br><span class="line"><span class="keyword">int</span> right = depth(root.right);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (Math.abs(left - right) &lt;= <span class="number">1</span>) &amp;&amp; (isBalanced(root.left)) &amp;&amp; (isBalanced(root.right));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjgj1fc58001lr2f2rhhvp9eo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjgkhh4dz001wq6f2bj07c3g6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -507,7 +528,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -538,7 +559,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -548,9 +569,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/04/29/Cookies and Privacy/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/28/Validation/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/28/Web Server Performance Testing/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2018/04/28/Analyzing Web Server Performance/">(no title)</a>
@@ -558,18 +591,6 @@
         
           <li>
             <a href="/2018/04/27/Secure Web Communication/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/30/AngularJS/">AngularJS</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/">Leetcode_154_FindMinimumDuplicate</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/28/Leetcode-085-MaximalRectangle/">Leetcode_085_MaximalRectangle</a>
           </li>
         
       </ul>
