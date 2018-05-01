@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,709 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-HTML5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/HTML5/" class="article-date">
+  <time datetime="2018-05-01T04:50:30.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a><center>HTML5</center></h2><h3 id="Element-drawing"><a href="#Element-drawing" class="headerlink" title=" Element - drawing"></a><canvas> Element - drawing</canvas></h3><ul>
+<li><p>The <canvas> element is  a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly. </canvas></p>
+</li>
+<li><p>A canvas is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
+</li>
+<li><p>A <canvas> element has no content and no border of its own.</canvas></p>
+</li>
+<li><p>You can have more than one <canvas> element on the same page.</canvas></p>
+</li>
+<li><p>Each canvas will show up in the DOM, and each canvas maintains its own state. Ifyou give each canvas an id attribute, you can access them just like any otherelement.</p>
+</li>
+<li><p>E.g. if one adds an id attribute, e.g.</p>
+&lt;canvas id= mycanvas” width=”300” height=”225”&gt;
+</li>
+<li><p>Now you can easily find that <canvas> element in the DOM, e.g.var a_canvas = document.getElementById( “mycanvas”);</canvas></p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000000;"</span>&gt;</span></span><br><span class="line">Your browser does not support the HTML5 canvas tag.</span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    var c = document.getElementById("myCanvas");</span></span><br><span class="line"><span class="undefined">    var ctx = c.getContext("2d");</span></span><br><span class="line"><span class="undefined">    ctx.fillStyle = "#FF0000";</span></span><br><span class="line"><span class="undefined">    ctx.fillRect(10,0,150,100);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Element-drawing-1"><a href="#Element-drawing-1" class="headerlink" title=" Element - drawing"></a><svg> Element - drawing</svg></h3><ul>
+<li>The <svg> element is  a container for SVG graphics. </svg></li>
+<li>SVG has several methods for drawing paths, boxes, circles, text and graphics images.</li>
+<li>SVG graphics is supported by all major browsers.</li>
+<li>SVG is a language for describing 2D graphics in XML.</li>
+<li>Since SVG is XML based, every element is available in the SVG DOM.</li>
+<li>If attributes of an SVG object are changed, the browser can automatically re-render the shape.</li>
+</ul>
+<h3 id="Defining-Sections-of-a-Web-Page-with-Element"><a href="#Defining-Sections-of-a-Web-Page-with-Element" class="headerlink" title="Defining Sections of a Web Page with  Element"></a>Defining Sections of a Web Page with <section> Element</section></h3><ul>
+<li><p><section> - a grouping of content, e.g. chapters or tabbed pages or a page is divided into Introduction, News Items and Contact Information</section></p>
+</li>
+<li><p>Example of an article about apples with two sections</p>
+<ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> <span class="tag">&lt;<span class="name">article</span>&gt;</span> <span class="tag">&lt;<span class="name">hgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Tasty, delicious fruit!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span> <span class="tag">&lt;/<span class="name">hgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The apple is the pomaceous fruit of the apple tree.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;<span class="name">section</span>&gt;</span> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Red Delicious<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>These bright red apples are the most common found in many supermarkets.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Granny Smith<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>These juicy, green apples make a great filling for apple pies.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span> <span class="tag">&lt;/<span class="name">article</span>&gt;</span> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Defining-Sections-of-a-Web-Page-with-Element-1"><a href="#Defining-Sections-of-a-Web-Page-with-Element-1" class="headerlink" title="Defining Sections of a Web Page with  Element"></a>Defining Sections of a Web Page with <nav> Element</nav></h3><ul>
+<li><p><nav> - a section of a page that links to other pages or to parts within the page; a section with navigation links</nav></p>
+</li>
+<li><p>In the following example, the page has several places where links are present, but only<br>one of those places is considered a navigation section.</p>
+<ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Wake up sheeple!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"news.html"</span>&gt;</span>News<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"blog.html"</span>&gt;</span>Blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"forums.html"</span>&gt;</span>Forums<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Last Modified: <span class="tag">&lt;<span class="name">time</span>&gt;</span>2009-04-01<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Navigation<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"articles.html"</span>&gt;</span>Index of all articles<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"today.html"</span>&gt;</span>Things needed to wake up for today<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span> <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"successes.html"</span>&gt;</span>Sheep manage to wake<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span> <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span> <span class="tag">&lt;<span class="name">header</span>&gt;</span> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Day at the Beach<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><ul>
+<li>localStorage is a client-side key-value database,<ul>
+<li>–  data is stored in the users browser and remains there even across sessions (open/closebrowser)</li>
+<li>–  data is only available when on that machine and in that browser.</li>
+<li>–  localStorage is per browser not per computer.</li>
+<li>–  localStorage only supports storing of strings</li>
+</ul>
+</li>
+</ul>
+<h3 id="Session-Storage"><a href="#Session-Storage" class="headerlink" title="Session Storage"></a>Session Storage</h3><ul>
+<li>Session storage is designed for scenarios where the user is carrying out a singletransaction, but could be carrying out multiple transactions in different windows atthe same time.</li>
+<li>To address this, this specification introduces the sessionStorage IDL attribute(An IDL attribute determines the behavior of script data). Sites can add data to thesession storage, and it will be accessible to any page from the same site opened inthat window. The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. The data is deleted when the user closes the specific browser tab.</li>
+</ul>
+<h3 id="Related-URLs"><a href="#Related-URLs" class="headerlink" title="Related URLs"></a>Related URLs</h3><ul>
+<li><p><a href="http://www.chromeexperiments.com/" target="_blank" rel="noopener">http://www.chromeexperiments.com/</a></p>
+</li>
+<li><p><a href="http://www.creativebloq.com/web-design/examples-of-html-1233547" target="_blank" rel="noopener">http://www.creativebloq.com/web-design/examples-of-html-1233547</a></p>
+</li>
+<li><p><a href="https://www.noupe.com/essentials/freebies-tools-templates/40-beautiful-free-html5-css3-templates.html" target="_blank" rel="noopener">https://www.noupe.com/essentials/freebies-tools-templates/40-beautiful-free-html5-css3-templates.html</a></p>
+</li>
+<li><p><a href="http://html5gallery.com" target="_blank" rel="noopener">http://html5gallery.com</a></p>
+</li>
+<li><p><a href="https://www.juicebox.net/demos/" target="_blank" rel="noopener">https://www.juicebox.net/demos/</a></p>
+</li>
+<li><p><a href="http://wowslider.com/html5-gallery-puzzle-collage-demo.html" target="_blank" rel="noopener">http://wowslider.com/html5-gallery-puzzle-collage-demo.html</a></p>
+<p>video element:<a href="https://html.spec.whatwg.org/#video" target="_blank" rel="noopener">https://html.spec.whatwg.org/#video</a></p>
+</li>
+<li><p>audio element:<a href="https://html.spec.whatwg.org/#audio" target="_blank" rel="noopener">https://html.spec.whatwg.org/#audio</a>            </p>
+<p>​    </p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/HTML5/" data-id="cjgn73wxk000n29f2g12ckzuy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Serverless Applications" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/Serverless Applications/" class="article-date">
+  <time datetime="2018-05-01T03:36:45.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Serverless-Applications"><a href="#Serverless-Applications" class="headerlink" title="Serverless Applications"></a><center>Serverless Applications</center></h2><h3 id="What-is-Serverless"><a href="#What-is-Serverless" class="headerlink" title="What is Serverless?"></a>What is Serverless?</h3><ul>
+<li>Serverless architectures refer to applications that significantly depend on third party-services (known as Backend as a Service or “Baas”) or on custom code that’s run in ephemeral containers (Function as a Service or “FaaS”), the best known vendor host of which currently is AWS Lambda. By using these ideas,and by moving much behavior to the front end, such architectures remove the need for the traditional ‘always on’ server system sitting behind an application.</li>
+</ul>
+<h3 id="The-origins-of-“Functions-as-a-Service”"><a href="#The-origins-of-“Functions-as-a-Service”" class="headerlink" title="The origins of “Functions-as-a-Service”"></a>The origins of “Functions-as-a-Service”</h3><ul>
+<li>AWS Lambda – Announced at re:Invent 2014. First web service of it’s kindthat completely abstracted the execution environment from the code</li>
+</ul>
+<h3 id="Faas-How-does-is-work"><a href="#Faas-How-does-is-work" class="headerlink" title="Faas : How does is work?"></a>Faas : How does is work?</h3><ul>
+<li>You write a function and deploy it to the cloud service for execution<ul>
+<li>Example: Node.js with AWS Lambda.</li>
+</ul>
+</li>
+</ul>
+<h3 id="What-are-containers"><a href="#What-are-containers" class="headerlink" title="What are containers?"></a>What are containers?</h3><ul>
+<li><p>Virtualization at the OS level</p>
+</li>
+<li><p>Based on Linux kernel features– cgroups</p>
+<p>– namespaces</p>
+</li>
+<li><p>Concept has been around for a while</p>
+<ul>
+<li>–  Solaris ”zones” – early form of containerization</li>
+<li>–  LXC – Early form of containerization on Linux</li>
+</ul>
+</li>
+<li><p>Docker has brought containers mainstream</p>
+</li>
+</ul>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><ul>
+<li><p>Docker is a tool that allows developers, sys-admins etc. to easily deploy their applications in a sandbox (called containers) to run on the host operating system i.e. Linux.</p>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+<p>​<br>​<br>​<br>​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/Serverless Applications/" data-id="cjgn73wzh002h29f21v6nh0lw" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript Frameworks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/JavaScript Frameworks/" class="article-date">
+  <time datetime="2018-04-30T22:51:50.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript-Frameworks"><a href="#JavaScript-Frameworks" class="headerlink" title="JavaScript Frameworks"></a><center>JavaScript Frameworks</center></h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><ul>
+<li>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</li>
+<li>Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.</li>
+<li>Node.js allows the creation of Web servers and networking tools using JavaScript and a collection of “modules” that handle various core functionality.</li>
+<li>Modules handle file system I/O, networking (DNS, HTTP, TCP, TLS/SSL, or UDP), binary data (buffers), cryptography functions, data streams and other core functions.</li>
+</ul>
+<h4 id="Basic-Functionality"><a href="#Basic-Functionality" class="headerlink" title="Basic Functionality"></a>Basic Functionality</h4><ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>); </span><br><span class="line">fs.readFile(<span class="string">'./intro.txt'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>); </span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span> &#125;);</span><br><span class="line">    res.end(<span class="string">'Hello World CSCI571!\n'</span>); </span><br><span class="line">&#125;).listen(<span class="number">9090</span>, <span class="string">'127.0.0.1'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`Server running at http://localhost:9090/`</span>);</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Express-Module-Example"><a href="#Express-Module-Example" class="headerlink" title="Express Module Example"></a>Express Module Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>); </span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"><span class="comment">//respond with "hello world" when a GET request is made to the homepage</span></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123; </span><br><span class="line">    res.send(<span class="string">'Hello World'</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//server listening on port 3000</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="Related-URLs"><a href="#Related-URLs" class="headerlink" title="Related URLs"></a>Related URLs</h4><ul>
+<li>Node.js website: <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a></li>
+<li>Node.js on Github: <a href="https://github.com/nodejs/node" target="_blank" rel="noopener">https://github.com/nodejs/node</a></li>
+<li>NPM: <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></li>
+<li>Learn Node.js in terminal: <a href="https://github.com/workshopper/learnyounode" target="_blank" rel="noopener">https://github.com/workshopper/learnyounode</a></li>
+<li>Tools: <a href="http://gruntjs.com/" target="_blank" rel="noopener">http://gruntjs.com/</a></li>
+</ul>
+<h3 id="Angular-JS"><a href="#Angular-JS" class="headerlink" title="Angular JS"></a>Angular JS</h3><h4 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h4><ul>
+<li>AngularJS is a complete JavaScript-based open-source front-end web application framework.</li>
+<li>Its mainly maintained by Google and some community of individuals.</li>
+<li>It provides a framework for client-side model–view–controller (MVC) and model–view–view model (MVVM) architectures.</li>
+<li>AngularJS is the frontend part of the MEAN stack, consisting of MongoDB database,Express.js web application server framework, Angular.js itself, and Node.js runtime environment.</li>
+</ul>
+<h4 id="Basic-functionality"><a href="#Basic-functionality" class="headerlink" title="Basic functionality"></a>Basic functionality</h4><ul>
+<li><p>Data Binding</p>
+<ul>
+<li><p>Data-binding is an automatic way of updating the view whenever the model changes,</p>
+<p>as well as updating the model whenever the view changes. This is awesome because it</p>
+<p>eliminates DOM manipulation from the list of things you have to worry about.</p>
+</li>
+</ul>
+</li>
+<li><p>Controller</p>
+<ul>
+<li>Controllers are the behavior behind the DOM elements. AngularJS lets you express the<br>behavior in a clean readable form without the usual boilerplate of updating the DOM,<br>registering callbacks or watching model changes.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Angular-Directives"><a href="#Angular-Directives" class="headerlink" title="Angular Directives"></a>Angular Directives</h4><ul>
+<li>ng-app <ul>
+<li>Declares the root element of an AngularJS application.</li>
+</ul>
+</li>
+<li>ng-controller <ul>
+<li>Specifies a JavaScript controller class that evaluates HTML expressions.</li>
+</ul>
+</li>
+<li>ng-bind<ul>
+<li>Sets the text of a DOM element to the value of an expression.</li>
+</ul>
+</li>
+<li>ng-model<ul>
+<li>Similar to ng-bind, but establishes a two-way data binding between the view and the scope.</li>
+</ul>
+</li>
+<li>ng-repeat<ul>
+<li>Instantiate an element once per item from a collection.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Angular-Example"><a href="#Angular-Example" class="headerlink" title="Angular Example"></a>Angular Example</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> app = angular.module(“myApp<span class="string">", []); </span></span></span><br><span class="line"><span class="undefined">app.controller(“myController", function($scope,$http) &#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">// $scope holds your model (metadata) for your application</span></span></span><br><span class="line"><span class="undefined">$scope.topic = “CSCI 571”; &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">“myApp</span>" <span class="attr">ng-controller</span>=<span class="string">“myController</span>"&gt;</span> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>An AngularJS module defines an application.</li>
+<li>The module is a container for controllers</li>
+<li>Controllers always belong to a module.</li>
+</ul>
+<h4 id="Related-URLs-1"><a href="#Related-URLs-1" class="headerlink" title="Related URLs"></a>Related URLs</h4><ul>
+<li><p>Hello World: <a href="https://angularjs.org/#the-basics" target="_blank" rel="noopener">https://angularjs.org/#the-basics</a></p>
+</li>
+<li><p>Todo List: <a href="https://angularjs.org/#add-some-control" target="_blank" rel="noopener">https://angularjs.org/#add-some-control</a></p>
+</li>
+<li><p>Advanced Single Page App: <a href="https://angularjs.org/#wire-up-a-backend" target="_blank" rel="noopener">https://angularjs.org/#wire-up-a-backend</a></p>
+<p>Related URLs</p>
+</li>
+</ul>
+<ul>
+<li><p>Angular.js website: <a href="https://angularjs.org" target="_blank" rel="noopener">https://angularjs.org</a></p>
+</li>
+<li><p>Angular.js on Github: <a href="https://github.com/angular/angular.js" target="_blank" rel="noopener">https://github.com/angular/angular.js</a></p>
+</li>
+<li><p>Tutorial: <a href="https://docs.angularjs.org/tutorial" target="_blank" rel="noopener">https://docs.angularjs.org/tutorial</a></p>
+</li>
+<li><p>Angular.js Course</p>
+<p><a href="http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/1/section/1/creating-a-store-module" target="_blank" rel="noopener">http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/1/section/1/creating-a-store-module</a></p>
+</li>
+<li><p>Angular 2: <a href="https://angular.io/" target="_blank" rel="noopener">https://angular.io/</a></p>
+</li>
+<li><p>Angular 2 docs: <a href="https://angular.io/docs" target="_blank" rel="noopener">https://angular.io/docs</a></p>
+</li>
+<li><p>Angular 2 IDEs, Tools, Libraries, UI Components: <a href="https://angular.io/resources" target="_blank" rel="noopener">https://angular.io/resources</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/JavaScript Frameworks/" data-id="cjgn73wxs000t29f2d0cdvywe" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-High Performance Web sites" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/High Performance Web sites/" class="article-date">
+  <time datetime="2018-04-30T21:02:31.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="High-Performance-Web-sites"><a href="#High-Performance-Web-sites" class="headerlink" title="High Performance Web sites"></a><center>High Performance Web sites</center></h2><ul>
+<li>Rule 1: Make fewer HTTP requests<ul>
+<li>Combine scripts</li>
+<li>Combine style sheets</li>
+<li>Combine images into an image map</li>
+</ul>
+</li>
+<li>CSS Sprites:<ul>
+<li>An image sprite is a collection of images put into a single image</li>
+<li>Using images sprites reduces the number of server requests and saves bandwidth</li>
+<li>Consider img_navsprites.gif, which includes 3 separate images</li>
+</ul>
+</li>
+<li>Rule 2: Use  a CDN<ul>
+<li>Content Distribution Networks have servers around the world</li>
+<li>They distribute your content so downloads can come from a nearby location</li>
+</ul>
+</li>
+<li>Rule 3: Add an Expires Header<ul>
+<li>All caches use a set of rules to determine whether to deliver an object from the cache or request a new version</li>
+<li>HTTP headers are sent by the server before the HTML, and only seen by the browser and any intermediate caches.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Rule 4: Gzip Components</p>
+<ul>
+<li>Compression works when a web server like Apache is set up to “compress” resources and when a<br>client’s browser accepts such compressed resources.    </li>
+</ul>
+</li>
+<li><p>Rule 5: Put Stylesheets at the top </p>
+</li>
+<li><p>Rule 6: Move Scripts to the Bottom</p>
+</li>
+<li><p>Rule 7: Avoid CSS Expressions</p>
+</li>
+<li><p>Rule 8: Make JS and CSS External</p>
+<ul>
+<li><p>External JS and CSS can be cached</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.onload = downloadComponents; </span><br><span class="line">function downloadComponents() &#123;</span><br><span class="line">var elem = document.createElement("script"); </span><br><span class="line">elem.src = http://.../file1.js; </span><br><span class="line">document.body.appendChild(elem);</span><br><span class="line">.....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Rule 9: Reduce DNS lookups</p>
+<ul>
+<li>Typically each look up takes 20 – 120 milliseconds</li>
+<li>DNS lookups will block parallel downloads</li>
+<li>The operating system and the browser both have DNS caches</li>
+<li>As a general rule it is best to reduce the number of unique hostnames used in a web page</li>
+</ul>
+</li>
+<li><p>Rule 10: Minify JavaScript</p>
+<ul>
+<li>Minification, or minify, is the process of removing all unnecessary characters from source code, without changing its functionality</li>
+<li>Unnecessary characters usually include:white space characters, new line characters, comments , and sometimes block delimiters used to add readability to code, but are not required for execution</li>
+<li>Minified code is especially useful for interpreted languages because it reduces the amount of data that must be transferred</li>
+</ul>
+</li>
+<li><p>Rule 11: Avoid Redirects</p>
+</li>
+<li><p>Rule 12: Remove Duplicate Scripts</p>
+</li>
+<li><p>Rule 13: Configure ETags</p>
+</li>
+<li><p>Rule 14: Make AJAX Cacheable and small    </p>
+</li>
+</ul>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+<p>  ​<br>  ​<br>  ​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/High Performance Web sites/" data-id="cjgn73wxd000j29f2ksc0buch" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Web Services and REST" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/Web Services and REST/" class="article-date">
+  <time datetime="2018-04-30T18:27:43.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web-Services-and-REST"><a href="#Web-Services-and-REST" class="headerlink" title="Web Services and REST"></a><center>Web Services and REST</center></h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>Web Services is the idea of offering the capabilities/information on a website via a programming interface, so application programs can more readily access the information on the site</li>
+<li>Web Services are APIs for accessing a website’s information across the Internet</li>
+</ul>
+<h3 id="REST-Representational-State-Transfer"><a href="#REST-Representational-State-Transfer" class="headerlink" title="REST(Representational State Transfer)"></a>REST(Representational State Transfer)</h3><ul>
+<li><p>REST is a style of software architecture for distributed hypermedia systems (i.e.<br>the Web)</p>
+</li>
+<li><p>There are three fundamental aspects of the REST Design Pattern </p>
+<ul>
+<li>1.client 2.servers 3.resources</li>
+<li>Resources are typically represented as documents</li>
+<li>Systems that follow Fielding’s REST principles are often referred to as</li>
+</ul>
+<p>RESTful;</p>
+<p>​</p>
+</li>
+</ul>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/Web Services and REST/" data-id="cjgn73wzl002m29f2eopu6lge" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/jQuery/" class="article-date">
+  <time datetime="2018-04-30T16:59:35.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a><center>jQuery</center></h2><h3 id="What-is-jQuery"><a href="#What-is-jQuery" class="headerlink" title="What is jQuery?"></a>What is jQuery?</h3><ul>
+<li><p>A framework for client-side JavaScript.</p>
+</li>
+<li><p>Frameworks provide useful alternatives for common programming tasks.</p>
+</li>
+<li><p>jQuery adds a JavaScript object called $ or jQuery to your JavaScript code.</p>
+</li>
+<li><p>Example:</p>
+<ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myButton = document.getElementById("myButton");</span><br></pre></td></tr></table></figure>
+<p>In jQuery,</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("#myButton");</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+<h3 id="jQuery-Basic-Selectors"><a href="#jQuery-Basic-Selectors" class="headerlink" title="jQuery Basic Selectors"></a>jQuery Basic Selectors</h3><ul>
+<li><p>All Selector (“<em>”): var elementCount = $(“</em>“).css(“border”, “3px solid red” ).length;</p>
+</li>
+<li><p>Class Selector (“.class”): $(“.myClass”).css(“border”, “3px solid red”);</p>
+</li>
+<li><p>Element selector (“element”): selects all elements with the given tag name:<br>$(“div”).css(“border”, “9px solid red”);</p>
+</li>
+<li><p>ID selector (“#id”): selects a single element with the given id attribute:$(“#myDiv”).css(“border”, “3px solid red”);</p>
+</li>
+<li><p>Basic Filter, e.g. selects all elements that are h1, h2, h3, etc and assigns cssproperties</p>
+<p>$(“:header”).css({ background: “#ccc”, color: “blue” });</p>
+</li>
+<li><p>Child Filter, e.g. finds the first span in each div and underlines the text$(“div span:first-child”).css( “text-decoration”, “underline” )</p>
+</li>
+<li><p>Content Filter, e.g. finds all div containing “John” and underlines them$(“div:contains(‘John’)”).css( “text-decoration”, “underline” );</p>
+</li>
+<li><p>Form, e.g. finds all buttons and adds the css class “marked” to theirproperties</p>
+<p>var input = $(“:button”).addClass( “marked” );</p>
+</li>
+</ul>
+<h3 id="jQuery-Functions"><a href="#jQuery-Functions" class="headerlink" title="jQuery Functions"></a>jQuery Functions</h3><ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var hits = 0;</span><br><span class="line">function updateMessage() &#123;</span><br><span class="line">hits += 1;</span><br><span class="line">document.getElementById("counter").innerHTML = "Number of clicks = " + hits; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function() &#123;</span><br><span class="line">    var hits = 0;</span><br><span class="line">              $("#updateMessage").click(function() &#123; $("#counter").html("Number of clicks = " + ++hits);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = document.getElementById( counter1 ); var xlocation = parseInt(obj.style.left); function handleClick( ) &#123;</span><br><span class="line">xlocation += 50;</span><br><span class="line">document.getElementById( counter1 ).style.left = xlocation +  px ;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function() &#123;</span><br><span class="line">           $("#counter1").click(function() &#123;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">$( #counter1 ).css( left ,(parseInt($( #counter1 ).css( left ))+50)+ px );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="jQuery-AJAX-load-GET-and-POST-method"><a href="#jQuery-AJAX-load-GET-and-POST-method" class="headerlink" title="jQuery AJAX load, GET and POST method"></a>jQuery AJAX load, GET and POST method</h3><ul>
+<li><p>The load() method loads data from a server and puts the returned data into the selected element.</p>
+</li>
+<li><p>$(selector).load(URL,data,callback);</p>
+<ul>
+<li>The selector is usually a reference to div or span tag</li>
+<li>The required URL parameter specifies the URL you wish to load.</li>
+<li>The optional data parameter specifies a set of query string key/value pairs to send along with the request.</li>
+<li>The optional callback parameter is the name of a function to be executed after the load() method is completed.</li>
+</ul>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">$(<span class="string">"#div1"</span>).load(<span class="string">"demo_test.txt"</span>,functio n(responseTxt,statusTxt,xhr)&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(statusTxt==<span class="string">"success"</span>)</span></span><br><span class="line"><span class="undefined">        alert("External content loaded</span></span><br><span class="line"><span class="undefined">successfully!");</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(statusTxt==<span class="string">"error"</span>)</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"Error: "</span>+xhr.status+<span class="string">":</span></span></span><br><span class="line"><span class="undefined">"+xhr.statusText);   &#125;);    &#125;);    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">$.get(<span class="string">"demo_test3.test"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data,s tatus</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">"Data: "</span> + data +</span></span><br><span class="line"><span class="javascript"><span class="string">"\nStatus: "</span> + status);</span></span><br><span class="line"><span class="undefined">&#125;); &#125;);</span></span><br><span class="line"><span class="undefined">&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    $.post(<span class="string">"demo_test_post.php"</span>,</span></span><br><span class="line"><span class="undefined">    &#123;</span></span><br><span class="line"><span class="javascript">      name:<span class="string">"Donald Duck"</span>,</span></span><br><span class="line"><span class="javascript">      city:<span class="string">"Duckburg"</span></span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span>(<span class="params">data,status</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">"Data: "</span> + data +</span></span><br><span class="line"><span class="javascript"><span class="string">"\nStatus: "</span> + status);</span></span><br><span class="line"><span class="undefined">&#125;); &#125;);</span></span><br><span class="line"><span class="undefined">&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="jQuery-Usage-Example"><a href="#jQuery-Usage-Example" class="headerlink" title="jQuery Usage Example"></a>jQuery Usage Example</h3><ul>
+<li><p>Determining if checkbox is checked</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If ($( #total ).attr( checked )) &#123;</span><br><span class="line">//Do whatever you want if box is checked &#125;</span><br><span class="line">else &#123;</span><br><span class="line">//Do whatever you want if box is not checked &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Form Events such as submit</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function() &#123; $( #signup ).submit(function() &#123;</span><br><span class="line">if ($( #username ).val() ==  ) &#123;</span><br><span class="line">alert ( Please supply name to name</span><br><span class="line">field );</span><br><span class="line">return false;</span><br><span class="line">&#125; &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>If any radio button is clicked</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$( :radio ).click(function() &#123;</span><br><span class="line">	//do stuff </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="jQuery-Resources"><a href="#jQuery-Resources" class="headerlink" title="jQuery Resources"></a>jQuery Resources</h3><ul>
+<li>Project website<ul>
+<li><a href="http://www.jquery.com" target="_blank" rel="noopener">http://www.jquery.com</a></li>
+</ul>
+</li>
+<li>Learning Center<ul>
+<li><a href="http://docs.jquery.com/Tutorials" target="_blank" rel="noopener">http://docs.jquery.com/Tutorials</a></li>
+<li><a href="http://www.learningjquery.com/" target="_blank" rel="noopener">http://www.learningjquery.com/</a></li>
+<li><a href="http://15daysofjquery.com/" target="_blank" rel="noopener">http://15daysofjquery.com/</a></li>
+</ul>
+</li>
+<li>Support<ul>
+<li><a href="http://docs.jquery.com/Discussion" target="_blank" rel="noopener">http://docs.jquery.com/Discussion</a></li>
+<li><a href="http://www.nabble.com/JQuery-f15494.html" target="_blank" rel="noopener">http://www.nabble.com/JQuery-f15494.html</a> mailing list archive</li>
+<li>irc.freenode.net irc room: #jquery</li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="http://docs.jquery.com/Main_Page" target="_blank" rel="noopener">http://docs.jquery.com/Main_Page</a></li>
+<li><a href="http://www.visualjquery.com" target="_blank" rel="noopener">http://www.visualjquery.com</a></li>
+<li><a href="http://jquery.bassistance.de/api-browser/" target="_blank" rel="noopener">http://jquery.bassistance.de/api-browser/</a></li>
+</ul>
+</li>
+<li>jQuery Success Stories<ul>
+<li><a href="http://docs.jquery.com/Sites_Using_jQuery" target="_blank" rel="noopener">http://docs.jquery.com/Sites_Using_jQuery</a></li>
+</ul>
+</li>
+</ul>
+<p>​<br>​<br>​    </p>
+<p>​<br>​<br>​<br>​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/jQuery/" data-id="cjgn73x03003229f2mxs03on6" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/29/Ajax/" class="article-date">
+  <time datetime="2018-04-30T00:21:10.000Z" itemprop="datePublished">2018-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ajax-Asynchronous-Javascript-XML"><a href="#Ajax-Asynchronous-Javascript-XML" class="headerlink" title="Ajax(Asynchronous Javascript + XML)"></a><center>Ajax(Asynchronous Javascript + XML)</center></h2><h3 id="Ajax-incorporates"><a href="#Ajax-incorporates" class="headerlink" title="Ajax incorporates"></a>Ajax incorporates</h3><ul>
+<li>standards-based presentation using XHTML;</li>
+<li>CSS, dynamically manipulated using JavaScript;</li>
+<li>dynamic display and interaction using the DocumentObject Model (DOM). Web page exposed as DOM object;</li>
+<li>data interchange using XML;</li>
+<li>asynchronous data retrieval using XMLHttpRequest, a JavaScript object</li>
+<li>JavaScript binding everything together;</li>
+<li>Server no longer performs display logic, only business logic.</li>
+</ul>
+<h3 id="The-Ajax-Web-Application-Model"><a href="#The-Ajax-Web-Application-Model" class="headerlink" title="The Ajax Web Application Model"></a>The Ajax Web Application Model</h3><ul>
+<li>Ajax introduces an intermediary — an Ajax engine — between the user and the server.</li>
+<li>Instead of loading a webpage, at the start of the session, the browser loads an Ajax engine — written in JavaScript and usually stored in a hidden frame.</li>
+<li>This engine is responsible for<ul>
+<li>rendering the interface the user sees</li>
+<li>communicating with the server on the user’s behalf.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180429155939578.png" alt="image-20180429155939578"></p>
+<h3 id="Ajax-Engine"><a href="#Ajax-Engine" class="headerlink" title="Ajax Engine"></a>Ajax Engine</h3><ul>
+<li><p>Every user action that normally would generate an HTTP request takes the form of a JavaScript call to the Ajax engine instead.</p>
+</li>
+<li><p>Any response to a user action that doesn’t require a trip back to the server, such as:</p>
+<ul>
+<li>simple data validation</li>
+<li>editing data in memory</li>
+<li><p>even some navigation</p>
+<p>the engine handles on its own.</p>
+</li>
+</ul>
+</li>
+<li><p>If the engine needs something from the server in order to respond, such as:</p>
+<ul>
+<li>submitting data for processing</li>
+<li>loading additional interface code</li>
+<li>retrieving new data</li>
+</ul>
+<p>the engine makes those requests asynchronously, retrieving results in JSON or XML, without stalling a user’s interaction with the application.</p>
+</li>
+</ul>
+<h3 id="XMLHttpRequest-Object"><a href="#XMLHttpRequest-Object" class="headerlink" title="XMLHttpRequest Object"></a>XMLHttpRequest Object</h3><ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var req = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>The object reference returned is to an abstract object that works entirely out of view of the user.</p>
+</li>
+<li><p>open() sets the scene for an upcoming operation: </p>
+<ul>
+<li><p>Two required parameters are the HTTP method you intend for the request and the URL for the connection.</p>
+</li>
+<li><p>For the method parameter, use “GET” on operations that are primarily data retrieval requests; use “POST” on operations that send data to the server, especially if the length of the outgoing data is potentially greater than 512 bytes. The URL may be either a complete or relative URL.</p>
+</li>
+<li><p>It is safer to send asynchronously and design your code around the onreadystatechange event<br>for the request object.</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">req.onreadystatechange = processReqChange();</span><br><span class="line">req.open("GET", url, true);</span><br><span class="line">req.send("");</span><br><span class="line"></span><br><span class="line">function processReqChange() &#123;</span><br><span class="line">    // only if req shows "loaded"</span><br><span class="line">    if (req.readyState == 4) &#123;</span><br><span class="line">        // only if "OK"</span><br><span class="line">        if (req.status == 200) &#123;</span><br><span class="line">		// processing statements req.responseText // for JSON</span><br><span class="line">		// and req.responseXML for XML go here...	</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">	alert("There was a problem retrieving the data:\n" + req.statusText);</span><br><span class="line">	&#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​<br>​<br>​<br>​    </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ​</p>
+<p>  ​</p>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/29/Ajax/" data-id="cjgn73wwa000029f2e6djx7yc" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Resposive Web Design" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/29/Resposive Web Design/" class="article-date">
+  <time datetime="2018-04-29T21:49:50.000Z" itemprop="datePublished">2018-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Responsive-Web-Design"><a href="#Responsive-Web-Design" class="headerlink" title="Responsive Web Design"></a><center>Responsive Web Design</center></h2><h3 id="RWD"><a href="#RWD" class="headerlink" title="RWD"></a>RWD</h3><ul>
+<li><p>RWD is the concept of developing a website in a way that allows the layout to automatically adjust according to the user’s screen resolution (called its viewport).    </p>
+</li>
+<li><p>The viewport meta tag lets you set the width and initial scale of the viewport.</p>
+</li>
+<li><p>For example</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=590"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Media-Queries"><a href="#Media-Queries" class="headerlink" title="Media Queries"></a>Media Queries</h3><ul>
+<li>A media query consists of a media type (screen) and the actual query enclosed within parentheses, containing a particular media feature (max-device-width) to inspect, followed by the target value (480px). The query can be zero or more expressions that check for the conditions of particular media features.</li>
+</ul>
+<h3 id="A-Simple-Example"><a href="#A-Simple-Example" class="headerlink" title="A Simple Example"></a>A Simple Example</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">.myCircle &#123;</span></span><br><span class="line"><span class="undefined">  width:200px;</span></span><br><span class="line"><span class="undefined">  height:200px;</span></span><br><span class="line"><span class="undefined">  -webkit-border-radius: 50%;</span></span><br><span class="line"><span class="undefined">  -moz-border-radius: 50% ;</span></span><br><span class="line"><span class="undefined">  border-radius: 50% ;</span></span><br><span class="line"><span class="undefined">  background:blue;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">@media (max-width: 480px) &#123;</span></span><br><span class="line"><span class="undefined">  .myCircle &#123;</span></span><br><span class="line"><span class="undefined">      background:red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">@media (max-width: 768px) &#123;</span></span><br><span class="line"><span class="undefined">  .myCircle &#123;</span></span><br><span class="line"><span class="undefined">      background:green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">@media (min-width: 960px) &#123;</span></span><br><span class="line"><span class="undefined">  .myCircle &#123;</span></span><br><span class="line"><span class="undefined">      background:pink;</span></span><br><span class="line"><span class="undefined">      width:400px;</span></span><br><span class="line"><span class="undefined">      height:400px;</span></span><br><span class="line"><span class="undefined">&#125; &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"myCircle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h3><ul>
+<li>Bootstrap is a powerful front-end framework for faster and easier responsive web development.</li>
+<li>It includes HTML and CSS based design templates for common user interface components like Typography, Forms, Buttons, Tables, Navigations, Dropdowns, Alerts, Modals, Tabs, Accordion, Carousel and many other as well as optional JavaScript extensions.</li>
+<li>Bootstrap responsive features make your web pages to appear more appropriately on different devices and screen resolutions without any change in markup.</li>
+</ul>
+<h3 id="A-Basic-Bootstrap-Template-File"><a href="#A-Basic-Bootstrap-Template-File" class="headerlink" title="A Basic Bootstrap Template File"></a>A Basic Bootstrap Template File</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Basic Bootstrap Template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span> <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>The Bootstrap 3 grid system has four tiers of classes: xs (phones), sm(tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Reset offsets, pushes, and pulls at specific breakpoints.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-5 col-md-6"</span>&gt;</span>.col-sm-5 .col-md-6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0"</span>&gt;</span>.col-sm-5 .col-sm- offset-2 .col-md-6 .col-md-offset-0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 col-md-5 col-lg-6"</span>&gt;</span>.col-sm-6 .col-md-5 .col-lg-6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0"</span>&gt;</span>.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/29/Resposive Web Design/" data-id="cjgn73wzj002j29f2q4wcvrry" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Cookies and Privacy" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -96,7 +799,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Cookies and Privacy/" data-id="cjgkhh4bs0004q6f2j82gxzc8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/29/Cookies and Privacy/" data-id="cjgn73wx0000729f2lx9d5xd9" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -150,448 +853,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/28/Validation/" data-id="cjgkhh4ee002gq6f29335q5p0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/28/Validation/" data-id="cjgn73wzn002o29f27esu8fa7" class="article-share-link">Teilen</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Web Server Performance Testing" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/28/Web Server Performance Testing/" class="article-date">
-  <time datetime="2018-04-29T04:21:44.000Z" itemprop="datePublished">2018-04-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Web-Server-Performance-Testing"><a href="#Web-Server-Performance-Testing" class="headerlink" title="Web Server Performance Testing"></a><center>Web Server Performance Testing</center></h2><h3 id="Web-Server-Benchmarking"><a href="#Web-Server-Benchmarking" class="headerlink" title="Web Server Benchmarking"></a>Web Server Benchmarking</h3><ul>
-<li>Web server benchmarking is the process of estimating a web server performance in order to<br>find if the server can serve sufficiently high workload.</li>
-<li>The performance is usually measured in terms of:<ul>
-<li>Number of requests that can be served per second</li>
-<li>Latency response time in milliseconds for each new connection or request</li>
-<li>Throughput in bytes per second</li>
-</ul>
-</li>
-</ul>
-<h3 id="Other-Web-Servers-Lighttpd-nginx"><a href="#Other-Web-Servers-Lighttpd-nginx" class="headerlink" title="Other Web Servers: Lighttpd, nginx"></a>Other Web Servers: Lighttpd, nginx</h3><ul>
-<li>lighttpd is an open-source web server optimized for speed-critical environments</li>
-<li>Nginx is an open source Web server and a reverse proxy server for HTTP, SMTP, POP3<br>and IMAP protocols, with a strong focus on high concurrency, performance and low memory usage.</li>
-</ul>
-<h3 id="Web-Server-as-a-Proxy-Server"><a href="#Web-Server-as-a-Proxy-Server" class="headerlink" title="Web Server as a Proxy Server"></a>Web Server as a Proxy Server</h3><ul>
-<li>Definition of Proxy Server: An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache.</li>
-<li>Implications:<ul>
-<li>A proxy server is a web server</li>
-<li>A proxy server acts as a server to the client that makes a request, and it acts as a client to the servers it connects to</li>
-</ul>
-</li>
-</ul>
-<h3 id="HTTP-Protocol-and-Proxy-Servers"><a href="#HTTP-Protocol-and-Proxy-Servers" class="headerlink" title="HTTP Protocol and Proxy Servers"></a>HTTP Protocol and Proxy Servers</h3><ul>
-<li><p>The protocol between client and proxy server,or between proxy servers is HTTP, even if the request is for ftp, telnet, mailto, etc.</p>
-</li>
-<li><p>e.g. an ftp request is sent as an HTTP requestto a proxy server as:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET ftp://ftp.usc.edu/pub/softeng.txt HTTP/1.0</span><br><span class="line">User-agent: Mozilla/4.0</span><br><span class="line">Accept: */*</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>​    </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/28/Web Server Performance Testing/" data-id="cjgkhh4eg002iq6f2mgdi5jbz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Analyzing Web Server Performance" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/28/Analyzing Web Server Performance/" class="article-date">
-  <time datetime="2018-04-28T07:00:57.000Z" itemprop="datePublished">2018-04-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Analyzing-Web-Server-Performance"><a href="#Analyzing-Web-Server-Performance" class="headerlink" title="Analyzing Web Server Performance"></a><center>Analyzing Web Server Performance</center></h2><h2 id="Estimating-Server-Performance-Requirements"><a href="#Estimating-Server-Performance-Requirements" class="headerlink" title="Estimating Server Performance Requirements"></a>Estimating Server Performance Requirements</h2><ul>
-<li><p>What is the time required to deliver a request to the server?</p>
-<ul>
-<li>is client <strong>authenticated</strong> or anonymous, the former is much more costly</li>
-<li><strong>how much data</strong> does the client send</li>
-<li>the <strong>bandwidth</strong> <strong>of the slowest link</strong> between client and server can determine the time</li>
-</ul>
-</li>
-<li><p>What is the time required to obtain the result?</p>
-<ul>
-<li><p>is the result a static HTML page：</p>
-<ul>
-<li>is it in the cache, how big is the file</li>
-</ul>
-</li>
-<li><p>is the result a dynamic page：</p>
-<ul>
-<li><p>is the application that creates it a CGI script(CGI: Common Gateway Interface</p>
-<p>)</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>What is the time to deliver the result?</p>
-<ul>
-<li>the amount of data sent by the server</li>
-<li>bandwidth of the client-server link</li>
-<li>number of simultaneous requests</li>
-</ul>
-</li>
-<li><p>to estimate what performance is needed, estimate</p>
-<ul>
-<li>the <strong>number of clients</strong> that will connect each second, <strong>connections per sec</strong></li>
-<li>the <strong>number of bytes</strong> the client will send to the server during each transaction</li>
-<li>the number of bytes the server will send to the clientduring each transaction, <strong>bytes transferred</strong></li>
-<li>how much of the link the web server is allowed to use</li>
-</ul>
-</li>
-<li><p>E.g. 120 clients connect twice each minute implies 240 connections per minute or 4 per second. If each client sends 1Kbyte of data and receives 15Kbytes back, then the server needs to support 64Kbytes per second or 512 Kbitsps or roughly 0.5megabits per second.</p>
-<h2 id="DNS-Redirection"><a href="#DNS-Redirection" class="headerlink" title="DNS Redirection"></a>DNS Redirection</h2></li>
-<li><p><img src="/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180427235452584.png" alt="image-20180427235452584"></p>
-<p>​</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/28/Analyzing Web Server Performance/" data-id="cjgkhh4bj0001q6f2fv3h5kig" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Secure Web Communication" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/27/Secure Web Communication/" class="article-date">
-  <time datetime="2018-04-28T00:04:29.000Z" itemprop="datePublished">2018-04-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Secure-Web-Communication"><a href="#Secure-Web-Communication" class="headerlink" title="Secure Web Communication"></a>Secure Web Communication</h2><h2 id="RSA-Public-Key-Encryption"><a href="#RSA-Public-Key-Encryption" class="headerlink" title="RSA Public Key Encryption"></a>RSA Public Key Encryption</h2><ul>
-<li><p>RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission</p>
-</li>
-<li><p>A user of RSA creates two large prime numbers and thenpublishes one of them as his public key</p>
-<p>– the numbers are typically 1024 digits or more</p>
-<p>– there are a few more steps involved</p>
-</li>
-<li><p>The most popular algorithm for public key encryption is</p>
-<p>the RSA algorithm (Rivest, Shamir Adleman)</p>
-<h2 id="Cryptographic-Hash-Functions"><a href="#Cryptographic-Hash-Functions" class="headerlink" title="Cryptographic Hash Functions"></a>Cryptographic Hash Functions</h2></li>
-</ul>
-<ul>
-<li><p>Given a data item X (X could be a word or afile), H is called a cryptographic hash function if it is computationally infeasible to find another data item Y, not equal to X, such that the hash value H(X) is equal to the hash value H(Y).</p>
-<p>– H(X) is called the <strong>message digest</strong> or <strong>digital signature</strong> of X under the hashing algorithm H.</p>
-</li>
-<li><p>Two well known cryptographic hash functions are <strong>MD5</strong> and <strong>SHA</strong>.</p>
-<h2 id="Certificate-Authority"><a href="#Certificate-Authority" class="headerlink" title="Certificate Authority"></a>Certificate Authority</h2></li>
-<li><p>A certificate authority (CA) is an organizationthat both parties involved in a securecommunication, trust</p>
-</li>
-<li><p>the role of the CA is to verify the identity ofan entity (client/server)</p>
-</li>
-<li><p>once the CA verifies the entity, it issues adigitally signed electronic certificate</p>
-<p>– it is signed with the CA s private key</p>
-<p>​</p>
-<h2 id="Introduction-to-SSL"><a href="#Introduction-to-SSL" class="headerlink" title="Introduction to SSL"></a>Introduction to SSL</h2></li>
-<li><p>Given public key encryption, cryptographic hashing, message digests and digital certificates, how are these put together to produce secure electronic commerce?</p>
-</li>
-<li><p>The answer: SSL, is a protocol for establishing an encrypted link between server and client, that uses authentication and encryption of transactional data</p>
-</li>
-<li><p>SSL is occasionally called TLS, <strong>Transport Layer Security protocol</strong>.</p>
-</li>
-<li><p>Secure Sockets Layer (SSL) provides end-to-end security between client and server.</p>
-</li>
-<li><p>SSL for HTTP is referred to as HTTPS and operates on port 443.</p>
-<h2 id="How-SSL-Works-–-Detailed-Steps"><a href="#How-SSL-Works-–-Detailed-Steps" class="headerlink" title="How SSL Works – Detailed Steps"></a>How SSL Works – Detailed Steps</h2></li>
-</ul>
-<ol>
-<li>Client contacts a secure server using https and asks that server identify itself</li>
-<li>Server sends client its digital certificate including the server’s public key, thereby verifying that the server is who he says he is</li>
-<li>Client checks the certificate root against its list of trusted CAs and that the certificate is unexpired; if all is OK, client generates a session key, encrypts it with server s public key and sends the cipher back to the server</li>
-<li>Server decrypts the symmetric session key using its private key and sends back an acknowledgement and a secure channel is established</li>
-<li>Client and server now exchange data that is always encrypted</li>
-<li>Before each data transfer, a message digest calculated from the data is sent on the secure channel</li>
-<li>Receiving party uses the message digest to guarantee the data has not been modified.</li>
-</ol>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li>SSL Protocol Version 3.0 Specification:</li>
-</ol>
-<p>– <a href="http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt" target="_blank" rel="noopener">http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt</a></p>
-<ol>
-<li><p>TLS Protocol Version 1.0 Specification:– <a href="http://www.ietf.org/rfc/rfc2246.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2246.txt</a></p>
-</li>
-<li><p>Extensions to TLS:</p>
-<p>–  Kerberos:<a href="http://www.ietf.org/rfc/rfc2712.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2712.txt</a></p>
-<p>–  TLS with HTTP/1.1:<a href="http://www.ietf.org/rfc/rfc2817.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2817.txt</a></p>
-<p>–  HTTP over TLS:<a href="http://www.ietf.org/rfc/rfc2818.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2818.txt</a></p>
-<p>–  AES Ciphersuites for TLS:<a href="http://www.ietf.org/rfc/rfc3268.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc3268.txt</a></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/27/Secure Web Communication/" data-id="cjgkhh4eh002lq6f233oq5lx7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-AngularJS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/30/AngularJS/" class="article-date">
-  <time datetime="2018-03-30T21:21:05.000Z" itemprop="datePublished">2018-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/30/AngularJS/">AngularJS</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>ng-app=” “  定义angularJS的使用范围；</li>
-<li>ng-init=”变量=值;变量=’值’”  初始化变量的值，有多个变量时，中间用分号隔开；</li>
-<li>ng-model=”变量”  定义变量名；</li>
-<li>ng-bind=”变量”  绑定变量名，获取该变量的数据。这里的变量就是第3条的变量名。但是一般都用双重花括号来获取变量的值，比如：。</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">p</span>&gt;</span>名字 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>ng-invalid:未通过验证的表单<br>ng-valid:布尔型属性，它指示表单是否通过验证。如果表单当前通过验证，他将为true<br>ng-dirty:布尔值属性，表示用户是否修改了表单。如果为 ture，表示有修改过；false 表示修没有修改过<br>ng-touched:布尔值属性，表示用户是否和控件进行过交互<br>ng-pristine:布尔值属性，表示用户是否修改了表单。如果为ture，表示没有修改过；false表示修改过</p>
-</li>
-<li><p>AngularJS 应用组成如下：<br>View(视图), 即 HTML。<br>Model(模型), 当前视图中可用的数据。<br>Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。<br>scope 是模型。<br>scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/30/AngularJS/" data-id="cjgkhh4bx0005q6f2bdr09c4r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-154-FindMinimumDuplicate" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/" class="article-date">
-  <time datetime="2018-03-30T02:37:30.000Z" itemprop="datePublished">2018-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/">Leetcode_154_FindMinimumDuplicate</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> When num[mid] == num[hi], we couldn’t sure the position of minimum in mid’s left or right, so just let upper bound reduce one.<br> ex: [1,3,3] , [3,1,1]<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) high = mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; nums[high]) low = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> high--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/29/Leetcode-154-FindMinimumDuplicate/" data-id="cjgkhh4dt001rq6f2erudtdex" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-085-MaximalRectangle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/28/Leetcode-085-MaximalRectangle/" class="article-date">
-  <time datetime="2018-03-29T00:40:40.000Z" itemprop="datePublished">2018-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/Leetcode-085-MaximalRectangle/">Leetcode_085_MaximalRectangle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Method-1-Dynamic-Programming"><a href="#Method-1-Dynamic-Programming" class="headerlink" title="Method 1: Dynamic Programming"></a>Method 1: Dynamic Programming</h3><ol>
-<li>height means from top to this position, there are how many ‘1’;</li>
-<li>left means at current position, what is the index of left bound of the rectangle with height[j]. 0 means at this position, no rectangle;</li>
-<li>right means the right bound index of this rectangle. ‘n’ means no rectangle.</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalRectangle</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(matrix == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;  </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] left = <span class="keyword">new</span> <span class="keyword">int</span>[n], right = <span class="keyword">new</span> <span class="keyword">int</span>[n], height = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        </span><br><span class="line">        Arrays.fill(right,n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur_left=<span class="number">0</span>, cur_right=n; </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) height[j]++;</span><br><span class="line">                <span class="keyword">else</span> height[j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) left[j] = Math.max(left[j],cur_left);</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    left[j]=<span class="number">0</span>; </span><br><span class="line">                    cur_left=j+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = n-<span class="number">1</span>;j &gt;= <span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) right[j] = Math.min(right[j],cur_right);</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    right[j] = n;</span><br><span class="line">                    cur_right = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">                maxarea = Math.max(maxarea,(right[j]-left[j])*height[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Method-2-derived-from-lc084"><a href="#Method-2-derived-from-lc084" class="headerlink" title="Method 2 : derived from lc084"></a>Method 2 : derived from lc084</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalRectangle</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(matrix == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;      </span><br><span class="line">        <span class="keyword">int</span>[] h = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) h[j]++;</span><br><span class="line">               <span class="keyword">else</span> h[j] = <span class="number">0</span>;    </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">            stack.push(-<span class="number">1</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>;k &lt; n;k++)&#123;</span><br><span class="line">                <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span> &amp;&amp; h[stack.peek()] &gt; h[k])</span><br><span class="line">                    maxarea = Math.max(maxarea, h[stack.pop()]*(k-stack.peek()-<span class="number">1</span>));</span><br><span class="line">                stack.push(k);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span>)&#123;</span><br><span class="line">                maxarea = Math.max(maxarea, h[stack.pop()]*(n-stack.peek()-<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/Leetcode-085-MaximalRectangle/" data-id="cjgkhh4dr001oq6f2x0dvpc8n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-084-LargestRectangle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/28/Leetcode-084-LargestRectangle/" class="article-date">
-  <time datetime="2018-03-28T21:39:11.000Z" itemprop="datePublished">2018-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/Leetcode-084-LargestRectangle/">Leetcode_084_LargestRectangle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>Create an empty stack.</p>
-</li>
-<li><p>Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.<br>……a) If stack is empty or hist[i] is higher than the bar at top of stack, then push ‘i’ to stack.<br>……b) If this bar is smaller than the top of stack, then keep removing the top of stack while top of the stack is greater. Let the removed bar be hist[tp]. Calculate area of rectangle with hist[tp] as smallest bar. For hist[tp], the ‘left index’ is previous (previous to tp) item in stack and ‘right index’ is ‘i’ (current index).</p>
-</li>
-<li><p>If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.</p>
-</li>
-<li><p>Time Complexity : O(N).</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] heights)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;</span><br><span class="line">        stack.push(-<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; heights.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span> &amp;&amp; heights[i] &lt; heights[stack.peek()]) </span><br><span class="line">                maxarea = Math.max(maxarea, heights[stack.pop()]*(i - stack.peek() - <span class="number">1</span>));</span><br><span class="line">            stack.push(i);           </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span>)</span><br><span class="line">            maxarea = Math.max(maxarea,heights[stack.pop()]*(heights.length - stack.peek() - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjgkhh4dk001jq6f2xenm8e1c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-033-SearchInRotatedArray" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/27/Leetcode-033-SearchInRotatedArray/" class="article-date">
-  <time datetime="2018-03-28T06:58:35.000Z" itemprop="datePublished">2018-03-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/27/Leetcode-033-SearchInRotatedArray/">Leetcode_033_SearchInRotatedArray</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>O(logN):</p>
-<ol>
-<li>Find the Minimum number’s index in O(logN);</li>
-<li>Decide the low and high index;</li>
-<li>Do classical binary search in O(logN).</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> minIdx = findMinIdx(nums);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">int</span> low = (target &gt;= nums[<span class="number">0</span>]) ? <span class="number">0</span> : minIdx;</span><br><span class="line">        <span class="keyword">int</span> high = (target &lt;= nums[n-<span class="number">1</span>]) ? n-<span class="number">1</span> : minIdx;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high-low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;target) high = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&lt;target) low = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMinIdx</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high-low)/<span class="number">2</span>;<span class="comment">//low &lt;= mid &lt; high</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) high = mid;</span><br><span class="line">            <span class="keyword">else</span> low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjgkhh4d70017q6f2qdaxp2nt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
     </footer>
   </div>
   
@@ -603,7 +867,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -634,7 +898,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -644,28 +908,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/04/29/Cookies and Privacy/">(no title)</a>
+            <a href="/2018/04/30/HTML5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/28/Validation/">(no title)</a>
+            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/28/Web Server Performance Testing/">(no title)</a>
+            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/28/Analyzing Web Server Performance/">(no title)</a>
+            <a href="/2018/04/30/High Performance Web sites/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/27/Secure Web Communication/">(no title)</a>
+            <a href="/2018/04/30/Web Services and REST/">(no title)</a>
           </li>
         
       </ul>

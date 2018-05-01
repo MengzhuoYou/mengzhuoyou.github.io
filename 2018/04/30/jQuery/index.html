@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQueryWhat is jQuery? A framework for client-side JavaScript.  Frameworks provide useful alternatives for common programming tasks.  jQuery adds a JavaScript object called $ or jQuery to your JavaScri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/04/30/jQuery/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="jQueryWhat is jQuery? A framework for client-side JavaScript.  Frameworks provide useful alternatives for common programming tasks.  jQuery adds a JavaScript object called $ or jQuery to your JavaScri">
+<meta property="og:updated_time" content="2018-04-30T16:59:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="jQueryWhat is jQuery? A framework for client-side JavaScript.  Frameworks provide useful alternatives for common programming tasks.  jQuery adds a JavaScript object called $ or jQuery to your JavaScri">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/jQuery/" class="article-date">
+  <time datetime="2018-04-30T16:59:35.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a><center>jQuery</center></h2><h3 id="What-is-jQuery"><a href="#What-is-jQuery" class="headerlink" title="What is jQuery?"></a>What is jQuery?</h3><ul>
+<li><p>A framework for client-side JavaScript.</p>
+</li>
+<li><p>Frameworks provide useful alternatives for common programming tasks.</p>
+</li>
+<li><p>jQuery adds a JavaScript object called $ or jQuery to your JavaScript code.</p>
+</li>
+<li><p>Example:</p>
+<ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myButton = document.getElementById("myButton");</span><br></pre></td></tr></table></figure>
+<p>In jQuery,</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("#myButton");</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+<h3 id="jQuery-Basic-Selectors"><a href="#jQuery-Basic-Selectors" class="headerlink" title="jQuery Basic Selectors"></a>jQuery Basic Selectors</h3><ul>
+<li><p>All Selector (“<em>”): var elementCount = $(“</em>“).css(“border”, “3px solid red” ).length;</p>
+</li>
+<li><p>Class Selector (“.class”): $(“.myClass”).css(“border”, “3px solid red”);</p>
+</li>
+<li><p>Element selector (“element”): selects all elements with the given tag name:<br>$(“div”).css(“border”, “9px solid red”);</p>
+</li>
+<li><p>ID selector (“#id”): selects a single element with the given id attribute:$(“#myDiv”).css(“border”, “3px solid red”);</p>
+</li>
+<li><p>Basic Filter, e.g. selects all elements that are h1, h2, h3, etc and assigns cssproperties</p>
+<p>$(“:header”).css({ background: “#ccc”, color: “blue” });</p>
+</li>
+<li><p>Child Filter, e.g. finds the first span in each div and underlines the text$(“div span:first-child”).css( “text-decoration”, “underline” )</p>
+</li>
+<li><p>Content Filter, e.g. finds all div containing “John” and underlines them$(“div:contains(‘John’)”).css( “text-decoration”, “underline” );</p>
+</li>
+<li><p>Form, e.g. finds all buttons and adds the css class “marked” to theirproperties</p>
+<p>var input = $(“:button”).addClass( “marked” );</p>
+</li>
+</ul>
+<h3 id="jQuery-Functions"><a href="#jQuery-Functions" class="headerlink" title="jQuery Functions"></a>jQuery Functions</h3><ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var hits = 0;</span><br><span class="line">function updateMessage() &#123;</span><br><span class="line">hits += 1;</span><br><span class="line">document.getElementById("counter").innerHTML = "Number of clicks = " + hits; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function() &#123;</span><br><span class="line">    var hits = 0;</span><br><span class="line">              $("#updateMessage").click(function() &#123; $("#counter").html("Number of clicks = " + ++hits);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = document.getElementById( counter1 ); var xlocation = parseInt(obj.style.left); function handleClick( ) &#123;</span><br><span class="line">xlocation += 50;</span><br><span class="line">document.getElementById( counter1 ).style.left = xlocation +  px ;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function() &#123;</span><br><span class="line">           $("#counter1").click(function() &#123;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">$( #counter1 ).css( left ,(parseInt($( #counter1 ).css( left ))+50)+ px );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="jQuery-AJAX-load-GET-and-POST-method"><a href="#jQuery-AJAX-load-GET-and-POST-method" class="headerlink" title="jQuery AJAX load, GET and POST method"></a>jQuery AJAX load, GET and POST method</h3><ul>
+<li><p>The load() method loads data from a server and puts the returned data into the selected element.</p>
+</li>
+<li><p>$(selector).load(URL,data,callback);</p>
+<ul>
+<li>The selector is usually a reference to div or span tag</li>
+<li>The required URL parameter specifies the URL you wish to load.</li>
+<li>The optional data parameter specifies a set of query string key/value pairs to send along with the request.</li>
+<li>The optional callback parameter is the name of a function to be executed after the load() method is completed.</li>
+</ul>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">$(<span class="string">"#div1"</span>).load(<span class="string">"demo_test.txt"</span>,functio n(responseTxt,statusTxt,xhr)&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(statusTxt==<span class="string">"success"</span>)</span></span><br><span class="line"><span class="undefined">        alert("External content loaded</span></span><br><span class="line"><span class="undefined">successfully!");</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(statusTxt==<span class="string">"error"</span>)</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"Error: "</span>+xhr.status+<span class="string">":</span></span></span><br><span class="line"><span class="undefined">"+xhr.statusText);   &#125;);    &#125;);    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">$.get(<span class="string">"demo_test3.test"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data,s tatus</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">"Data: "</span> + data +</span></span><br><span class="line"><span class="javascript"><span class="string">"\nStatus: "</span> + status);</span></span><br><span class="line"><span class="undefined">&#125;); &#125;);</span></span><br><span class="line"><span class="undefined">&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    $.post(<span class="string">"demo_test_post.php"</span>,</span></span><br><span class="line"><span class="undefined">    &#123;</span></span><br><span class="line"><span class="javascript">      name:<span class="string">"Donald Duck"</span>,</span></span><br><span class="line"><span class="javascript">      city:<span class="string">"Duckburg"</span></span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span>(<span class="params">data,status</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">"Data: "</span> + data +</span></span><br><span class="line"><span class="javascript"><span class="string">"\nStatus: "</span> + status);</span></span><br><span class="line"><span class="undefined">&#125;); &#125;);</span></span><br><span class="line"><span class="undefined">&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="jQuery-Usage-Example"><a href="#jQuery-Usage-Example" class="headerlink" title="jQuery Usage Example"></a>jQuery Usage Example</h3><ul>
+<li><p>Determining if checkbox is checked</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If ($( #total ).attr( checked )) &#123;</span><br><span class="line">//Do whatever you want if box is checked &#125;</span><br><span class="line">else &#123;</span><br><span class="line">//Do whatever you want if box is not checked &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Form Events such as submit</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function() &#123; $( #signup ).submit(function() &#123;</span><br><span class="line">if ($( #username ).val() ==  ) &#123;</span><br><span class="line">alert ( Please supply name to name</span><br><span class="line">field );</span><br><span class="line">return false;</span><br><span class="line">&#125; &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>If any radio button is clicked</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$( :radio ).click(function() &#123;</span><br><span class="line">	//do stuff </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="jQuery-Resources"><a href="#jQuery-Resources" class="headerlink" title="jQuery Resources"></a>jQuery Resources</h3><ul>
+<li>Project website<ul>
+<li><a href="http://www.jquery.com" target="_blank" rel="noopener">http://www.jquery.com</a></li>
+</ul>
+</li>
+<li>Learning Center<ul>
+<li><a href="http://docs.jquery.com/Tutorials" target="_blank" rel="noopener">http://docs.jquery.com/Tutorials</a></li>
+<li><a href="http://www.learningjquery.com/" target="_blank" rel="noopener">http://www.learningjquery.com/</a></li>
+<li><a href="http://15daysofjquery.com/" target="_blank" rel="noopener">http://15daysofjquery.com/</a></li>
+</ul>
+</li>
+<li>Support<ul>
+<li><a href="http://docs.jquery.com/Discussion" target="_blank" rel="noopener">http://docs.jquery.com/Discussion</a></li>
+<li><a href="http://www.nabble.com/JQuery-f15494.html" target="_blank" rel="noopener">http://www.nabble.com/JQuery-f15494.html</a> mailing list archive</li>
+<li>irc.freenode.net irc room: #jquery</li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li><a href="http://docs.jquery.com/Main_Page" target="_blank" rel="noopener">http://docs.jquery.com/Main_Page</a></li>
+<li><a href="http://www.visualjquery.com" target="_blank" rel="noopener">http://www.visualjquery.com</a></li>
+<li><a href="http://jquery.bassistance.de/api-browser/" target="_blank" rel="noopener">http://jquery.bassistance.de/api-browser/</a></li>
+</ul>
+</li>
+<li>jQuery Success Stories<ul>
+<li><a href="http://docs.jquery.com/Sites_Using_jQuery" target="_blank" rel="noopener">http://docs.jquery.com/Sites_Using_jQuery</a></li>
+</ul>
+</li>
+</ul>
+<p>​<br>​<br>​    </p>
+<p>​<br>​<br>​<br>​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/jQuery/" data-id="cjgn73x03003229f2mxs03on6" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/30/Web Services and REST/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/29/Ajax/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/30/HTML5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/High Performance Web sites/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/Web Services and REST/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

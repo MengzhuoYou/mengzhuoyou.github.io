@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -63,6 +63,445 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Web Server Performance Testing" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/28/Web Server Performance Testing/" class="article-date">
+  <time datetime="2018-04-29T04:21:44.000Z" itemprop="datePublished">2018-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web-Server-Performance-Testing"><a href="#Web-Server-Performance-Testing" class="headerlink" title="Web Server Performance Testing"></a><center>Web Server Performance Testing</center></h2><h3 id="Web-Server-Benchmarking"><a href="#Web-Server-Benchmarking" class="headerlink" title="Web Server Benchmarking"></a>Web Server Benchmarking</h3><ul>
+<li>Web server benchmarking is the process of estimating a web server performance in order to<br>find if the server can serve sufficiently high workload.</li>
+<li>The performance is usually measured in terms of:<ul>
+<li>Number of requests that can be served per second</li>
+<li>Latency response time in milliseconds for each new connection or request</li>
+<li>Throughput in bytes per second</li>
+</ul>
+</li>
+</ul>
+<h3 id="Other-Web-Servers-Lighttpd-nginx"><a href="#Other-Web-Servers-Lighttpd-nginx" class="headerlink" title="Other Web Servers: Lighttpd, nginx"></a>Other Web Servers: Lighttpd, nginx</h3><ul>
+<li>lighttpd is an open-source web server optimized for speed-critical environments</li>
+<li>Nginx is an open source Web server and a reverse proxy server for HTTP, SMTP, POP3<br>and IMAP protocols, with a strong focus on high concurrency, performance and low memory usage.</li>
+</ul>
+<h3 id="Web-Server-as-a-Proxy-Server"><a href="#Web-Server-as-a-Proxy-Server" class="headerlink" title="Web Server as a Proxy Server"></a>Web Server as a Proxy Server</h3><ul>
+<li>Definition of Proxy Server: An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache.</li>
+<li>Implications:<ul>
+<li>A proxy server is a web server</li>
+<li>A proxy server acts as a server to the client that makes a request, and it acts as a client to the servers it connects to</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTTP-Protocol-and-Proxy-Servers"><a href="#HTTP-Protocol-and-Proxy-Servers" class="headerlink" title="HTTP Protocol and Proxy Servers"></a>HTTP Protocol and Proxy Servers</h3><ul>
+<li><p>The protocol between client and proxy server,or between proxy servers is HTTP, even if the request is for ftp, telnet, mailto, etc.</p>
+</li>
+<li><p>e.g. an ftp request is sent as an HTTP requestto a proxy server as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET ftp://ftp.usc.edu/pub/softeng.txt HTTP/1.0</span><br><span class="line">User-agent: Mozilla/4.0</span><br><span class="line">Accept: */*</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/28/Web Server Performance Testing/" data-id="cjgn73wzt002w29f254938z5m" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Analyzing Web Server Performance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/28/Analyzing Web Server Performance/" class="article-date">
+  <time datetime="2018-04-28T07:00:57.000Z" itemprop="datePublished">2018-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Analyzing-Web-Server-Performance"><a href="#Analyzing-Web-Server-Performance" class="headerlink" title="Analyzing Web Server Performance"></a><center>Analyzing Web Server Performance</center></h2><h2 id="Estimating-Server-Performance-Requirements"><a href="#Estimating-Server-Performance-Requirements" class="headerlink" title="Estimating Server Performance Requirements"></a>Estimating Server Performance Requirements</h2><ul>
+<li><p>What is the time required to deliver a request to the server?</p>
+<ul>
+<li>is client <strong>authenticated</strong> or anonymous, the former is much more costly</li>
+<li><strong>how much data</strong> does the client send</li>
+<li>the <strong>bandwidth</strong> <strong>of the slowest link</strong> between client and server can determine the time</li>
+</ul>
+</li>
+<li><p>What is the time required to obtain the result?</p>
+<ul>
+<li><p>is the result a static HTML page：</p>
+<ul>
+<li>is it in the cache, how big is the file</li>
+</ul>
+</li>
+<li><p>is the result a dynamic page：</p>
+<ul>
+<li><p>is the application that creates it a CGI script(CGI: Common Gateway Interface</p>
+<p>)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>What is the time to deliver the result?</p>
+<ul>
+<li>the amount of data sent by the server</li>
+<li>bandwidth of the client-server link</li>
+<li>number of simultaneous requests</li>
+</ul>
+</li>
+<li><p>to estimate what performance is needed, estimate</p>
+<ul>
+<li>the <strong>number of clients</strong> that will connect each second, <strong>connections per sec</strong></li>
+<li>the <strong>number of bytes</strong> the client will send to the server during each transaction</li>
+<li>the number of bytes the server will send to the clientduring each transaction, <strong>bytes transferred</strong></li>
+<li>how much of the link the web server is allowed to use</li>
+</ul>
+</li>
+<li><p>E.g. 120 clients connect twice each minute implies 240 connections per minute or 4 per second. If each client sends 1Kbyte of data and receives 15Kbytes back, then the server needs to support 64Kbytes per second or 512 Kbitsps or roughly 0.5megabits per second.</p>
+<h2 id="DNS-Redirection"><a href="#DNS-Redirection" class="headerlink" title="DNS Redirection"></a>DNS Redirection</h2></li>
+<li><p><img src="/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180427235452584.png" alt="image-20180427235452584"></p>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/28/Analyzing Web Server Performance/" data-id="cjgn73wwg000129f2oulbl9cu" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Secure Web Communication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/27/Secure Web Communication/" class="article-date">
+  <time datetime="2018-04-28T00:04:29.000Z" itemprop="datePublished">2018-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Secure-Web-Communication"><a href="#Secure-Web-Communication" class="headerlink" title="Secure Web Communication"></a>Secure Web Communication</h2><h2 id="RSA-Public-Key-Encryption"><a href="#RSA-Public-Key-Encryption" class="headerlink" title="RSA Public Key Encryption"></a>RSA Public Key Encryption</h2><ul>
+<li><p>RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission</p>
+</li>
+<li><p>A user of RSA creates two large prime numbers and thenpublishes one of them as his public key</p>
+<p>– the numbers are typically 1024 digits or more</p>
+<p>– there are a few more steps involved</p>
+</li>
+<li><p>The most popular algorithm for public key encryption is</p>
+<p>the RSA algorithm (Rivest, Shamir Adleman)</p>
+<h2 id="Cryptographic-Hash-Functions"><a href="#Cryptographic-Hash-Functions" class="headerlink" title="Cryptographic Hash Functions"></a>Cryptographic Hash Functions</h2></li>
+</ul>
+<ul>
+<li><p>Given a data item X (X could be a word or afile), H is called a cryptographic hash function if it is computationally infeasible to find another data item Y, not equal to X, such that the hash value H(X) is equal to the hash value H(Y).</p>
+<p>– H(X) is called the <strong>message digest</strong> or <strong>digital signature</strong> of X under the hashing algorithm H.</p>
+</li>
+<li><p>Two well known cryptographic hash functions are <strong>MD5</strong> and <strong>SHA</strong>.</p>
+<h2 id="Certificate-Authority"><a href="#Certificate-Authority" class="headerlink" title="Certificate Authority"></a>Certificate Authority</h2></li>
+<li><p>A certificate authority (CA) is an organizationthat both parties involved in a securecommunication, trust</p>
+</li>
+<li><p>the role of the CA is to verify the identity ofan entity (client/server)</p>
+</li>
+<li><p>once the CA verifies the entity, it issues adigitally signed electronic certificate</p>
+<p>– it is signed with the CA s private key</p>
+<p>​</p>
+<h2 id="Introduction-to-SSL"><a href="#Introduction-to-SSL" class="headerlink" title="Introduction to SSL"></a>Introduction to SSL</h2></li>
+<li><p>Given public key encryption, cryptographic hashing, message digests and digital certificates, how are these put together to produce secure electronic commerce?</p>
+</li>
+<li><p>The answer: SSL, is a protocol for establishing an encrypted link between server and client, that uses authentication and encryption of transactional data</p>
+</li>
+<li><p>SSL is occasionally called TLS, <strong>Transport Layer Security protocol</strong>.</p>
+</li>
+<li><p>Secure Sockets Layer (SSL) provides end-to-end security between client and server.</p>
+</li>
+<li><p>SSL for HTTP is referred to as HTTPS and operates on port 443.</p>
+<h2 id="How-SSL-Works-–-Detailed-Steps"><a href="#How-SSL-Works-–-Detailed-Steps" class="headerlink" title="How SSL Works – Detailed Steps"></a>How SSL Works – Detailed Steps</h2></li>
+</ul>
+<ol>
+<li>Client contacts a secure server using https and asks that server identify itself</li>
+<li>Server sends client its digital certificate including the server’s public key, thereby verifying that the server is who he says he is</li>
+<li>Client checks the certificate root against its list of trusted CAs and that the certificate is unexpired; if all is OK, client generates a session key, encrypts it with server s public key and sends the cipher back to the server</li>
+<li>Server decrypts the symmetric session key using its private key and sends back an acknowledgement and a secure channel is established</li>
+<li>Client and server now exchange data that is always encrypted</li>
+<li>Before each data transfer, a message digest calculated from the data is sent on the secure channel</li>
+<li>Receiving party uses the message digest to guarantee the data has not been modified.</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>SSL Protocol Version 3.0 Specification:</li>
+</ol>
+<p>– <a href="http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt" target="_blank" rel="noopener">http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt</a></p>
+<ol>
+<li><p>TLS Protocol Version 1.0 Specification:– <a href="http://www.ietf.org/rfc/rfc2246.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2246.txt</a></p>
+</li>
+<li><p>Extensions to TLS:</p>
+<p>–  Kerberos:<a href="http://www.ietf.org/rfc/rfc2712.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2712.txt</a></p>
+<p>–  TLS with HTTP/1.1:<a href="http://www.ietf.org/rfc/rfc2817.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2817.txt</a></p>
+<p>–  HTTP over TLS:<a href="http://www.ietf.org/rfc/rfc2818.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2818.txt</a></p>
+<p>–  AES Ciphersuites for TLS:<a href="http://www.ietf.org/rfc/rfc3268.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc3268.txt</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/27/Secure Web Communication/" data-id="cjgn73wzp002r29f2uoeg7488" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AngularJS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/30/AngularJS/" class="article-date">
+  <time datetime="2018-03-30T21:21:05.000Z" itemprop="datePublished">2018-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/30/AngularJS/">AngularJS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ng-app=” “  定义angularJS的使用范围；</li>
+<li>ng-init=”变量=值;变量=’值’”  初始化变量的值，有多个变量时，中间用分号隔开；</li>
+<li>ng-model=”变量”  定义变量名；</li>
+<li>ng-bind=”变量”  绑定变量名，获取该变量的数据。这里的变量就是第3条的变量名。但是一般都用双重花括号来获取变量的值，比如：。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">p</span>&gt;</span>名字 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>ng-invalid:未通过验证的表单<br>ng-valid:布尔型属性，它指示表单是否通过验证。如果表单当前通过验证，他将为true<br>ng-dirty:布尔值属性，表示用户是否修改了表单。如果为 ture，表示有修改过；false 表示修没有修改过<br>ng-touched:布尔值属性，表示用户是否和控件进行过交互<br>ng-pristine:布尔值属性，表示用户是否修改了表单。如果为ture，表示没有修改过；false表示修改过</p>
+</li>
+<li><p>AngularJS 应用组成如下：<br>View(视图), 即 HTML。<br>Model(模型), 当前视图中可用的数据。<br>Controller(控制器), 即 JavaScript 函数，可以添加或修改属性。<br>scope 是模型。<br>scope 是一个 JavaScript 对象，带有属性和方法，这些属性和方法可以在视图和控制器中使用。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/30/AngularJS/" data-id="cjgn73wwm000229f208admku0" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-154-FindMinimumDuplicate" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/" class="article-date">
+  <time datetime="2018-03-30T02:37:30.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/Leetcode-154-FindMinimumDuplicate/">Leetcode_154_FindMinimumDuplicate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> When num[mid] == num[hi], we couldn’t sure the position of minimum in mid’s left or right, so just let upper bound reduce one.<br> ex: [1,3,3] , [3,1,1]<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) high = mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &gt; nums[high]) low = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> high--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> nums[low];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/Leetcode-154-FindMinimumDuplicate/" data-id="cjgn73wz1001u29f2bj6geuco" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-085-MaximalRectangle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/28/Leetcode-085-MaximalRectangle/" class="article-date">
+  <time datetime="2018-03-29T00:40:40.000Z" itemprop="datePublished">2018-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/28/Leetcode-085-MaximalRectangle/">Leetcode_085_MaximalRectangle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Method-1-Dynamic-Programming"><a href="#Method-1-Dynamic-Programming" class="headerlink" title="Method 1: Dynamic Programming"></a>Method 1: Dynamic Programming</h3><ol>
+<li>height means from top to this position, there are how many ‘1’;</li>
+<li>left means at current position, what is the index of left bound of the rectangle with height[j]. 0 means at this position, no rectangle;</li>
+<li>right means the right bound index of this rectangle. ‘n’ means no rectangle.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalRectangle</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(matrix == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;  </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] left = <span class="keyword">new</span> <span class="keyword">int</span>[n], right = <span class="keyword">new</span> <span class="keyword">int</span>[n], height = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        </span><br><span class="line">        Arrays.fill(right,n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur_left=<span class="number">0</span>, cur_right=n; </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) height[j]++;</span><br><span class="line">                <span class="keyword">else</span> height[j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) left[j] = Math.max(left[j],cur_left);</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    left[j]=<span class="number">0</span>; </span><br><span class="line">                    cur_left=j+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = n-<span class="number">1</span>;j &gt;= <span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) right[j] = Math.min(right[j],cur_right);</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    right[j] = n;</span><br><span class="line">                    cur_right = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">                maxarea = Math.max(maxarea,(right[j]-left[j])*height[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Method-2-derived-from-lc084"><a href="#Method-2-derived-from-lc084" class="headerlink" title="Method 2 : derived from lc084"></a>Method 2 : derived from lc084</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalRectangle</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(matrix == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;      </span><br><span class="line">        <span class="keyword">int</span>[] h = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(matrix[i][j] == <span class="string">'1'</span>) h[j]++;</span><br><span class="line">               <span class="keyword">else</span> h[j] = <span class="number">0</span>;    </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">            stack.push(-<span class="number">1</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>;k &lt; n;k++)&#123;</span><br><span class="line">                <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span> &amp;&amp; h[stack.peek()] &gt; h[k])</span><br><span class="line">                    maxarea = Math.max(maxarea, h[stack.pop()]*(k-stack.peek()-<span class="number">1</span>));</span><br><span class="line">                stack.push(k);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span>)&#123;</span><br><span class="line">                maxarea = Math.max(maxarea, h[stack.pop()]*(n-stack.peek()-<span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-085-MaximalRectangle/" data-id="cjgn73wz0001s29f25argzqxh" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-084-LargestRectangle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/28/Leetcode-084-LargestRectangle/" class="article-date">
+  <time datetime="2018-03-28T21:39:11.000Z" itemprop="datePublished">2018-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/28/Leetcode-084-LargestRectangle/">Leetcode_084_LargestRectangle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Create an empty stack.</p>
+</li>
+<li><p>Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.<br>……a) If stack is empty or hist[i] is higher than the bar at top of stack, then push ‘i’ to stack.<br>……b) If this bar is smaller than the top of stack, then keep removing the top of stack while top of the stack is greater. Let the removed bar be hist[tp]. Calculate area of rectangle with hist[tp] as smallest bar. For hist[tp], the ‘left index’ is previous (previous to tp) item in stack and ‘right index’ is ‘i’ (current index).</p>
+</li>
+<li><p>If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.</p>
+</li>
+<li><p>Time Complexity : O(N).</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] heights)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> maxarea = <span class="number">0</span>;</span><br><span class="line">        stack.push(-<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; heights.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span> &amp;&amp; heights[i] &lt; heights[stack.peek()]) </span><br><span class="line">                maxarea = Math.max(maxarea, heights[stack.pop()]*(i - stack.peek() - <span class="number">1</span>));</span><br><span class="line">            stack.push(i);           </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(stack.peek() != -<span class="number">1</span>)</span><br><span class="line">            maxarea = Math.max(maxarea,heights[stack.pop()]*(heights.length - stack.peek() - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/28/Leetcode-084-LargestRectangle/" data-id="cjgn73wyv001m29f2fpouugfj" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Leetcode-033-SearchInRotatedArray" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/Leetcode-033-SearchInRotatedArray/" class="article-date">
+  <time datetime="2018-03-28T06:58:35.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/Leetcode-033-SearchInRotatedArray/">Leetcode_033_SearchInRotatedArray</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>O(logN):</p>
+<ol>
+<li>Find the Minimum number’s index in O(logN);</li>
+<li>Decide the low and high index;</li>
+<li>Do classical binary search in O(logN).</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> minIdx = findMinIdx(nums);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">int</span> low = (target &gt;= nums[<span class="number">0</span>]) ? <span class="number">0</span> : minIdx;</span><br><span class="line">        <span class="keyword">int</span> high = (target &lt;= nums[n-<span class="number">1</span>]) ? n-<span class="number">1</span> : minIdx;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high-low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;target) high = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&lt;target) low = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMinIdx</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high-low)/<span class="number">2</span>;<span class="comment">//low &lt;= mid &lt; high</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) high = mid;</span><br><span class="line">            <span class="keyword">else</span> low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjgn73wy7001329f2o7ytumm2" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Leetcode-212-WordSearch2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -91,7 +530,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjgkhh4e20021q6f2wvik2lsh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjgn73wz3001x29f2640gjlma" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -130,382 +569,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjgkhh4df001fq6f2ej0czvdr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjgn73wyr001k29f2dr7rym57" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-078-subset" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/27/Leetcode-078-subset/" class="article-date">
-  <time datetime="2018-03-28T00:01:25.000Z" itemprop="datePublished">2018-03-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/27/Leetcode-078-subset/">Leetcode_078_subset</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsets(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    backtrack(list, <span class="keyword">new</span> ArrayList&lt;&gt;(), nums, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; list , List&lt;Integer&gt; tempList, <span class="keyword">int</span> [] nums, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    list.add(<span class="keyword">new</span> ArrayList&lt;&gt;(tempList));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; nums.length; i++)&#123;</span><br><span class="line">        tempList.add(nums[i]);</span><br><span class="line">        backtrack(list, tempList, nums, i + <span class="number">1</span>);</span><br><span class="line">        tempList.remove(tempList.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    The idea is:</span><br><span class="line">    起始subset集为：[]</span><br><span class="line">    添加S0后为：[], [S0]</span><br><span class="line">    添加S1后为：[], [S0], [S1], [S0, S1]</span><br><span class="line">    添加S2后为：[], [S0], [S1], [S0, S1], [S2], [S0, S2], [S1, S2], [S0, S1, S2]</span><br><span class="line">    </span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">res.add(<span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(List&lt;Integer&gt; cur : res)&#123;</span><br><span class="line">        List&lt;Integer&gt; curr = <span class="keyword">new</span> ArrayList&lt;&gt;(cur);</span><br><span class="line">        curr.add(num);</span><br><span class="line">        tmp.add(curr);               </span><br><span class="line">    &#125;</span><br><span class="line">    res.addAll(tmp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;*/</span><br></pre></td></tr></table></figure>
-<h3 id="Method-3"><a href="#Method-3" class="headerlink" title="Method 3"></a>Method 3</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    Method2: Bit Manipulation</span><br><span class="line">    <span class="number">000</span> : &#123;&#125;</span><br><span class="line">    <span class="number">001</span> : &#123;<span class="number">1</span>&#125;</span><br><span class="line">    <span class="number">101</span> : &#123;<span class="number">1</span>,<span class="number">3</span>&#125;</span><br><span class="line">    </span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> n = nums.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; power(n); i++)&#123;</span><br><span class="line">        List&lt;Integer&gt; tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; <span class="number">32</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(((i&gt;&gt;j)&amp;<span class="number">1</span>)==<span class="number">1</span>) tmp.add(nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        res.add(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        res *= <span class="number">2</span>;</span><br><span class="line">        n--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjgkhh4dh001hq6f2zggq1ys4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-035" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/24/Leetcode-035/" class="article-date">
-  <time datetime="2018-03-24T23:40:26.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/Leetcode-035/">Leetcode-035</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Binary Sort<br>low &lt;= mid &lt; high<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_035_FindInsertPosition</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> l = <span class="number">0</span>, r = nums.length;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">                <span class="keyword">int</span> mid = l + (r - l)/<span class="number">2</span>; <span class="comment">// low &lt;= mid &lt; high</span></span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &gt; target) r = mid;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target) l = mid + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> l;<span class="comment">//the only case it break the while loop is : l == r and nums[l] &gt; target</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjgkhh4d00012q6f2lip9emlu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-042" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/24/Leetcode-042/" class="article-date">
-  <time datetime="2018-03-24T21:29:26.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/Leetcode-042/">Leetcode-042</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Traaping-Water"><a href="#Traaping-Water" class="headerlink" title="Traaping Water"></a>Traaping Water</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_042_TrappingWater</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(height == <span class="keyword">null</span> || height.length &lt;= <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> left = <span class="number">0</span>, right= height.length-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> leftMax = <span class="number">0</span>, rightMax = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">                <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(height[left] &gt;= leftMax) leftMax = height[left];</span><br><span class="line">                    <span class="keyword">else</span> res += (leftMax - height[left]);</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(height[right] &gt;= rightMax) rightMax = height[right];</span><br><span class="line">                    <span class="keyword">else</span> res += (rightMax - height[right]);</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjgkhh4d90019q6f2ctbpu4hg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-011" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/24/Leetcode-011/" class="article-date">
-  <time datetime="2018-03-24T20:55:11.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/Leetcode-011/">Leetcode-011</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Container-With-Most-Water"><a href="#Container-With-Most-Water" class="headerlink" title="Container With Most Water"></a>Container With Most Water</h2><pre><code>  1 2 3 4 5 6
-1 x ------- o
-2 x x - o o o
-3 x x x o | |
-4 x x x x | |
-5 x x x x x |
-6 x x x x x x
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_011_ContainerMostWater</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height == <span class="keyword">null</span> || height.length == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">int</span> curLeft = height[left], curRight = height[right];</span><br><span class="line">            max = Math.max(max, (right-left)*Math.min(curLeft,curRight));</span><br><span class="line">            <span class="keyword">if</span>(curLeft &lt; curRight) left++;</span><br><span class="line">            <span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjgkhh4d50015q6f2k4vun2gi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-proxy-server" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/22/proxy-server/" class="article-date">
-  <time datetime="2018-03-22T22:51:11.000Z" itemprop="datePublished">2018-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/proxy-server/">proxy_server</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Definition-of-Proxy-Server"><a href="#Definition-of-Proxy-Server" class="headerlink" title="Definition of Proxy Server:"></a>Definition of Proxy Server:</h3><p>An intermediary server that accepts requests from clients and either forwards them or services the request from its own cache.</p>
-<h3 id="Implications"><a href="#Implications" class="headerlink" title="Implications:"></a>Implications:</h3><ol>
-<li>A proxy server is a web server</li>
-<li>A proxy server acts as a server to the client that makes a request, and it acts as a client to the servers it connects to</li>
-<li>A proxy server can monitor all documents provided by server responses</li>
-<li>A proxy server can monitor all client requests to other servers</li>
-<li>Also called a “forward proxy”</li>
-</ol>
-<h3 id="HTTP-Protocol-and-Proxy-Servers"><a href="#HTTP-Protocol-and-Proxy-Servers" class="headerlink" title="HTTP Protocol and Proxy Servers"></a>HTTP Protocol and Proxy Servers</h3><ol>
-<li>The protocol between client and proxy server, or between proxy servers is HTTP, even if the request is for ftp, telnet, mailto, etc.</li>
-<li>e.g. an ftp request is sent as an HTTP request to a proxy server as:<br>GET ftp://ftp.usc.edu/pub/softeng.txt HTTP/1.0<br>User-agent: Mozilla/4.0<br>Accept: <em>/</em></li>
-<li>only the last proxy server has to speak the ftp protocol to the ftp server, in this case ftp.usc.edu</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjgkhh4et002uq6f20jxdcf5p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-055" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/21/Leetcode-055/" class="article-date">
-  <time datetime="2018-03-21T22:10:10.000Z" itemprop="datePublished">2018-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/Leetcode-055/">Leetcode-055</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Jump-Game-1"><a href="#Jump-Game-1" class="headerlink" title="Jump Game 1"></a>Jump Game 1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> n = nums.length;</span><br><span class="line">            <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> last = n - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = n-<span class="number">2</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+i &gt;= last) last = i;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> last &lt;= <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjgkhh4dd001dq6f2w4hlkbwu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-045" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/21/Leetcode-045/" class="article-date">
-  <time datetime="2018-03-21T20:11:01.000Z" itemprop="datePublished">2018-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/Leetcode-045/">Leetcode-045</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> curEnd = <span class="number">0</span>, curFarthest = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length - <span class="number">1</span>;i++)&#123;</span><br><span class="line">                curFarthest = Math.max(curFarthest, i+nums[i]);</span><br><span class="line">                <span class="keyword">if</span>(i == curEnd)&#123;</span><br><span class="line">                    step++;</span><br><span class="line">                    curEnd = curFarthest;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> step;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjgkhh4da001bq6f2357m6ver" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hadoop-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/18/hadoop-tutorial/" class="article-date">
-  <time datetime="2018-03-18T21:22:38.000Z" itemprop="datePublished">2018-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/hadoop-tutorial/">hadoop tutorial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="核心功能描述"><a href="#核心功能描述" class="headerlink" title="核心功能描述"></a>核心功能描述</h2><p>应用程序通常会通过提供map和reduce来实现 Mapper和Reducer接口，它们组成作业的核心。</p>
-<h3 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h3><p>Mapper将输入键值对(key/value pair)映射到一组中间格式的键值对集合。<br>Map是一类将输入记录集转换为中间格式记录集的独立任务。</p>
-<p>Hadoop Map/Reduce框架为每一个InputSplit产生一个map任务，而每个InputSplit是由该作业的InputFormat产生的。<br>概括地说，对Mapper的实现需要重写 JobConfigurable.configure(JobConf)方法，这个方法需要传递一个JobConf参数，目的是完成Mapper的初始化工作。<br>然后，框架为这个任务的InputSplit中每个键值对调用一次 map(WritableComparable, Writable, OutputCollector, Reporter)操作。</p>
-<p>通过调用 OutputCollector.collect(WritableComparable,Writable)可以收集输出的键值对。</p>
-<p>应用程序可以使用Reporter报告进度，设定应用级别的状态消息，更新Counters（计数器），或者仅是表明自己运行正常。</p>
-<p>框架随后会把与一个特定key关联的所有中间过程的值（value）分成组，然后把它们传给Reducer以产出最终的结果。用户可以通过 JobConf.setOutputKeyComparatorClass(Class)<br>来指定具体负责分组的 Comparator。</p>
-<p>Mapper的输出被排序后，就被划分给每个Reducer。分块的总数目和一个作业的reduce任务的数目是一样的。用户可以通过实现自定义的 Partitioner来控制哪个key被分配给哪个 Reducer。</p>
-<p>用户可选择通过 JobConf.setCombinerClass(Class)指定一个combiner，它负责对中间过程的输出进行本地的聚集，这会有助于降低从Mapper到 Reducer数据传输量。</p>
-<h4 id="需要多少个Map？"><a href="#需要多少个Map？" class="headerlink" title="需要多少个Map？"></a>需要多少个Map？</h4><p>Map的数目通常是由输入数据的大小决定的，一般就是所有输入文件的总块（block）数。</p>
-<p>Map正常的并行规模大致是每个节点（node）大约10到100个map，对于CPU 消耗较小的map任务可以设到300个左右。由于每个任务初始化需要一定的时间，因此，比较合理的情况是map执行的时间至少超过1分钟。</p>
-<p>这样，如果你输入10TB的数据，每个块（block）的大小是128MB，你将需要大约82,000个map来完成任务，除非使用 setNumMapTasks(int)（注意：这里仅仅是对框架进行了一个提示(hint)，实际决定因素见这里）将这个数值设置得更高。</p>
-<h3 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h3><p>Reducer将与一个key关联的一组中间数值集归约（reduce）为一个更小的数值集。</p>
-<p>概括地说，对Reducer的实现者需要重写 JobConfigurable.configure(JobConf) 方法，这个方法需要传递一个JobConf参数，目的是完成Reducer的初始化工作。然后，框架为成组的输入数据中的每个<key, (list="" of="" values)="">对调用一次 reduce(WritableComparable, Iterator, OutputCollector, Reporter)方法。</key,></p>
-<p>Reducer有3个主要阶段：shuffle、sort和reduce。</p>
-<p>Shuffle<br>Reducer的输入就是Mapper已经排好序的输出。在这个阶段，框架通过HTTP为每个Reducer获得所有Mapper输出中与之相关的分块。</p>
-<p>Sort<br>这个阶段，框架将按照key的值对Reducer的输入进行分组 （因为不同mapper的输出中可能会有相同的key）。</p>
-<p>Shuffle和Sort两个阶段是同时进行的；map的输出也是一边被取回一边被合并的。</p>
-<p>Secondary Sort<br>如果需要中间过程对key的分组规则和reduce前对key的分组规则不同，那么可以通过 JobConf.setOutputValueGroupingComparator(Class)来指定一个Comparator。再加上 JobConf.setOutputKeyComparatorClass(Class)可用于控制中间过程的key如何被分组，所以结合两者可以实现按值的二次排序。</p>
-<p>Reduce<br>在这个阶段，框架为已分组的输入数据中的每个 <key, (list="" of="" values)="">对调用一次 reduce(WritableComparable, Iterator, OutputCollector, Reporter)方法。</key,></p>
-<p>Reduce任务的输出通常是通过调用 OutputCollector.collect(WritableComparable, Writable)写入 文件系统的。</p>
-<p>应用程序可以使用Reporter报告进度，设定应用程序级别的状态消息，更新Counters（计数器），或者仅是表明自己运行正常。</p>
-<p>Reducer的输出是没有排序的。</p>
-<h4 id="需要多少个Reduce？"><a href="#需要多少个Reduce？" class="headerlink" title="需要多少个Reduce？"></a>需要多少个Reduce？</h4><p>Reduce的数目建议是0.95或1.75乘以 (<no. of="" nodes=""> * mapred.tasktracker.reduce.tasks.maximum)。</no.></p>
-<p>用0.95，所有reduce可以在maps一完成时就立刻启动，开始传输map的输出结果。用1.75，速度快的节点可以在完成第一轮reduce任务后，可以开始第二轮，这样可以得到比较好的负载均衡的效果。</p>
-<p>增加reduce的数目会增加整个框架的开销，但可以改善负载均衡，降低由于执行失败带来的负面影响。</p>
-<p>上述比例因子比整体数目稍小一些是为了给框架中的推测性任务（speculative-tasks） 或失败的任务预留一些reduce的资源。</p>
-<h4 id="无Reducer"><a href="#无Reducer" class="headerlink" title="无Reducer"></a>无Reducer</h4><p>如果没有归约要进行，那么设置reduce任务的数目为零是合法的。</p>
-<p>这种情况下，map任务的输出会直接被写入由 setOutputPath(Path)指定的输出路径。框架在把它们写入FileSystem之前没有对它们进行排序。</p>
-<h2 id="作业配置"><a href="#作业配置" class="headerlink" title="作业配置"></a>作业配置</h2><p>JobConf代表一个Map/Reduce作业的配置。</p>
-<p>JobConf是用户向Hadoop框架描述一个Map/Reduce作业如何执行的主要接口。框架会按照JobConf描述的信息忠实地去尝试完成这个作业。</p>
-<p>通常，JobConf会指明Mapper、Combiner(如果有的话)、 Partitioner、Reducer、InputFormat和 OutputFormat的具体实现。JobConf还能指定一组输入文件 (setInputPaths(JobConf, Path…) /addInputPath(JobConf, Path)) 和(setInputPaths(JobConf, String) /addInputPaths(JobConf, String)) 以及输出文件应该写在哪儿 (setOutputPath(Path))。</p>
-<h2 id="作业的输入"><a href="#作业的输入" class="headerlink" title="作业的输入"></a>作业的输入</h2><p>InputFormat 为Map/Reduce作业描述输入的细节规范。</p>
-<p>Map/Reduce框架根据作业的InputFormat来：</p>
-<p>检查作业输入的有效性。<br>把输入文件切分成多个逻辑InputSplit实例， 并把每一实例分别分发给一个 Mapper。<br>提供RecordReader的实现，这个RecordReader从逻辑InputSplit中获得输入记录， 这些记录将由Mapper处理。<br>基于文件的InputFormat实现（通常是 FileInputFormat的子类） 默认行为是按照输入文件的字节大小，把输入数据切分成逻辑分块（logical InputSplit ）。    其中输入文件所在的FileSystem的数据块尺寸是分块大小的上限。下限可以设置mapred.min.split.size 的值。</p>
-<p>考虑到边界情况，对于很多应用程序来说，很明显按照文件大小进行逻辑分割是不能满足需求的。 在这种情况下，应用程序需要实现一个RecordReader来处理记录的边界并为每个任务提供一个逻辑分块的面向记录的视图。</p>
-<p>TextInputFormat 是默认的InputFormat。</p>
-<p>如果一个作业的Inputformat是TextInputFormat， 并且框架检测到输入文件的后缀是.gz和.lzo，就会使用对应的CompressionCodec自动解压缩这些文件。 但是需要注意，上述带后缀的压缩文件不会被切分，并且整个压缩文件会分给一个mapper来处理。</p>
-<p>InputSplit<br>InputSplit 是一个单独的Mapper要处理的数据块。</p>
-<p>一般的InputSplit 是字节样式输入，然后由RecordReader处理并转化成记录样式。</p>
-<p>FileSplit 是默认的InputSplit。 它把 map.input.file 设定为输入文件的路径，输入文件是逻辑分块文件。</p>
-<p>RecordReader<br>RecordReader 从InputSlit读入<key, value="">对。</key,></p>
-<p>一般的，RecordReader 把由InputSplit 提供的字节样式的输入文件，转化成由Mapper处理的记录样式的文件。 因此RecordReader负责处理记录的边界情况和把数据表示成keys/values对形式。</p>
-<h2 id="作业的输出"><a href="#作业的输出" class="headerlink" title="作业的输出"></a>作业的输出</h2><p>OutputFormat 描述Map/Reduce作业的输出样式。</p>
-<p>Map/Reduce框架根据作业的OutputFormat来：</p>
-<p>检验作业的输出，例如检查输出路径是否已经存在。<br>提供一个RecordWriter的实现，用来输出作业结果。 输出文件保存在FileSystem上。<br>TextOutputFormat是默认的 OutputFormat。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjgkhh4ev002xq6f2jkoihrp7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
 
     </footer>
   </div>
@@ -518,7 +585,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -549,7 +616,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -559,28 +626,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/04/29/Cookies and Privacy/">(no title)</a>
+            <a href="/2018/04/30/HTML5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/28/Validation/">(no title)</a>
+            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/28/Web Server Performance Testing/">(no title)</a>
+            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/28/Analyzing Web Server Performance/">(no title)</a>
+            <a href="/2018/04/30/High Performance Web sites/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/27/Secure Web Communication/">(no title)</a>
+            <a href="/2018/04/30/Web Services and REST/">(no title)</a>
           </li>
         
       </ul>

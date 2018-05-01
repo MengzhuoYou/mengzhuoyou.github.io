@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ajax(Asynchronous Javascript + XML)Ajax incorporates standards-based presentation using XHTML; CSS, dynamically manipulated using JavaScript; dynamic display and interaction using the DocumentObject M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/04/29/Ajax/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="Ajax(Asynchronous Javascript + XML)Ajax incorporates standards-based presentation using XHTML; CSS, dynamically manipulated using JavaScript; dynamic display and interaction using the DocumentObject M">
+<meta property="og:image" content="http://yoursite.com/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180429155939578.png">
+<meta property="og:updated_time" content="2018-04-30T00:21:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="Ajax(Asynchronous Javascript + XML)Ajax incorporates standards-based presentation using XHTML; CSS, dynamically manipulated using JavaScript; dynamic display and interaction using the DocumentObject M">
+<meta name="twitter:image" content="http://yoursite.com/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180429155939578.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/29/Ajax/" class="article-date">
+  <time datetime="2018-04-30T00:21:10.000Z" itemprop="datePublished">2018-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ajax-Asynchronous-Javascript-XML"><a href="#Ajax-Asynchronous-Javascript-XML" class="headerlink" title="Ajax(Asynchronous Javascript + XML)"></a><center>Ajax(Asynchronous Javascript + XML)</center></h2><h3 id="Ajax-incorporates"><a href="#Ajax-incorporates" class="headerlink" title="Ajax incorporates"></a>Ajax incorporates</h3><ul>
+<li>standards-based presentation using XHTML;</li>
+<li>CSS, dynamically manipulated using JavaScript;</li>
+<li>dynamic display and interaction using the DocumentObject Model (DOM). Web page exposed as DOM object;</li>
+<li>data interchange using XML;</li>
+<li>asynchronous data retrieval using XMLHttpRequest, a JavaScript object</li>
+<li>JavaScript binding everything together;</li>
+<li>Server no longer performs display logic, only business logic.</li>
+</ul>
+<h3 id="The-Ajax-Web-Application-Model"><a href="#The-Ajax-Web-Application-Model" class="headerlink" title="The Ajax Web Application Model"></a>The Ajax Web Application Model</h3><ul>
+<li>Ajax introduces an intermediary — an Ajax engine — between the user and the server.</li>
+<li>Instead of loading a webpage, at the start of the session, the browser loads an Ajax engine — written in JavaScript and usually stored in a hidden frame.</li>
+<li>This engine is responsible for<ul>
+<li>rendering the interface the user sees</li>
+<li>communicating with the server on the user’s behalf.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/var/folders/tg/s2vq8ckd1212sk4zwx1z_kp80000gn/T/abnerworks.Typora/image-20180429155939578.png" alt="image-20180429155939578"></p>
+<h3 id="Ajax-Engine"><a href="#Ajax-Engine" class="headerlink" title="Ajax Engine"></a>Ajax Engine</h3><ul>
+<li><p>Every user action that normally would generate an HTTP request takes the form of a JavaScript call to the Ajax engine instead.</p>
+</li>
+<li><p>Any response to a user action that doesn’t require a trip back to the server, such as:</p>
+<ul>
+<li>simple data validation</li>
+<li>editing data in memory</li>
+<li><p>even some navigation</p>
+<p>the engine handles on its own.</p>
+</li>
+</ul>
+</li>
+<li><p>If the engine needs something from the server in order to respond, such as:</p>
+<ul>
+<li>submitting data for processing</li>
+<li>loading additional interface code</li>
+<li>retrieving new data</li>
+</ul>
+<p>the engine makes those requests asynchronously, retrieving results in JSON or XML, without stalling a user’s interaction with the application.</p>
+</li>
+</ul>
+<h3 id="XMLHttpRequest-Object"><a href="#XMLHttpRequest-Object" class="headerlink" title="XMLHttpRequest Object"></a>XMLHttpRequest Object</h3><ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var req = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>The object reference returned is to an abstract object that works entirely out of view of the user.</p>
+</li>
+<li><p>open() sets the scene for an upcoming operation: </p>
+<ul>
+<li><p>Two required parameters are the HTTP method you intend for the request and the URL for the connection.</p>
+</li>
+<li><p>For the method parameter, use “GET” on operations that are primarily data retrieval requests; use “POST” on operations that send data to the server, especially if the length of the outgoing data is potentially greater than 512 bytes. The URL may be either a complete or relative URL.</p>
+</li>
+<li><p>It is safer to send asynchronously and design your code around the onreadystatechange event<br>for the request object.</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">req.onreadystatechange = processReqChange();</span><br><span class="line">req.open("GET", url, true);</span><br><span class="line">req.send("");</span><br><span class="line"></span><br><span class="line">function processReqChange() &#123;</span><br><span class="line">    // only if req shows "loaded"</span><br><span class="line">    if (req.readyState == 4) &#123;</span><br><span class="line">        // only if "OK"</span><br><span class="line">        if (req.status == 200) &#123;</span><br><span class="line">		// processing statements req.responseText // for JSON</span><br><span class="line">		// and req.responseXML for XML go here...	</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">	alert("There was a problem retrieving the data:\n" + req.statusText);</span><br><span class="line">	&#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​<br>​<br>​<br>​    </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ​</p>
+<p>  ​</p>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/29/Ajax/" data-id="cjgn73wwa000029f2e6djx7yc" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/30/jQuery/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/29/Resposive Web Design/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/30/HTML5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/High Performance Web sites/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/Web Services and REST/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

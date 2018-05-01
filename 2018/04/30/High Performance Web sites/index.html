@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="High Performance Web sites Rule 1: Make fewer HTTP requests Combine scripts Combine style sheets Combine images into an image map   CSS Sprites: An image sprite is a collection of images put into a si">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/04/30/High Performance Web sites/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="High Performance Web sites Rule 1: Make fewer HTTP requests Combine scripts Combine style sheets Combine images into an image map   CSS Sprites: An image sprite is a collection of images put into a si">
+<meta property="og:updated_time" content="2018-04-30T21:02:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="High Performance Web sites Rule 1: Make fewer HTTP requests Combine scripts Combine style sheets Combine images into an image map   CSS Sprites: An image sprite is a collection of images put into a si">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-High Performance Web sites" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/30/High Performance Web sites/" class="article-date">
+  <time datetime="2018-04-30T21:02:31.000Z" itemprop="datePublished">2018-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="High-Performance-Web-sites"><a href="#High-Performance-Web-sites" class="headerlink" title="High Performance Web sites"></a><center>High Performance Web sites</center></h2><ul>
+<li>Rule 1: Make fewer HTTP requests<ul>
+<li>Combine scripts</li>
+<li>Combine style sheets</li>
+<li>Combine images into an image map</li>
+</ul>
+</li>
+<li>CSS Sprites:<ul>
+<li>An image sprite is a collection of images put into a single image</li>
+<li>Using images sprites reduces the number of server requests and saves bandwidth</li>
+<li>Consider img_navsprites.gif, which includes 3 separate images</li>
+</ul>
+</li>
+<li>Rule 2: Use  a CDN<ul>
+<li>Content Distribution Networks have servers around the world</li>
+<li>They distribute your content so downloads can come from a nearby location</li>
+</ul>
+</li>
+<li>Rule 3: Add an Expires Header<ul>
+<li>All caches use a set of rules to determine whether to deliver an object from the cache or request a new version</li>
+<li>HTTP headers are sent by the server before the HTML, and only seen by the browser and any intermediate caches.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Rule 4: Gzip Components</p>
+<ul>
+<li>Compression works when a web server like Apache is set up to “compress” resources and when a<br>client’s browser accepts such compressed resources.    </li>
+</ul>
+</li>
+<li><p>Rule 5: Put Stylesheets at the top </p>
+</li>
+<li><p>Rule 6: Move Scripts to the Bottom</p>
+</li>
+<li><p>Rule 7: Avoid CSS Expressions</p>
+</li>
+<li><p>Rule 8: Make JS and CSS External</p>
+<ul>
+<li><p>External JS and CSS can be cached</p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.onload = downloadComponents; </span><br><span class="line">function downloadComponents() &#123;</span><br><span class="line">var elem = document.createElement("script"); </span><br><span class="line">elem.src = http://.../file1.js; </span><br><span class="line">document.body.appendChild(elem);</span><br><span class="line">.....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Rule 9: Reduce DNS lookups</p>
+<ul>
+<li>Typically each look up takes 20 – 120 milliseconds</li>
+<li>DNS lookups will block parallel downloads</li>
+<li>The operating system and the browser both have DNS caches</li>
+<li>As a general rule it is best to reduce the number of unique hostnames used in a web page</li>
+</ul>
+</li>
+<li><p>Rule 10: Minify JavaScript</p>
+<ul>
+<li>Minification, or minify, is the process of removing all unnecessary characters from source code, without changing its functionality</li>
+<li>Unnecessary characters usually include:white space characters, new line characters, comments , and sometimes block delimiters used to add readability to code, but are not required for execution</li>
+<li>Minified code is especially useful for interpreted languages because it reduces the amount of data that must be transferred</li>
+</ul>
+</li>
+<li><p>Rule 11: Avoid Redirects</p>
+</li>
+<li><p>Rule 12: Remove Duplicate Scripts</p>
+</li>
+<li><p>Rule 13: Configure ETags</p>
+</li>
+<li><p>Rule 14: Make AJAX Cacheable and small    </p>
+</li>
+</ul>
+<p>  ​<br>  ​<br>  ​<br>  ​    </p>
+<p>  ​<br>  ​<br>  ​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/30/High Performance Web sites/" data-id="cjgn73wxd000j29f2ksc0buch" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/30/JavaScript Frameworks/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/30/Web Services and REST/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/30/HTML5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/High Performance Web sites/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/30/Web Services and REST/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
