@@ -64,6 +64,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Leetcode-560" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/12/Leetcode-560/" class="article-date">
+  <time datetime="2018-02-13T00:29:03.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/Leetcode-560/">Leetcode-560</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>the key to solve this problem is SUM[i, j]. So if we know SUM[0, i - 1] and SUM[0, j], then we can easily get SUM[i, j]. To achieve this, we just need to go through the array, calculate the current sum and save number of all seen PreSum to a HashMap. Time complexity O(n);<br>Space complexity O(n).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_560_subArrayEqualK</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">Map&lt;Integer, Integer&gt; presum = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">presum.put(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">sum += num;</span><br><span class="line">res += presum.getOrDefault(sum - k, <span class="number">0</span>);</span><br><span class="line">presum.put(sum, presum.getOrDefault(sum, <span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-560/" data-id="cjgok4q7t002cfaf25b9hfyj8" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java-JVM(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/12/Java-JVM(1)/" class="article-date">
+  <time datetime="2018-02-12T08:04:44.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/Java-JVM(1)/">深入理解 Java 虚拟机 （一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天开始看 <code>深入理解Java虚拟机</code> 这本书，首先是关于内存区域的概念。</p>
+<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>Java 虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个区域。</p>
+<h3 id="1-程序计数器-（Program-Counter-Register）"><a href="#1-程序计数器-（Program-Counter-Register）" class="headerlink" title="1. 程序计数器 （Program Counter Register）"></a>1. 程序计数器 （Program Counter Register）</h3><p>程序计数器可以看作是当前线程所执行的字节码的行号指示器。<br>由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器都只会执行一条线程中的指令。因此，每条线程都需要又一个独立的程序计数器。</p>
+<h3 id="2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><a href="#2-Java虚拟机栈-（Java-Virtual-Machine-Stacks）" class="headerlink" title="2. Java虚拟机栈 （Java Virtual Machine Stacks）"></a>2. Java虚拟机栈 （Java Virtual Machine Stacks）</h3><p>虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息。每一个方法从调用直到执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+<p>Java内存区域分为堆内存和栈内存，虚拟机栈就是在栈内存中，局部变量表就是在虚拟机栈中的。</p>
+<h3 id="3-Java堆-（Java-Heap）"><a href="#3-Java堆-（Java-Heap）" class="headerlink" title="3. Java堆 （Java Heap）"></a>3. Java堆 （Java Heap）</h3><p>Java堆是被所有线程所共享的一块内存区域：所有的对象实例以及数组都要在堆上分配（虽然现在不是那么绝对了）。<br>Java堆是垃圾收集器管理的主要区域。</p>
+<h3 id="4-方法区（Method-Area）"><a href="#4-方法区（Method-Area）" class="headerlink" title="4. 方法区（Method Area）"></a>4. 方法区（Method Area）</h3><p>方法区是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息，常量，静态变量等。</p>
+<h3 id="5-运行时常量池（Runtime-Constant-Pool）"><a href="#5-运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="5. 运行时常量池（Runtime Constant Pool）"></a>5. 运行时常量池（Runtime Constant Pool）</h3><p>运行时常量池是方法区的一部分，用于存放编译期生成的各种字面量和符号引用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/12/Java-JVM(1)/" data-id="cjgok4q68000zfaf2ju8mdaxk" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Leetcode-110" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/11/Leetcode-110/" class="article-date">
@@ -94,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjgn73wyy001q29f248iqjotw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-110/" data-id="cjgok4q7g001ufaf2kox18qal" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -134,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjgn73wyx001o29f29c4udrau" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-128/" data-id="cjgok4q7i001xfaf2aahp6qsq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -179,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjgn73wz8002429f25rtcu4uv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Leetcode-200/" data-id="cjgok4q8e0031faf2n52l0gsm" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -219,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjgn73wzd002c29f2d8nzbkmn" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Server/" data-id="cjgok4q81002mfaf2pwmb70gr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -259,7 +345,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjgn73wzb002929f2i9d4xq0m" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/11/Online-Chat-Room-Client/" data-id="cjgok4q7v002efaf2k5fhyird" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Project/">Java Project</a></li></ul>
@@ -306,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjgn73x01003029f2mow4mois" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/hello-world/" data-id="cjgok4q8k0038faf27pv9yjix" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -353,7 +439,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -366,6 +452,14 @@
       <ul>
         
           <li>
+            <a href="/2018/05/01/Firebase/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/ReactJS/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/04/30/HTML5/">(no title)</a>
           </li>
         
@@ -375,14 +469,6 @@
         
           <li>
             <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/30/High Performance Web sites/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/30/Web Services and REST/">(no title)</a>
           </li>
         
       </ul>
