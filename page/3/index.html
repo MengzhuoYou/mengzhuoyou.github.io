@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,10 +64,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Leetcode-033-SearchInRotatedArray" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/Leetcode-033-SearchInRotatedArray/" class="article-date">
+  <time datetime="2018-03-27T15:58:35.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/Leetcode-033-SearchInRotatedArray/">Leetcode_033_SearchInRotatedArray</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>O(logN):</p>
+<ol>
+<li>Find the Minimum number’s index in O(logN);</li>
+<li>Decide the low and high index;</li>
+<li>Do classical binary search in O(logN).</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> minIdx = findMinIdx(nums);</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">int</span> low = (target &gt;= nums[<span class="number">0</span>]) ? <span class="number">0</span> : minIdx;</span><br><span class="line">        <span class="keyword">int</span> high = (target &lt;= nums[n-<span class="number">1</span>]) ? n-<span class="number">1</span> : minIdx;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high-low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;target) high = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&lt;target) low = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMinIdx</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length-<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = low + (high-low)/<span class="number">2</span>;<span class="comment">//low &lt;= mid &lt; high</span></span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; nums[high]) high = mid;</span><br><span class="line">            <span class="keyword">else</span> low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-033-SearchInRotatedArray/" data-id="cjh6yeotf001bc5f2vyxki6bu" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Leetcode-212-WordSearch2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/27/Leetcode-212-WordSearch2/" class="article-date">
-  <time datetime="2018-03-28T04:01:45.000Z" itemprop="datePublished">2018-03-27</time>
+  <time datetime="2018-03-27T13:01:45.000Z" itemprop="datePublished">2018-03-27</time>
 </a>
     
   </div>
@@ -91,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjgok4q7p0027faf2uuj14jgk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-212-WordSearch2/" data-id="cjh6yeowr0028c5f28nufq3rz" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -106,7 +151,7 @@
     <article id="post-Leetcode-079-WordSearch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/27/Leetcode-079-WordSearch/" class="article-date">
-  <time datetime="2018-03-28T00:43:54.000Z" itemprop="datePublished">2018-03-27</time>
+  <time datetime="2018-03-27T09:43:54.000Z" itemprop="datePublished">2018-03-27</time>
 </a>
     
   </div>
@@ -130,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjgok4q74001lfaf2s60fnq5x" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-079-WordSearch/" data-id="cjh6yeov9001rc5f2rhnefu78" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -145,7 +190,7 @@
     <article id="post-Leetcode-078-subset" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/27/Leetcode-078-subset/" class="article-date">
-  <time datetime="2018-03-28T00:01:25.000Z" itemprop="datePublished">2018-03-27</time>
+  <time datetime="2018-03-27T09:01:25.000Z" itemprop="datePublished">2018-03-27</time>
 </a>
     
   </div>
@@ -170,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjgok4q6z001jfaf24mi2jz46" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/27/Leetcode-078-subset/" data-id="cjh6yeouw001nc5f2umil1mx7" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -185,7 +230,7 @@
     <article id="post-Leetcode-035" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/24/Leetcode-035/" class="article-date">
-  <time datetime="2018-03-24T23:40:26.000Z" itemprop="datePublished">2018-03-24</time>
+  <time datetime="2018-03-24T08:40:26.000Z" itemprop="datePublished">2018-03-24</time>
 </a>
     
   </div>
@@ -209,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjgok4q6v001hfaf2ap435zrv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-035/" data-id="cjh6yeotp001dc5f2a0yofeko" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -224,7 +269,7 @@
     <article id="post-Leetcode-042" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/24/Leetcode-042/" class="article-date">
-  <time datetime="2018-03-24T21:29:26.000Z" itemprop="datePublished">2018-03-24</time>
+  <time datetime="2018-03-24T06:29:26.000Z" itemprop="datePublished">2018-03-24</time>
 </a>
     
   </div>
@@ -247,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjgok4q6q001cfaf2l7g6gk23" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-042/" data-id="cjh6yeou4001fc5f2bj8qrmwg" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -262,7 +307,7 @@
     <article id="post-Leetcode-011" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/24/Leetcode-011/" class="article-date">
-  <time datetime="2018-03-24T20:55:11.000Z" itemprop="datePublished">2018-03-24</time>
+  <time datetime="2018-03-24T05:55:11.000Z" itemprop="datePublished">2018-03-24</time>
 </a>
     
   </div>
@@ -292,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjgok4q6h0015faf2lq0k11yi" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/24/Leetcode-011/" data-id="cjh6yeosv0012c5f2buyz6p5r" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -307,7 +352,7 @@
     <article id="post-proxy-server" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/22/proxy-server/" class="article-date">
-  <time datetime="2018-03-22T22:51:11.000Z" itemprop="datePublished">2018-03-22</time>
+  <time datetime="2018-03-22T07:51:11.000Z" itemprop="datePublished">2018-03-22</time>
 </a>
     
   </div>
@@ -343,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjgok4q8v003ffaf2cw303lci" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/22/proxy-server/" data-id="cjh6yep0b003gc5f2jjbbl4sv" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
@@ -358,7 +403,7 @@
     <article id="post-Leetcode-055" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/21/Leetcode-055/" class="article-date">
-  <time datetime="2018-03-21T22:10:10.000Z" itemprop="datePublished">2018-03-21</time>
+  <time datetime="2018-03-21T07:10:10.000Z" itemprop="datePublished">2018-03-21</time>
 </a>
     
   </div>
@@ -381,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjgok4q7e001sfaf2tc4wy4r2" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-055/" data-id="cjh6yeouj001jc5f23kxgud3t" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -396,7 +441,7 @@
     <article id="post-Leetcode-045" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/21/Leetcode-045/" class="article-date">
-  <time datetime="2018-03-21T20:11:01.000Z" itemprop="datePublished">2018-03-21</time>
+  <time datetime="2018-03-21T05:11:01.000Z" itemprop="datePublished">2018-03-21</time>
 </a>
     
   </div>
@@ -419,93 +464,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjgok4q79001pfaf241aj5vhi" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/21/Leetcode-045/" data-id="cjh6yeoub001hc5f26wy7h4xn" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hadoop-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/18/hadoop-tutorial/" class="article-date">
-  <time datetime="2018-03-18T21:22:38.000Z" itemprop="datePublished">2018-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/hadoop-tutorial/">hadoop tutorial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="核心功能描述"><a href="#核心功能描述" class="headerlink" title="核心功能描述"></a>核心功能描述</h2><p>应用程序通常会通过提供map和reduce来实现 Mapper和Reducer接口，它们组成作业的核心。</p>
-<h3 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h3><p>Mapper将输入键值对(key/value pair)映射到一组中间格式的键值对集合。<br>Map是一类将输入记录集转换为中间格式记录集的独立任务。</p>
-<p>Hadoop Map/Reduce框架为每一个InputSplit产生一个map任务，而每个InputSplit是由该作业的InputFormat产生的。<br>概括地说，对Mapper的实现需要重写 JobConfigurable.configure(JobConf)方法，这个方法需要传递一个JobConf参数，目的是完成Mapper的初始化工作。<br>然后，框架为这个任务的InputSplit中每个键值对调用一次 map(WritableComparable, Writable, OutputCollector, Reporter)操作。</p>
-<p>通过调用 OutputCollector.collect(WritableComparable,Writable)可以收集输出的键值对。</p>
-<p>应用程序可以使用Reporter报告进度，设定应用级别的状态消息，更新Counters（计数器），或者仅是表明自己运行正常。</p>
-<p>框架随后会把与一个特定key关联的所有中间过程的值（value）分成组，然后把它们传给Reducer以产出最终的结果。用户可以通过 JobConf.setOutputKeyComparatorClass(Class)<br>来指定具体负责分组的 Comparator。</p>
-<p>Mapper的输出被排序后，就被划分给每个Reducer。分块的总数目和一个作业的reduce任务的数目是一样的。用户可以通过实现自定义的 Partitioner来控制哪个key被分配给哪个 Reducer。</p>
-<p>用户可选择通过 JobConf.setCombinerClass(Class)指定一个combiner，它负责对中间过程的输出进行本地的聚集，这会有助于降低从Mapper到 Reducer数据传输量。</p>
-<h4 id="需要多少个Map？"><a href="#需要多少个Map？" class="headerlink" title="需要多少个Map？"></a>需要多少个Map？</h4><p>Map的数目通常是由输入数据的大小决定的，一般就是所有输入文件的总块（block）数。</p>
-<p>Map正常的并行规模大致是每个节点（node）大约10到100个map，对于CPU 消耗较小的map任务可以设到300个左右。由于每个任务初始化需要一定的时间，因此，比较合理的情况是map执行的时间至少超过1分钟。</p>
-<p>这样，如果你输入10TB的数据，每个块（block）的大小是128MB，你将需要大约82,000个map来完成任务，除非使用 setNumMapTasks(int)（注意：这里仅仅是对框架进行了一个提示(hint)，实际决定因素见这里）将这个数值设置得更高。</p>
-<h3 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h3><p>Reducer将与一个key关联的一组中间数值集归约（reduce）为一个更小的数值集。</p>
-<p>概括地说，对Reducer的实现者需要重写 JobConfigurable.configure(JobConf) 方法，这个方法需要传递一个JobConf参数，目的是完成Reducer的初始化工作。然后，框架为成组的输入数据中的每个<key, (list="" of="" values)="">对调用一次 reduce(WritableComparable, Iterator, OutputCollector, Reporter)方法。</key,></p>
-<p>Reducer有3个主要阶段：shuffle、sort和reduce。</p>
-<p>Shuffle<br>Reducer的输入就是Mapper已经排好序的输出。在这个阶段，框架通过HTTP为每个Reducer获得所有Mapper输出中与之相关的分块。</p>
-<p>Sort<br>这个阶段，框架将按照key的值对Reducer的输入进行分组 （因为不同mapper的输出中可能会有相同的key）。</p>
-<p>Shuffle和Sort两个阶段是同时进行的；map的输出也是一边被取回一边被合并的。</p>
-<p>Secondary Sort<br>如果需要中间过程对key的分组规则和reduce前对key的分组规则不同，那么可以通过 JobConf.setOutputValueGroupingComparator(Class)来指定一个Comparator。再加上 JobConf.setOutputKeyComparatorClass(Class)可用于控制中间过程的key如何被分组，所以结合两者可以实现按值的二次排序。</p>
-<p>Reduce<br>在这个阶段，框架为已分组的输入数据中的每个 <key, (list="" of="" values)="">对调用一次 reduce(WritableComparable, Iterator, OutputCollector, Reporter)方法。</key,></p>
-<p>Reduce任务的输出通常是通过调用 OutputCollector.collect(WritableComparable, Writable)写入 文件系统的。</p>
-<p>应用程序可以使用Reporter报告进度，设定应用程序级别的状态消息，更新Counters（计数器），或者仅是表明自己运行正常。</p>
-<p>Reducer的输出是没有排序的。</p>
-<h4 id="需要多少个Reduce？"><a href="#需要多少个Reduce？" class="headerlink" title="需要多少个Reduce？"></a>需要多少个Reduce？</h4><p>Reduce的数目建议是0.95或1.75乘以 (<no. of="" nodes=""> * mapred.tasktracker.reduce.tasks.maximum)。</no.></p>
-<p>用0.95，所有reduce可以在maps一完成时就立刻启动，开始传输map的输出结果。用1.75，速度快的节点可以在完成第一轮reduce任务后，可以开始第二轮，这样可以得到比较好的负载均衡的效果。</p>
-<p>增加reduce的数目会增加整个框架的开销，但可以改善负载均衡，降低由于执行失败带来的负面影响。</p>
-<p>上述比例因子比整体数目稍小一些是为了给框架中的推测性任务（speculative-tasks） 或失败的任务预留一些reduce的资源。</p>
-<h4 id="无Reducer"><a href="#无Reducer" class="headerlink" title="无Reducer"></a>无Reducer</h4><p>如果没有归约要进行，那么设置reduce任务的数目为零是合法的。</p>
-<p>这种情况下，map任务的输出会直接被写入由 setOutputPath(Path)指定的输出路径。框架在把它们写入FileSystem之前没有对它们进行排序。</p>
-<h2 id="作业配置"><a href="#作业配置" class="headerlink" title="作业配置"></a>作业配置</h2><p>JobConf代表一个Map/Reduce作业的配置。</p>
-<p>JobConf是用户向Hadoop框架描述一个Map/Reduce作业如何执行的主要接口。框架会按照JobConf描述的信息忠实地去尝试完成这个作业。</p>
-<p>通常，JobConf会指明Mapper、Combiner(如果有的话)、 Partitioner、Reducer、InputFormat和 OutputFormat的具体实现。JobConf还能指定一组输入文件 (setInputPaths(JobConf, Path…) /addInputPath(JobConf, Path)) 和(setInputPaths(JobConf, String) /addInputPaths(JobConf, String)) 以及输出文件应该写在哪儿 (setOutputPath(Path))。</p>
-<h2 id="作业的输入"><a href="#作业的输入" class="headerlink" title="作业的输入"></a>作业的输入</h2><p>InputFormat 为Map/Reduce作业描述输入的细节规范。</p>
-<p>Map/Reduce框架根据作业的InputFormat来：</p>
-<p>检查作业输入的有效性。<br>把输入文件切分成多个逻辑InputSplit实例， 并把每一实例分别分发给一个 Mapper。<br>提供RecordReader的实现，这个RecordReader从逻辑InputSplit中获得输入记录， 这些记录将由Mapper处理。<br>基于文件的InputFormat实现（通常是 FileInputFormat的子类） 默认行为是按照输入文件的字节大小，把输入数据切分成逻辑分块（logical InputSplit ）。    其中输入文件所在的FileSystem的数据块尺寸是分块大小的上限。下限可以设置mapred.min.split.size 的值。</p>
-<p>考虑到边界情况，对于很多应用程序来说，很明显按照文件大小进行逻辑分割是不能满足需求的。 在这种情况下，应用程序需要实现一个RecordReader来处理记录的边界并为每个任务提供一个逻辑分块的面向记录的视图。</p>
-<p>TextInputFormat 是默认的InputFormat。</p>
-<p>如果一个作业的Inputformat是TextInputFormat， 并且框架检测到输入文件的后缀是.gz和.lzo，就会使用对应的CompressionCodec自动解压缩这些文件。 但是需要注意，上述带后缀的压缩文件不会被切分，并且整个压缩文件会分给一个mapper来处理。</p>
-<p>InputSplit<br>InputSplit 是一个单独的Mapper要处理的数据块。</p>
-<p>一般的InputSplit 是字节样式输入，然后由RecordReader处理并转化成记录样式。</p>
-<p>FileSplit 是默认的InputSplit。 它把 map.input.file 设定为输入文件的路径，输入文件是逻辑分块文件。</p>
-<p>RecordReader<br>RecordReader 从InputSlit读入<key, value="">对。</key,></p>
-<p>一般的，RecordReader 把由InputSplit 提供的字节样式的输入文件，转化成由Mapper处理的记录样式的文件。 因此RecordReader负责处理记录的边界情况和把数据表示成keys/values对形式。</p>
-<h2 id="作业的输出"><a href="#作业的输出" class="headerlink" title="作业的输出"></a>作业的输出</h2><p>OutputFormat 描述Map/Reduce作业的输出样式。</p>
-<p>Map/Reduce框架根据作业的OutputFormat来：</p>
-<p>检验作业的输出，例如检查输出路径是否已经存在。<br>提供一个RecordWriter的实现，用来输出作业结果。 输出文件保存在FileSystem上。<br>TextOutputFormat是默认的 OutputFormat。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjgok4q8f0033faf2b4u890w9" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
 
     </footer>
   </div>
@@ -518,7 +480,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorige</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Volgende &raquo;</a>
   </nav>
 
 </section>
@@ -530,7 +492,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -549,7 +511,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -559,28 +521,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/05/01/Firebase/">(no title)</a>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
           </li>
         
           <li>
-            <a href="/2018/05/01/ReactJS/">(no title)</a>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/HTML5/">(no title)</a>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
           </li>
         
       </ul>

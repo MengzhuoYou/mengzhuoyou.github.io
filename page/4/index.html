@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,10 +64,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hadoop-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/18/hadoop-tutorial/" class="article-date">
+  <time datetime="2018-03-18T06:22:38.000Z" itemprop="datePublished">2018-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/18/hadoop-tutorial/">hadoop tutorial</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="核心功能描述"><a href="#核心功能描述" class="headerlink" title="核心功能描述"></a>核心功能描述</h2><p>应用程序通常会通过提供map和reduce来实现 Mapper和Reducer接口，它们组成作业的核心。</p>
+<h3 id="Mapper"><a href="#Mapper" class="headerlink" title="Mapper"></a>Mapper</h3><p>Mapper将输入键值对(key/value pair)映射到一组中间格式的键值对集合。<br>Map是一类将输入记录集转换为中间格式记录集的独立任务。</p>
+<p>Hadoop Map/Reduce框架为每一个InputSplit产生一个map任务，而每个InputSplit是由该作业的InputFormat产生的。<br>概括地说，对Mapper的实现需要重写 JobConfigurable.configure(JobConf)方法，这个方法需要传递一个JobConf参数，目的是完成Mapper的初始化工作。<br>然后，框架为这个任务的InputSplit中每个键值对调用一次 map(WritableComparable, Writable, OutputCollector, Reporter)操作。</p>
+<p>通过调用 OutputCollector.collect(WritableComparable,Writable)可以收集输出的键值对。</p>
+<p>应用程序可以使用Reporter报告进度，设定应用级别的状态消息，更新Counters（计数器），或者仅是表明自己运行正常。</p>
+<p>框架随后会把与一个特定key关联的所有中间过程的值（value）分成组，然后把它们传给Reducer以产出最终的结果。用户可以通过 JobConf.setOutputKeyComparatorClass(Class)<br>来指定具体负责分组的 Comparator。</p>
+<p>Mapper的输出被排序后，就被划分给每个Reducer。分块的总数目和一个作业的reduce任务的数目是一样的。用户可以通过实现自定义的 Partitioner来控制哪个key被分配给哪个 Reducer。</p>
+<p>用户可选择通过 JobConf.setCombinerClass(Class)指定一个combiner，它负责对中间过程的输出进行本地的聚集，这会有助于降低从Mapper到 Reducer数据传输量。</p>
+<h4 id="需要多少个Map？"><a href="#需要多少个Map？" class="headerlink" title="需要多少个Map？"></a>需要多少个Map？</h4><p>Map的数目通常是由输入数据的大小决定的，一般就是所有输入文件的总块（block）数。</p>
+<p>Map正常的并行规模大致是每个节点（node）大约10到100个map，对于CPU 消耗较小的map任务可以设到300个左右。由于每个任务初始化需要一定的时间，因此，比较合理的情况是map执行的时间至少超过1分钟。</p>
+<p>这样，如果你输入10TB的数据，每个块（block）的大小是128MB，你将需要大约82,000个map来完成任务，除非使用 setNumMapTasks(int)（注意：这里仅仅是对框架进行了一个提示(hint)，实际决定因素见这里）将这个数值设置得更高。</p>
+<h3 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h3><p>Reducer将与一个key关联的一组中间数值集归约（reduce）为一个更小的数值集。</p>
+<p>概括地说，对Reducer的实现者需要重写 JobConfigurable.configure(JobConf) 方法，这个方法需要传递一个JobConf参数，目的是完成Reducer的初始化工作。然后，框架为成组的输入数据中的每个<key, (list="" of="" values)="">对调用一次 reduce(WritableComparable, Iterator, OutputCollector, Reporter)方法。</key,></p>
+<p>Reducer有3个主要阶段：shuffle、sort和reduce。</p>
+<p>Shuffle<br>Reducer的输入就是Mapper已经排好序的输出。在这个阶段，框架通过HTTP为每个Reducer获得所有Mapper输出中与之相关的分块。</p>
+<p>Sort<br>这个阶段，框架将按照key的值对Reducer的输入进行分组 （因为不同mapper的输出中可能会有相同的key）。</p>
+<p>Shuffle和Sort两个阶段是同时进行的；map的输出也是一边被取回一边被合并的。</p>
+<p>Secondary Sort<br>如果需要中间过程对key的分组规则和reduce前对key的分组规则不同，那么可以通过 JobConf.setOutputValueGroupingComparator(Class)来指定一个Comparator。再加上 JobConf.setOutputKeyComparatorClass(Class)可用于控制中间过程的key如何被分组，所以结合两者可以实现按值的二次排序。</p>
+<p>Reduce<br>在这个阶段，框架为已分组的输入数据中的每个 <key, (list="" of="" values)="">对调用一次 reduce(WritableComparable, Iterator, OutputCollector, Reporter)方法。</key,></p>
+<p>Reduce任务的输出通常是通过调用 OutputCollector.collect(WritableComparable, Writable)写入 文件系统的。</p>
+<p>应用程序可以使用Reporter报告进度，设定应用程序级别的状态消息，更新Counters（计数器），或者仅是表明自己运行正常。</p>
+<p>Reducer的输出是没有排序的。</p>
+<h4 id="需要多少个Reduce？"><a href="#需要多少个Reduce？" class="headerlink" title="需要多少个Reduce？"></a>需要多少个Reduce？</h4><p>Reduce的数目建议是0.95或1.75乘以 (<no. of="" nodes=""> * mapred.tasktracker.reduce.tasks.maximum)。</no.></p>
+<p>用0.95，所有reduce可以在maps一完成时就立刻启动，开始传输map的输出结果。用1.75，速度快的节点可以在完成第一轮reduce任务后，可以开始第二轮，这样可以得到比较好的负载均衡的效果。</p>
+<p>增加reduce的数目会增加整个框架的开销，但可以改善负载均衡，降低由于执行失败带来的负面影响。</p>
+<p>上述比例因子比整体数目稍小一些是为了给框架中的推测性任务（speculative-tasks） 或失败的任务预留一些reduce的资源。</p>
+<h4 id="无Reducer"><a href="#无Reducer" class="headerlink" title="无Reducer"></a>无Reducer</h4><p>如果没有归约要进行，那么设置reduce任务的数目为零是合法的。</p>
+<p>这种情况下，map任务的输出会直接被写入由 setOutputPath(Path)指定的输出路径。框架在把它们写入FileSystem之前没有对它们进行排序。</p>
+<h2 id="作业配置"><a href="#作业配置" class="headerlink" title="作业配置"></a>作业配置</h2><p>JobConf代表一个Map/Reduce作业的配置。</p>
+<p>JobConf是用户向Hadoop框架描述一个Map/Reduce作业如何执行的主要接口。框架会按照JobConf描述的信息忠实地去尝试完成这个作业。</p>
+<p>通常，JobConf会指明Mapper、Combiner(如果有的话)、 Partitioner、Reducer、InputFormat和 OutputFormat的具体实现。JobConf还能指定一组输入文件 (setInputPaths(JobConf, Path…) /addInputPath(JobConf, Path)) 和(setInputPaths(JobConf, String) /addInputPaths(JobConf, String)) 以及输出文件应该写在哪儿 (setOutputPath(Path))。</p>
+<h2 id="作业的输入"><a href="#作业的输入" class="headerlink" title="作业的输入"></a>作业的输入</h2><p>InputFormat 为Map/Reduce作业描述输入的细节规范。</p>
+<p>Map/Reduce框架根据作业的InputFormat来：</p>
+<p>检查作业输入的有效性。<br>把输入文件切分成多个逻辑InputSplit实例， 并把每一实例分别分发给一个 Mapper。<br>提供RecordReader的实现，这个RecordReader从逻辑InputSplit中获得输入记录， 这些记录将由Mapper处理。<br>基于文件的InputFormat实现（通常是 FileInputFormat的子类） 默认行为是按照输入文件的字节大小，把输入数据切分成逻辑分块（logical InputSplit ）。    其中输入文件所在的FileSystem的数据块尺寸是分块大小的上限。下限可以设置mapred.min.split.size 的值。</p>
+<p>考虑到边界情况，对于很多应用程序来说，很明显按照文件大小进行逻辑分割是不能满足需求的。 在这种情况下，应用程序需要实现一个RecordReader来处理记录的边界并为每个任务提供一个逻辑分块的面向记录的视图。</p>
+<p>TextInputFormat 是默认的InputFormat。</p>
+<p>如果一个作业的Inputformat是TextInputFormat， 并且框架检测到输入文件的后缀是.gz和.lzo，就会使用对应的CompressionCodec自动解压缩这些文件。 但是需要注意，上述带后缀的压缩文件不会被切分，并且整个压缩文件会分给一个mapper来处理。</p>
+<p>InputSplit<br>InputSplit 是一个单独的Mapper要处理的数据块。</p>
+<p>一般的InputSplit 是字节样式输入，然后由RecordReader处理并转化成记录样式。</p>
+<p>FileSplit 是默认的InputSplit。 它把 map.input.file 设定为输入文件的路径，输入文件是逻辑分块文件。</p>
+<p>RecordReader<br>RecordReader 从InputSlit读入<key, value="">对。</key,></p>
+<p>一般的，RecordReader 把由InputSplit 提供的字节样式的输入文件，转化成由Mapper处理的记录样式的文件。 因此RecordReader负责处理记录的边界情况和把数据表示成keys/values对形式。</p>
+<h2 id="作业的输出"><a href="#作业的输出" class="headerlink" title="作业的输出"></a>作业的输出</h2><p>OutputFormat 描述Map/Reduce作业的输出样式。</p>
+<p>Map/Reduce框架根据作业的OutputFormat来：</p>
+<p>检验作业的输出，例如检查输出路径是否已经存在。<br>提供一个RecordWriter的实现，用来输出作业结果。 输出文件保存在FileSystem上。<br>TextOutputFormat是默认的 OutputFormat。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/18/hadoop-tutorial/" data-id="cjh6yeozc0035c5f25rkznps5" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Cracking-the-Interview" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/06/Cracking-the-Interview/" class="article-date">
-  <time datetime="2018-03-07T07:33:57.000Z" itemprop="datePublished">2018-03-06</time>
+  <time datetime="2018-03-06T15:33:57.000Z" itemprop="datePublished">2018-03-06</time>
 </a>
     
   </div>
@@ -94,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjgok4q5j000gfaf2aydp64ed" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/06/Cracking-the-Interview/" data-id="cjh6yeoqo000ic5f2u8fs8imj" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -109,7 +192,7 @@
     <article id="post-What-Happened-in-first-seconds-of-an-Https-Connection" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" class="article-date">
-  <time datetime="2018-03-05T01:06:48.000Z" itemprop="datePublished">2018-03-04</time>
+  <time datetime="2018-03-04T09:06:48.000Z" itemprop="datePublished">2018-03-04</time>
 </a>
     
   </div>
@@ -142,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjgok4q8h0035faf2sikavtye" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/04/What-Happened-in-first-seconds-of-an-Https-Connection/" data-id="cjh6yeoz70032c5f2maozb163" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -157,7 +240,7 @@
     <article id="post-http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/04/http/" class="article-date">
-  <time datetime="2018-03-05T00:48:26.000Z" itemprop="datePublished">2018-03-04</time>
+  <time datetime="2018-03-04T08:48:26.000Z" itemprop="datePublished">2018-03-04</time>
 </a>
     
   </div>
@@ -189,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/http/" data-id="cjgok4q8m0039faf2k4a6edb8" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/04/http/" data-id="cjh6yeozx003cc5f22u0lnnix" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -204,7 +287,7 @@
     <article id="post-JVM-GC" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/26/JVM-GC/" class="article-date">
-  <time datetime="2018-02-26T23:06:18.000Z" itemprop="datePublished">2018-02-26</time>
+  <time datetime="2018-02-26T07:06:18.000Z" itemprop="datePublished">2018-02-26</time>
 </a>
     
   </div>
@@ -233,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjgok4q65000vfaf2ofui70oa" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/26/JVM-GC/" data-id="cjh6yeosc000vc5f2728vnr1p" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li></ul>
@@ -248,7 +331,7 @@
     <article id="post-Cracking-the-Interview-Thread-Creation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/26/Cracking-the-Interview-Thread-Creation/" class="article-date">
-  <time datetime="2018-02-26T22:43:18.000Z" itemprop="datePublished">2018-02-26</time>
+  <time datetime="2018-02-26T06:43:18.000Z" itemprop="datePublished">2018-02-26</time>
 </a>
     
   </div>
@@ -277,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjgok4q5m000ifaf2ey0muw2o" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Thread-Creation/" data-id="cjh6yeoq0000ec5f25626xl8a" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -292,7 +375,7 @@
     <article id="post-Cracking-the-Interview-Wish" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/26/Cracking-the-Interview-Wish/" class="article-date">
-  <time datetime="2018-02-26T20:27:49.000Z" itemprop="datePublished">2018-02-26</time>
+  <time datetime="2018-02-26T04:27:49.000Z" itemprop="datePublished">2018-02-26</time>
 </a>
     
   </div>
@@ -364,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjgok4q5o000kfaf2kaoryo6y" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/26/Cracking-the-Interview-Wish/" data-id="cjh6yeoqh000gc5f2u5j5sqtf" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -379,7 +462,7 @@
     <article id="post-Bid-Data-Process-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/24/Bid-Data-Process-3/" class="article-date">
-  <time datetime="2018-02-24T08:02:15.000Z" itemprop="datePublished">2018-02-24</time>
+  <time datetime="2018-02-23T16:02:15.000Z" itemprop="datePublished">2018-02-24</time>
 </a>
     
   </div>
@@ -410,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjgok4q5c0009faf2qz58fab7" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/24/Bid-Data-Process-3/" data-id="cjh6yeop40009c5f2s6uxzue1" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -425,7 +508,7 @@
     <article id="post-Bid-Data-Process-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/23/Bid-Data-Process-2/" class="article-date">
-  <time datetime="2018-02-24T07:43:50.000Z" itemprop="datePublished">2018-02-23</time>
+  <time datetime="2018-02-23T15:43:50.000Z" itemprop="datePublished">2018-02-23</time>
 </a>
     
   </div>
@@ -451,7 +534,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjgok4q580005faf24i544bbk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/23/Bid-Data-Process-2/" data-id="cjh6yeoop0005c5f2rkqzw5am" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -466,7 +549,7 @@
     <article id="post-JavaScript-Interview-Questions" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/18/JavaScript-Interview-Questions/" class="article-date">
-  <time datetime="2018-02-19T00:31:38.000Z" itemprop="datePublished">2018-02-18</time>
+  <time datetime="2018-02-18T08:31:38.000Z" itemprop="datePublished">2018-02-18</time>
 </a>
     
   </div>
@@ -494,68 +577,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjgok4q6f0013faf2ex2xmvyi" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Basic-Knowledge" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/17/Basic-Knowledge/" class="article-date">
-  <time datetime="2018-02-18T04:37:21.000Z" itemprop="datePublished">2018-02-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/17/Basic-Knowledge/">Basic Knowledge</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C-C-编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。"><a href="#1-函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C-C-编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。" class="headerlink" title="1.函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C/C++编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。"></a>1.函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C/C++编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。</h3><h3 id="2-网络分层协议"><a href="#2-网络分层协议" class="headerlink" title="2.网络分层协议"></a>2.网络分层协议</h3><p>OSI模型有7层结构，每层都可以有几个子层。 OSI的7层从上到下分别是 </p>
-<h4 id="7-应用层"><a href="#7-应用层" class="headerlink" title="7 应用层"></a>7 应用层</h4><p>当用户使用浏览器来打开网页时，需要利用DNS提供的域名解析服务，来获取网址对应的IP地址，然后再通过另外一个协议HTTP来下载页面内容。在这个过程中出现的两个协议（DNS和HTTP）都是工作在应用层上的协议。</p>
-<p>应用层的其他常用协议：</p>
-<p>FTP：文件传输协议，用来在客户机和FTP服务器之间传输文件。<br>DHCP：动态主机配置协议，DHCP服务器为客户机动态分配IP地址。<br>POP3：邮件接收协议，用于从POP3服务器接收邮件。<br>SMTP：邮件发送协议，用户通过SMTP服务器发送邮件。</p>
-<h4 id="6-表示层"><a href="#6-表示层" class="headerlink" title="6 表示层"></a>6 表示层</h4><p>这里的“表示”是指数据的表示。<br>该层的主要功能：转换，压缩和加密。<br>工作在表示层的加密协议最常用的是SSL(Secure Sockets Layer)。</p>
-<h4 id="5-会话层"><a href="#5-会话层" class="headerlink" title="5 会话层"></a>5 会话层</h4><p>可以把“会话”理解为两个应用程序进程之间的逻辑连接，两个应用程序通过这个逻辑连接在一段时间内交换数据。会话层的作用就是为创建、管理和终止会话提供必要的方法。这些方法一般以API(Application Program Interface，应用程序编程接口)的形式出现。常用的API由NetBIOS(Network Basic Input/Output System，网络基本输入/输出系统)、RPC(Remote Procedure Call，远程过程调用)和Socket API。</p>
-<h4 id="4-传输层"><a href="#4-传输层" class="headerlink" title="4 传输层"></a>4 传输层</h4><p>传输层提供数据传输的服务。这里的“传输”指的是端对端（End-to-End）或者主机对主机（Host-to-Host）的传输。</p>
-<p>传输层上最重要的两个协议是TCP和UDP。TCP是面向连接的协议（Connection-Oriented），UDP是无连接的协议(Connection-Less)。</p>
-<p>TCP(Transmission Control Protocol，传输控制协议)</p>
-<p>TCP在传输数据之前必须先建立一个连接。TCP做了很多工作来提供可靠的数据传输，包括建立、管理和终止连接，确认和重传。同时TCP还提供分段和重组，流量控制（Flow Control）等。</p>
-<p>UDP(User Datagram Protocol，用户数据报协议)</p>
-<p>UDP是一种简单的传输层协议，所以它并不能提供可靠的数据传输。简单地说，UDP只是把应用程序发给它的数据打包成一个UDP数据报（UDP Datagram），然后再把这个数据报传给IP。<br>TCP会把应用程序发来的数据根据需要分成若干个大小合适的TCP段（TCP Segment），而UDP却只是简单地把所有发送来的数据打包成一个UDP数据报，所以我们在编写使用UDP的程序时，不能一次性向UDP写入太多数据，否则可能会导致IP分段的后果。</p>
-<p>由于可能有很多应用程序同时在使用TCP/UDP，它们都会把数据交给TCP/UDP，而TCP/UDP也会接收来自IP的、包含指向不同应用程序的数据，所以就需要有一种方法来区别（标识）应用程序，这种方法就是通过端口号（Port）来进行多路复用或多路分解。端口号是一个16位的二进制整数，其取值范围是0~65535。</p>
-<p>多路复用(Multiplexing)<br>多路复用是只当应用程序把数据交给TCP或UDP时，TCP会把这些数据分成若干个TCP段，UDP则会产生一个UDP数据报。在这些TCP段和UDP数据报中，会填入应用程序指定的源端口号和目标端口号，源端口号用于标识发送的应用程序（进程），目标端口号用于指明在目标机器上应该接收数据的目标应用程序。</p>
-<p>多路分解(Demultiplexing)<br>多路分解是多路复用的逆过程。当在目标机器上的TCP或者UDP接收到TCP段和UDP数据报时，会检查它们的目标端口号，然后根据不同的目标端口号把数据分发给不同的应用程序（进程）。</p>
-<h4 id="3-网络层"><a href="#3-网络层" class="headerlink" title="3 网络层"></a>3 网络层</h4><p>网络层关心的主要是如何把数据从一个设备发送到另一个设备。网络层需要提供三个最基本的功能：地址、路由、分段和重组。同时还需要一些附加的功能，比如错误处理和诊断。</p>
-<p>网络层上最重要的协议IP（Internet Protocol），就是为了这些功能而设计的。</p>
-<h4 id="2-数据链路层"><a href="#2-数据链路层" class="headerlink" title="2 数据链路层"></a>2 数据链路层</h4><p>网络层关心的是如何把数据从一个设备发送到另外一个设备，这另外一个设备有可能在本地网络中或者在一个很远的网络中。数据链路层关心的是如何把数据发送到本地网络中去。我们平时常说的LAN（Local Area Network，局域网）技术，如以太网（Ethernet）、令牌环网（Token Ring）、光纤分布数据接口（FDDI）和802.11（WiFi）都定义在这一层。<br>数据链路层又分为两个子层：逻辑链路控制层(Logical Link Control)和介质访问控制层(Media Access Control)。</p>
-<p>数据链路层还有一个重要的概念，即MAC地址，也有人称其为物理地址、硬件地址、以太网地址等。每一个网卡（Network Interface Card）都有一个唯一的MAC地址，数据链路层通过MAC地址来确保数据能够正确被发送到目标设备。MAC地址是一个48位二进制整数，通常的表示方法是用-隔开的6个十六进制整数，如14-FE-B5-B0-2B-96。</p>
-<h4 id="1-物理层"><a href="#1-物理层" class="headerlink" title="1 物理层"></a>1 物理层</h4><p>物理层位于OSI的底层，所有其他层的数据最终都必须经由物理层才能发送出去。物理层的功能包括：</p>
-<p>硬件规范的定义，如电缆、连接器、无线接收器等的工作方式，网卡、集线器（Hub）等网络设备也工作在物理层。<br>编码和信号，物理层把计算机中的二进制0和1转换成可以在物理介质上传输的信号。<br>在把数据转换成信号后（如对于双绞线电缆则是电子脉冲信号），物理层负责信号的实际发送和接收</p>
-<h3 id="分类和聚类的区别"><a href="#分类和聚类的区别" class="headerlink" title="分类和聚类的区别"></a>分类和聚类的区别</h3><p>分类简单来说，就是根据文本的特征或属性，划分到已有的类别中。也就是说，这些类别是已知的，通过对已知分类的数据进行训练和学习，找到这些不同类的特征，再对未分类的数据进行分类。<br>而聚类的理解更简单，就是你压根不知道数据会分为几类，通过聚类分析将数据或者说用户聚合成几个群体，那就是聚类了。聚类不需要对数据进行训练和学习。</p>
-<p>分类属于监督学习，聚类属于无监督学习。<br>常见的分类比如决策树分类算法、贝叶斯分类算法等。<br>聚类的算法最基本的有系统聚类，K-means均值聚类。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjgok4q500003faf2nplhebj9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/18/JavaScript-Interview-Questions/" data-id="cjh6yeosm000zc5f239a2fvn4" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
@@ -571,7 +593,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorige</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Volgende &raquo;</a>
   </nav>
 
 </section>
@@ -583,7 +605,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -602,7 +624,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -612,28 +634,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/05/01/Firebase/">(no title)</a>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
           </li>
         
           <li>
-            <a href="/2018/05/01/ReactJS/">(no title)</a>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/HTML5/">(no title)</a>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
           </li>
         
       </ul>

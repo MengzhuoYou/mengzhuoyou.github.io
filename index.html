@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,10 +64,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Leetcode-105" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/Leetcode-105/" class="article-date">
+  <time datetime="2018-05-15T00:41:51.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>public class TreeNode {</li>
+<li>int val;</li>
+<li>TreeNode left;</li>
+<li>TreeNode right;</li>
+<li>TreeNode(int x) { val = x; }</li>
+<li>}<br>*/<br>For this problem, we know that the first element in the preorder sequence is the root for the current tree, so we find this element in the inorder sequence. Then, the elemnts before this position is the left children, the elements after this position is the right children.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> build(preorder,inorder,<span class="number">0</span>,<span class="number">0</span>,preorder.length);</span><br><span class="line">        <span class="comment">//the last parameter means: the length of the current tree;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">build</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder, <span class="keyword">int</span> idx1, <span class="keyword">int</span> idx2, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(len == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(preorder[idx1]);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//to find the left length of this root</span></span><br><span class="line">        <span class="keyword">int</span> leftLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(inorder[idx2+leftLen] != preorder[idx1]) leftLen++;</span><br><span class="line">        </span><br><span class="line">        root.left = build(preorder, inorder, idx1+<span class="number">1</span>, idx2, leftLen);</span><br><span class="line">        root.right = build(preorder, inorder, idx1+leftLen+<span class="number">1</span>, idx2+leftLen+<span class="number">1</span>, len-leftLen-<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/15/Leetcode-105/" data-id="cjh6yeovj001tc5f2ut147n6r" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Firebase" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/01/Firebase/" class="article-date">
-  <time datetime="2018-05-01T21:05:55.000Z" itemprop="datePublished">2018-05-01</time>
+    <a href="/2018/05/02/Firebase/" class="article-date">
+  <time datetime="2018-05-01T21:05:55.000Z" itemprop="datePublished">2018-05-02</time>
 </a>
     
   </div>
@@ -83,9 +131,9 @@
 <li>This would have taken developers tens of thousands of lines of code to do otherwise.</li>
 </ul>
 <h3 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h3><ul>
-<li>Firebase services come bundled in one powerful SDK that contains allthe Firebase tools.</li>
+<li>Firebase services come bundled in one powerful SDK that contains all the Firebase tools.</li>
 <li>Firebase categorizes its services into two categories:<ul>
-<li>–  Develop: These services focus on the development of applicationsand help with ensuring app quality.</li>
+<li>–  Develop: These services focus on the development of applications and help with ensuring app quality.</li>
 <li>–  Grow: These services focus on analytics, acquiring and re-engaging users.</li>
 </ul>
 </li>
@@ -128,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/01/Firebase/" data-id="cjgok4q5t000ofaf2t6m8dqhv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/02/Firebase/" data-id="cjh6yeora000mc5f2vnx52nio" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -140,8 +188,8 @@
   
     <article id="post-ReactJS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/01/ReactJS/" class="article-date">
-  <time datetime="2018-05-01T18:18:28.000Z" itemprop="datePublished">2018-05-01</time>
+    <a href="/2018/05/02/ReactJS/" class="article-date">
+  <time datetime="2018-05-01T18:18:28.000Z" itemprop="datePublished">2018-05-02</time>
 </a>
     
   </div>
@@ -218,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/01/ReactJS/" data-id="cjgok4q7z002jfaf2ukmsv38z" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/02/ReactJS/" data-id="cjh6yeoy7002sc5f2j8hwo7a5" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -230,8 +278,8 @@
   
     <article id="post-HTML5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/30/HTML5/" class="article-date">
-  <time datetime="2018-05-01T04:50:30.000Z" itemprop="datePublished">2018-04-30</time>
+    <a href="/2018/05/01/HTML5/" class="article-date">
+  <time datetime="2018-05-01T04:50:30.000Z" itemprop="datePublished">2018-05-01</time>
 </a>
     
   </div>
@@ -322,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/HTML5/" data-id="cjgok4q5w000qfaf2i0ekbuz5" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/01/HTML5/" data-id="cjh6yeos7000uc5f2369iar27" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -334,8 +382,8 @@
   
     <article id="post-Serverless Applications" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/30/Serverless Applications/" class="article-date">
-  <time datetime="2018-05-01T03:36:45.000Z" itemprop="datePublished">2018-04-30</time>
+    <a href="/2018/05/01/Serverless Applications/" class="article-date">
+  <time datetime="2018-05-01T03:36:45.000Z" itemprop="datePublished">2018-05-01</time>
 </a>
     
   </div>
@@ -383,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/Serverless Applications/" data-id="cjgok4q88002tfaf2b88gubks" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/01/Serverless Applications/" data-id="cjh6yeoy1002qc5f2sx271m37" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -395,8 +443,8 @@
   
     <article id="post-JavaScript Frameworks" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/30/JavaScript Frameworks/" class="article-date">
-  <time datetime="2018-04-30T22:51:50.000Z" itemprop="datePublished">2018-04-30</time>
+    <a href="/2018/05/01/JavaScript Frameworks/" class="article-date">
+  <time datetime="2018-04-30T22:51:50.000Z" itemprop="datePublished">2018-05-01</time>
 </a>
     
   </div>
@@ -504,7 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/JavaScript Frameworks/" data-id="cjgok4q6c0012faf28195yxua" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/01/JavaScript Frameworks/" data-id="cjh6yeot70017c5f243orc370" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -516,8 +564,8 @@
   
     <article id="post-High Performance Web sites" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/30/High Performance Web sites/" class="article-date">
-  <time datetime="2018-04-30T21:02:31.000Z" itemprop="datePublished">2018-04-30</time>
+    <a href="/2018/05/01/High Performance Web sites/" class="article-date">
+  <time datetime="2018-04-30T21:02:31.000Z" itemprop="datePublished">2018-05-01</time>
 </a>
     
   </div>
@@ -600,7 +648,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/High Performance Web sites/" data-id="cjgok4q63000ufaf2vm3aqkq1" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/01/High Performance Web sites/" data-id="cjh6yeory000sc5f2s4tzisl2" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -612,8 +660,8 @@
   
     <article id="post-Web Services and REST" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/30/Web Services and REST/" class="article-date">
-  <time datetime="2018-04-30T18:27:43.000Z" itemprop="datePublished">2018-04-30</time>
+    <a href="/2018/05/01/Web Services and REST/" class="article-date">
+  <time datetime="2018-04-30T18:27:43.000Z" itemprop="datePublished">2018-05-01</time>
 </a>
     
   </div>
@@ -644,7 +692,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/Web Services and REST/" data-id="cjgok4q8a002vfaf2cl7a4isd" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/01/Web Services and REST/" data-id="cjh6yeoz10030c5f2iudj7xoe" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -656,8 +704,8 @@
   
     <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/30/jQuery/" class="article-date">
-  <time datetime="2018-04-30T16:59:35.000Z" itemprop="datePublished">2018-04-30</time>
+    <a href="/2018/05/01/jQuery/" class="article-date">
+  <time datetime="2018-04-30T16:59:35.000Z" itemprop="datePublished">2018-05-01</time>
 </a>
     
   </div>
@@ -780,7 +828,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/jQuery/" data-id="cjgok4q8i0037faf2nrdxoyah" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/01/jQuery/" data-id="cjh6yep06003dc5f2uf9hzdqb" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -792,8 +840,8 @@
   
     <article id="post-Ajax" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/29/Ajax/" class="article-date">
-  <time datetime="2018-04-30T00:21:10.000Z" itemprop="datePublished">2018-04-29</time>
+    <a href="/2018/04/30/Ajax/" class="article-date">
+  <time datetime="2018-04-30T00:21:10.000Z" itemprop="datePublished">2018-04-30</time>
 </a>
     
   </div>
@@ -868,60 +916,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Ajax/" data-id="cjgok4q520004faf2ocdjnfrp" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Resposive Web Design" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/29/Resposive Web Design/" class="article-date">
-  <time datetime="2018-04-29T21:49:50.000Z" itemprop="datePublished">2018-04-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Responsive-Web-Design"><a href="#Responsive-Web-Design" class="headerlink" title="Responsive Web Design"></a><center>Responsive Web Design</center></h2><h3 id="RWD"><a href="#RWD" class="headerlink" title="RWD"></a>RWD</h3><ul>
-<li><p>RWD is the concept of developing a website in a way that allows the layout to automatically adjust according to the user’s screen resolution (called its viewport).    </p>
-</li>
-<li><p>The viewport meta tag lets you set the width and initial scale of the viewport.</p>
-</li>
-<li><p>For example</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=590"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Media-Queries"><a href="#Media-Queries" class="headerlink" title="Media Queries"></a>Media Queries</h3><ul>
-<li>A media query consists of a media type (screen) and the actual query enclosed within parentheses, containing a particular media feature (max-device-width) to inspect, followed by the target value (480px). The query can be zero or more expressions that check for the conditions of particular media features.</li>
-</ul>
-<h3 id="A-Simple-Example"><a href="#A-Simple-Example" class="headerlink" title="A Simple Example"></a>A Simple Example</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">.myCircle &#123;</span></span><br><span class="line"><span class="undefined">  width:200px;</span></span><br><span class="line"><span class="undefined">  height:200px;</span></span><br><span class="line"><span class="undefined">  -webkit-border-radius: 50%;</span></span><br><span class="line"><span class="undefined">  -moz-border-radius: 50% ;</span></span><br><span class="line"><span class="undefined">  border-radius: 50% ;</span></span><br><span class="line"><span class="undefined">  background:blue;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">@media (max-width: 480px) &#123;</span></span><br><span class="line"><span class="undefined">  .myCircle &#123;</span></span><br><span class="line"><span class="undefined">      background:red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">@media (max-width: 768px) &#123;</span></span><br><span class="line"><span class="undefined">  .myCircle &#123;</span></span><br><span class="line"><span class="undefined">      background:green;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">@media (min-width: 960px) &#123;</span></span><br><span class="line"><span class="undefined">  .myCircle &#123;</span></span><br><span class="line"><span class="undefined">      background:pink;</span></span><br><span class="line"><span class="undefined">      width:400px;</span></span><br><span class="line"><span class="undefined">      height:400px;</span></span><br><span class="line"><span class="undefined">&#125; &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"myCircle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h3><ul>
-<li>Bootstrap is a powerful front-end framework for faster and easier responsive web development.</li>
-<li>It includes HTML and CSS based design templates for common user interface components like Typography, Forms, Buttons, Tables, Navigations, Dropdowns, Alerts, Modals, Tabs, Accordion, Carousel and many other as well as optional JavaScript extensions.</li>
-<li>Bootstrap responsive features make your web pages to appear more appropriately on different devices and screen resolutions without any change in markup.</li>
-</ul>
-<h3 id="A-Basic-Bootstrap-Template-File"><a href="#A-Basic-Bootstrap-Template-File" class="headerlink" title="A Basic Bootstrap Template File"></a>A Basic Bootstrap Template File</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Basic Bootstrap Template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span> <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>The Bootstrap 3 grid system has four tiers of classes: xs (phones), sm(tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Reset offsets, pushes, and pulls at specific breakpoints.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-5 col-md-6"</span>&gt;</span>.col-sm-5 .col-md-6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0"</span>&gt;</span>.col-sm-5 .col-sm- offset-2 .col-md-6 .col-md-offset-0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 col-md-5 col-lg-6"</span>&gt;</span>.col-sm-6 .col-md-5 .col-lg-6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0"</span>&gt;</span>.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
-<p>  ​<br>  ​<br>  ​<br>  ​    </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Resposive Web Design/" data-id="cjgok4q83002ofaf2lemicw0e" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/30/Ajax/" data-id="cjh6yeomb0000c5f24ddo7eu0" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -935,7 +930,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Volgende &raquo;</a>
   </nav>
 
 </section>
@@ -947,7 +942,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -966,7 +961,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -976,28 +971,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/05/01/Firebase/">(no title)</a>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
           </li>
         
           <li>
-            <a href="/2018/05/01/ReactJS/">(no title)</a>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/HTML5/">(no title)</a>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
           </li>
         
       </ul>

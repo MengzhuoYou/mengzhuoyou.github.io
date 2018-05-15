@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,10 +64,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Basic-Knowledge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/17/Basic-Knowledge/" class="article-date">
+  <time datetime="2018-02-17T12:37:21.000Z" itemprop="datePublished">2018-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/Basic-Knowledge/">Basic Knowledge</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C-C-编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。"><a href="#1-函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C-C-编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。" class="headerlink" title="1.函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C/C++编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。"></a>1.函数调用过程中，第一个进栈的是（主函数中的）调用处的下一条指令（即函数调用语句的下一条可执行语句）的地址；然后是函数的各个参数，而在大多数C/C++编译器中，在函数调用的过程中，函数的参数是由右向左入栈的；然后是函数内部的局部变量（注意static变量是不入栈的）；在函数调用结束（函数运行结束）后，局部变量最先出栈，然后是参数，最后栈顶指针指向最开始存的指令地址，程序由该点继续运行。</h3><h3 id="2-网络分层协议"><a href="#2-网络分层协议" class="headerlink" title="2.网络分层协议"></a>2.网络分层协议</h3><p>OSI模型有7层结构，每层都可以有几个子层。 OSI的7层从上到下分别是 </p>
+<h4 id="7-应用层"><a href="#7-应用层" class="headerlink" title="7 应用层"></a>7 应用层</h4><p>当用户使用浏览器来打开网页时，需要利用DNS提供的域名解析服务，来获取网址对应的IP地址，然后再通过另外一个协议HTTP来下载页面内容。在这个过程中出现的两个协议（DNS和HTTP）都是工作在应用层上的协议。</p>
+<p>应用层的其他常用协议：</p>
+<p>FTP：文件传输协议，用来在客户机和FTP服务器之间传输文件。<br>DHCP：动态主机配置协议，DHCP服务器为客户机动态分配IP地址。<br>POP3：邮件接收协议，用于从POP3服务器接收邮件。<br>SMTP：邮件发送协议，用户通过SMTP服务器发送邮件。</p>
+<h4 id="6-表示层"><a href="#6-表示层" class="headerlink" title="6 表示层"></a>6 表示层</h4><p>这里的“表示”是指数据的表示。<br>该层的主要功能：转换，压缩和加密。<br>工作在表示层的加密协议最常用的是SSL(Secure Sockets Layer)。</p>
+<h4 id="5-会话层"><a href="#5-会话层" class="headerlink" title="5 会话层"></a>5 会话层</h4><p>可以把“会话”理解为两个应用程序进程之间的逻辑连接，两个应用程序通过这个逻辑连接在一段时间内交换数据。会话层的作用就是为创建、管理和终止会话提供必要的方法。这些方法一般以API(Application Program Interface，应用程序编程接口)的形式出现。常用的API由NetBIOS(Network Basic Input/Output System，网络基本输入/输出系统)、RPC(Remote Procedure Call，远程过程调用)和Socket API。</p>
+<h4 id="4-传输层"><a href="#4-传输层" class="headerlink" title="4 传输层"></a>4 传输层</h4><p>传输层提供数据传输的服务。这里的“传输”指的是端对端（End-to-End）或者主机对主机（Host-to-Host）的传输。</p>
+<p>传输层上最重要的两个协议是TCP和UDP。TCP是面向连接的协议（Connection-Oriented），UDP是无连接的协议(Connection-Less)。</p>
+<p>TCP(Transmission Control Protocol，传输控制协议)</p>
+<p>TCP在传输数据之前必须先建立一个连接。TCP做了很多工作来提供可靠的数据传输，包括建立、管理和终止连接，确认和重传。同时TCP还提供分段和重组，流量控制（Flow Control）等。</p>
+<p>UDP(User Datagram Protocol，用户数据报协议)</p>
+<p>UDP是一种简单的传输层协议，所以它并不能提供可靠的数据传输。简单地说，UDP只是把应用程序发给它的数据打包成一个UDP数据报（UDP Datagram），然后再把这个数据报传给IP。<br>TCP会把应用程序发来的数据根据需要分成若干个大小合适的TCP段（TCP Segment），而UDP却只是简单地把所有发送来的数据打包成一个UDP数据报，所以我们在编写使用UDP的程序时，不能一次性向UDP写入太多数据，否则可能会导致IP分段的后果。</p>
+<p>由于可能有很多应用程序同时在使用TCP/UDP，它们都会把数据交给TCP/UDP，而TCP/UDP也会接收来自IP的、包含指向不同应用程序的数据，所以就需要有一种方法来区别（标识）应用程序，这种方法就是通过端口号（Port）来进行多路复用或多路分解。端口号是一个16位的二进制整数，其取值范围是0~65535。</p>
+<p>多路复用(Multiplexing)<br>多路复用是只当应用程序把数据交给TCP或UDP时，TCP会把这些数据分成若干个TCP段，UDP则会产生一个UDP数据报。在这些TCP段和UDP数据报中，会填入应用程序指定的源端口号和目标端口号，源端口号用于标识发送的应用程序（进程），目标端口号用于指明在目标机器上应该接收数据的目标应用程序。</p>
+<p>多路分解(Demultiplexing)<br>多路分解是多路复用的逆过程。当在目标机器上的TCP或者UDP接收到TCP段和UDP数据报时，会检查它们的目标端口号，然后根据不同的目标端口号把数据分发给不同的应用程序（进程）。</p>
+<h4 id="3-网络层"><a href="#3-网络层" class="headerlink" title="3 网络层"></a>3 网络层</h4><p>网络层关心的主要是如何把数据从一个设备发送到另一个设备。网络层需要提供三个最基本的功能：地址、路由、分段和重组。同时还需要一些附加的功能，比如错误处理和诊断。</p>
+<p>网络层上最重要的协议IP（Internet Protocol），就是为了这些功能而设计的。</p>
+<h4 id="2-数据链路层"><a href="#2-数据链路层" class="headerlink" title="2 数据链路层"></a>2 数据链路层</h4><p>网络层关心的是如何把数据从一个设备发送到另外一个设备，这另外一个设备有可能在本地网络中或者在一个很远的网络中。数据链路层关心的是如何把数据发送到本地网络中去。我们平时常说的LAN（Local Area Network，局域网）技术，如以太网（Ethernet）、令牌环网（Token Ring）、光纤分布数据接口（FDDI）和802.11（WiFi）都定义在这一层。<br>数据链路层又分为两个子层：逻辑链路控制层(Logical Link Control)和介质访问控制层(Media Access Control)。</p>
+<p>数据链路层还有一个重要的概念，即MAC地址，也有人称其为物理地址、硬件地址、以太网地址等。每一个网卡（Network Interface Card）都有一个唯一的MAC地址，数据链路层通过MAC地址来确保数据能够正确被发送到目标设备。MAC地址是一个48位二进制整数，通常的表示方法是用-隔开的6个十六进制整数，如14-FE-B5-B0-2B-96。</p>
+<h4 id="1-物理层"><a href="#1-物理层" class="headerlink" title="1 物理层"></a>1 物理层</h4><p>物理层位于OSI的底层，所有其他层的数据最终都必须经由物理层才能发送出去。物理层的功能包括：</p>
+<p>硬件规范的定义，如电缆、连接器、无线接收器等的工作方式，网卡、集线器（Hub）等网络设备也工作在物理层。<br>编码和信号，物理层把计算机中的二进制0和1转换成可以在物理介质上传输的信号。<br>在把数据转换成信号后（如对于双绞线电缆则是电子脉冲信号），物理层负责信号的实际发送和接收</p>
+<h3 id="分类和聚类的区别"><a href="#分类和聚类的区别" class="headerlink" title="分类和聚类的区别"></a>分类和聚类的区别</h3><p>分类简单来说，就是根据文本的特征或属性，划分到已有的类别中。也就是说，这些类别是已知的，通过对已知分类的数据进行训练和学习，找到这些不同类的特征，再对未分类的数据进行分类。<br>而聚类的理解更简单，就是你压根不知道数据会分为几类，通过聚类分析将数据或者说用户聚合成几个群体，那就是聚类了。聚类不需要对数据进行训练和学习。</p>
+<p>分类属于监督学习，聚类属于无监督学习。<br>常见的分类比如决策树分类算法、贝叶斯分类算法等。<br>聚类的算法最基本的有系统聚类，K-means均值聚类。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/17/Basic-Knowledge/" data-id="cjh6yeooj0004c5f2mvrbicew" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-GBDT-梯度下降树" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/17/GBDT-梯度下降树/" class="article-date">
-  <time datetime="2018-02-18T04:15:21.000Z" itemprop="datePublished">2018-02-17</time>
+  <time datetime="2018-02-17T12:15:21.000Z" itemprop="datePublished">2018-02-17</time>
 </a>
     
   </div>
@@ -91,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjgok4q67000yfaf2m2p626ql" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/GBDT-梯度下降树/" data-id="cjh6yeors000qc5f252coptpt" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -106,7 +167,7 @@
     <article id="post-Deep-Learning-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/17/Deep-Learning-2/" class="article-date">
-  <time datetime="2018-02-18T03:10:31.000Z" itemprop="datePublished">2018-02-17</time>
+  <time datetime="2018-02-17T11:10:31.000Z" itemprop="datePublished">2018-02-17</time>
 </a>
     
   </div>
@@ -155,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjgok4q5z000rfaf2rxt2a394" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-2/" data-id="cjh6yeork000oc5f27ijrwijs" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -170,7 +231,7 @@
     <article id="post-Deep-Learning-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/17/Deep-Learning-1/" class="article-date">
-  <time datetime="2018-02-17T23:53:18.000Z" itemprop="datePublished">2018-02-17</time>
+  <time datetime="2018-02-17T07:53:18.000Z" itemprop="datePublished">2018-02-17</time>
 </a>
     
   </div>
@@ -201,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjgok4q5q000mfaf2oo77cdbp" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/Deep-Learning-1/" data-id="cjh6yeor0000kc5f2vdwbe188" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -216,7 +277,7 @@
     <article id="post-PHP-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/17/PHP-Tutorial/" class="article-date">
-  <time datetime="2018-02-17T22:03:09.000Z" itemprop="datePublished">2018-02-17</time>
+  <time datetime="2018-02-17T06:03:09.000Z" itemprop="datePublished">2018-02-17</time>
 </a>
     
   </div>
@@ -249,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjgok4q7x002hfaf27j0q953m" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/PHP-Tutorial/" data-id="cjh6yeoxo002lc5f2wqia0e5g" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -264,7 +325,7 @@
     <article id="post-Counter-php" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/17/Counter-php/" class="article-date">
-  <time datetime="2018-02-17T21:55:24.000Z" itemprop="datePublished">2018-02-17</time>
+  <time datetime="2018-02-17T05:55:24.000Z" itemprop="datePublished">2018-02-17</time>
 </a>
     
   </div>
@@ -288,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjgok4q5g000dfaf22fcm4l61" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/17/Counter-php/" data-id="cjh6yeopk000cc5f2z44obui9" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -303,7 +364,7 @@
     <article id="post-Least-Common-Ancester" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/13/Least-Common-Ancester/" class="article-date">
-  <time datetime="2018-02-14T06:31:42.000Z" itemprop="datePublished">2018-02-13</time>
+  <time datetime="2018-02-13T14:31:42.000Z" itemprop="datePublished">2018-02-13</time>
 </a>
     
   </div>
@@ -347,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjgok4q6j0017faf2c1tbpi4t" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/13/Least-Common-Ancester/" data-id="cjh6yeosz0014c5f2zfila43r" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li></ul>
@@ -362,7 +423,7 @@
     <article id="post-Big-Data-Process" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/13/Big-Data-Process/" class="article-date">
-  <time datetime="2018-02-14T05:12:06.000Z" itemprop="datePublished">2018-02-13</time>
+  <time datetime="2018-02-13T13:12:06.000Z" itemprop="datePublished">2018-02-13</time>
 </a>
     
   </div>
@@ -394,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjgok4q5e000bfaf2dbjbjpsw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/13/Big-Data-Process/" data-id="cjh6yeopb000ac5f2b3jaehsv" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li></ul>
@@ -409,7 +470,7 @@
     <article id="post-Leetcode-016" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/12/Leetcode-016/" class="article-date">
-  <time datetime="2018-02-13T00:29:25.000Z" itemprop="datePublished">2018-02-12</time>
+  <time datetime="2018-02-12T08:29:25.000Z" itemprop="datePublished">2018-02-12</time>
 </a>
     
   </div>
@@ -434,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjgok4q6n001afaf24h88432i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-016/" data-id="cjh6yeotc0019c5f27m6gti6f" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -449,7 +510,7 @@
     <article id="post-Leetcode-229" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/12/Leetcode-229/" class="article-date">
-  <time datetime="2018-02-13T00:29:17.000Z" itemprop="datePublished">2018-02-12</time>
+  <time datetime="2018-02-12T08:29:17.000Z" itemprop="datePublished">2018-02-12</time>
 </a>
     
   </div>
@@ -473,46 +534,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjgok4q7n0024faf2r1mxr8qv" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Leetcode-169" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/12/Leetcode-169/" class="article-date">
-  <time datetime="2018-02-13T00:29:12.000Z" itemprop="datePublished">2018-02-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/Leetcode-169/">Leetcode-169</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leetcode_169_MajorityElemetn</span> </span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> n : nums)&#123;</span><br><span class="line"><span class="keyword">if</span>(count == <span class="number">0</span>) res = n;</span><br><span class="line"><span class="keyword">if</span>(n != res) count--;</span><br><span class="line"><span class="keyword">else</span> count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/12/Leetcode-169/" data-id="cjgok4q7l0022faf26t8ocaek" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/12/Leetcode-229/" data-id="cjh6yeowc0023c5f2qx7mhkwm" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li></ul>
@@ -528,7 +550,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Vorige</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Volgende &raquo;</a>
   </nav>
 
 </section>
@@ -540,7 +562,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
@@ -559,7 +581,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -569,28 +591,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/05/01/Firebase/">(no title)</a>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
           </li>
         
           <li>
-            <a href="/2018/05/01/ReactJS/">(no title)</a>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/HTML5/">(no title)</a>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/Serverless Applications/">(no title)</a>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/04/30/JavaScript Frameworks/">(no title)</a>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
           </li>
         
       </ul>

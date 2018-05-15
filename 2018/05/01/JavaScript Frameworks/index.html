@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript FrameworksNode.jsIntroduction Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and effi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/JavaScript Frameworks/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="JavaScript FrameworksNode.jsIntroduction Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and effi">
+<meta property="og:updated_time" content="2018-04-30T22:51:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="JavaScript FrameworksNode.jsIntroduction Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and effi">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript Frameworks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/01/JavaScript Frameworks/" class="article-date">
+  <time datetime="2018-04-30T22:51:50.000Z" itemprop="datePublished">2018-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript-Frameworks"><a href="#JavaScript-Frameworks" class="headerlink" title="JavaScript Frameworks"></a><center>JavaScript Frameworks</center></h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><ul>
+<li>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</li>
+<li>Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.</li>
+<li>Node.js allows the creation of Web servers and networking tools using JavaScript and a collection of “modules” that handle various core functionality.</li>
+<li>Modules handle file system I/O, networking (DNS, HTTP, TCP, TLS/SSL, or UDP), binary data (buffers), cryptography functions, data streams and other core functions.</li>
+</ul>
+<h4 id="Basic-Functionality"><a href="#Basic-Functionality" class="headerlink" title="Basic Functionality"></a>Basic Functionality</h4><ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>); </span><br><span class="line">fs.readFile(<span class="string">'./intro.txt'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>); </span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span> &#125;);</span><br><span class="line">    res.end(<span class="string">'Hello World CSCI571!\n'</span>); </span><br><span class="line">&#125;).listen(<span class="number">9090</span>, <span class="string">'127.0.0.1'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`Server running at http://localhost:9090/`</span>);</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Express-Module-Example"><a href="#Express-Module-Example" class="headerlink" title="Express Module Example"></a>Express Module Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>); </span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"><span class="comment">//respond with "hello world" when a GET request is made to the homepage</span></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123; </span><br><span class="line">    res.send(<span class="string">'Hello World'</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//server listening on port 3000</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="Related-URLs"><a href="#Related-URLs" class="headerlink" title="Related URLs"></a>Related URLs</h4><ul>
+<li>Node.js website: <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a></li>
+<li>Node.js on Github: <a href="https://github.com/nodejs/node" target="_blank" rel="noopener">https://github.com/nodejs/node</a></li>
+<li>NPM: <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></li>
+<li>Learn Node.js in terminal: <a href="https://github.com/workshopper/learnyounode" target="_blank" rel="noopener">https://github.com/workshopper/learnyounode</a></li>
+<li>Tools: <a href="http://gruntjs.com/" target="_blank" rel="noopener">http://gruntjs.com/</a></li>
+</ul>
+<h3 id="Angular-JS"><a href="#Angular-JS" class="headerlink" title="Angular JS"></a>Angular JS</h3><h4 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h4><ul>
+<li>AngularJS is a complete JavaScript-based open-source front-end web application framework.</li>
+<li>Its mainly maintained by Google and some community of individuals.</li>
+<li>It provides a framework for client-side model–view–controller (MVC) and model–view–view model (MVVM) architectures.</li>
+<li>AngularJS is the frontend part of the MEAN stack, consisting of MongoDB database,Express.js web application server framework, Angular.js itself, and Node.js runtime environment.</li>
+</ul>
+<h4 id="Basic-functionality"><a href="#Basic-functionality" class="headerlink" title="Basic functionality"></a>Basic functionality</h4><ul>
+<li><p>Data Binding</p>
+<ul>
+<li><p>Data-binding is an automatic way of updating the view whenever the model changes,</p>
+<p>as well as updating the model whenever the view changes. This is awesome because it</p>
+<p>eliminates DOM manipulation from the list of things you have to worry about.</p>
+</li>
+</ul>
+</li>
+<li><p>Controller</p>
+<ul>
+<li>Controllers are the behavior behind the DOM elements. AngularJS lets you express the<br>behavior in a clean readable form without the usual boilerplate of updating the DOM,<br>registering callbacks or watching model changes.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Angular-Directives"><a href="#Angular-Directives" class="headerlink" title="Angular Directives"></a>Angular Directives</h4><ul>
+<li>ng-app <ul>
+<li>Declares the root element of an AngularJS application.</li>
+</ul>
+</li>
+<li>ng-controller <ul>
+<li>Specifies a JavaScript controller class that evaluates HTML expressions.</li>
+</ul>
+</li>
+<li>ng-bind<ul>
+<li>Sets the text of a DOM element to the value of an expression.</li>
+</ul>
+</li>
+<li>ng-model<ul>
+<li>Similar to ng-bind, but establishes a two-way data binding between the view and the scope.</li>
+</ul>
+</li>
+<li>ng-repeat<ul>
+<li>Instantiate an element once per item from a collection.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Angular-Example"><a href="#Angular-Example" class="headerlink" title="Angular Example"></a>Angular Example</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> app = angular.module(“myApp<span class="string">", []); </span></span></span><br><span class="line"><span class="undefined">app.controller(“myController", function($scope,$http) &#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">// $scope holds your model (metadata) for your application</span></span></span><br><span class="line"><span class="undefined">$scope.topic = “CSCI 571”; &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">“myApp</span>" <span class="attr">ng-controller</span>=<span class="string">“myController</span>"&gt;</span> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>An AngularJS module defines an application.</li>
+<li>The module is a container for controllers</li>
+<li>Controllers always belong to a module.</li>
+</ul>
+<h4 id="Related-URLs-1"><a href="#Related-URLs-1" class="headerlink" title="Related URLs"></a>Related URLs</h4><ul>
+<li><p>Hello World: <a href="https://angularjs.org/#the-basics" target="_blank" rel="noopener">https://angularjs.org/#the-basics</a></p>
+</li>
+<li><p>Todo List: <a href="https://angularjs.org/#add-some-control" target="_blank" rel="noopener">https://angularjs.org/#add-some-control</a></p>
+</li>
+<li><p>Advanced Single Page App: <a href="https://angularjs.org/#wire-up-a-backend" target="_blank" rel="noopener">https://angularjs.org/#wire-up-a-backend</a></p>
+<p>Related URLs</p>
+</li>
+</ul>
+<ul>
+<li><p>Angular.js website: <a href="https://angularjs.org" target="_blank" rel="noopener">https://angularjs.org</a></p>
+</li>
+<li><p>Angular.js on Github: <a href="https://github.com/angular/angular.js" target="_blank" rel="noopener">https://github.com/angular/angular.js</a></p>
+</li>
+<li><p>Tutorial: <a href="https://docs.angularjs.org/tutorial" target="_blank" rel="noopener">https://docs.angularjs.org/tutorial</a></p>
+</li>
+<li><p>Angular.js Course</p>
+<p><a href="http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/1/section/1/creating-a-store-module" target="_blank" rel="noopener">http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/1/section/1/creating-a-store-module</a></p>
+</li>
+<li><p>Angular 2: <a href="https://angular.io/" target="_blank" rel="noopener">https://angular.io/</a></p>
+</li>
+<li><p>Angular 2 docs: <a href="https://angular.io/docs" target="_blank" rel="noopener">https://angular.io/docs</a></p>
+</li>
+<li><p>Angular 2 IDEs, Tools, Libraries, UI Components: <a href="https://angular.io/resources" target="_blank" rel="noopener">https://angular.io/resources</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/01/JavaScript Frameworks/" data-id="cjh6yeot70017c5f243orc370" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/01/Serverless Applications/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/01/High Performance Web sites/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

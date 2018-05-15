@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTML5 Element - drawing The  element is  a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.   A canvas is a rectangle in you">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/HTML5/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="HTML5 Element - drawing The  element is  a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.   A canvas is a rectangle in you">
+<meta property="og:updated_time" content="2018-05-01T04:50:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="HTML5 Element - drawing The  element is  a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly.   A canvas is a rectangle in you">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTML5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/01/HTML5/" class="article-date">
+  <time datetime="2018-05-01T04:50:30.000Z" itemprop="datePublished">2018-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a><center>HTML5</center></h2><h3 id="Element-drawing"><a href="#Element-drawing" class="headerlink" title=" Element - drawing"></a><canvas> Element - drawing</canvas></h3><ul>
+<li><p>The <canvas> element is  a resolution-dependent bitmap canvas which can be used for rendering graphs, game graphics, or other visual images on the fly. </canvas></p>
+</li>
+<li><p>A canvas is a rectangle in your page where you can use JavaScript to draw anything you want.</p>
+</li>
+<li><p>A <canvas> element has no content and no border of its own.</canvas></p>
+</li>
+<li><p>You can have more than one <canvas> element on the same page.</canvas></p>
+</li>
+<li><p>Each canvas will show up in the DOM, and each canvas maintains its own state. Ifyou give each canvas an id attribute, you can access them just like any otherelement.</p>
+</li>
+<li><p>E.g. if one adds an id attribute, e.g.</p>
+&lt;canvas id= mycanvas” width=”300” height=”225”&gt;
+</li>
+<li><p>Now you can easily find that <canvas> element in the DOM, e.g.var a_canvas = document.getElementById( “mycanvas”);</canvas></p>
+</li>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000000;"</span>&gt;</span></span><br><span class="line">Your browser does not support the HTML5 canvas tag.</span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    var c = document.getElementById("myCanvas");</span></span><br><span class="line"><span class="undefined">    var ctx = c.getContext("2d");</span></span><br><span class="line"><span class="undefined">    ctx.fillStyle = "#FF0000";</span></span><br><span class="line"><span class="undefined">    ctx.fillRect(10,0,150,100);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Element-drawing-1"><a href="#Element-drawing-1" class="headerlink" title=" Element - drawing"></a><svg> Element - drawing</svg></h3><ul>
+<li>The <svg> element is  a container for SVG graphics. </svg></li>
+<li>SVG has several methods for drawing paths, boxes, circles, text and graphics images.</li>
+<li>SVG graphics is supported by all major browsers.</li>
+<li>SVG is a language for describing 2D graphics in XML.</li>
+<li>Since SVG is XML based, every element is available in the SVG DOM.</li>
+<li>If attributes of an SVG object are changed, the browser can automatically re-render the shape.</li>
+</ul>
+<h3 id="Defining-Sections-of-a-Web-Page-with-Element"><a href="#Defining-Sections-of-a-Web-Page-with-Element" class="headerlink" title="Defining Sections of a Web Page with  Element"></a>Defining Sections of a Web Page with <section> Element</section></h3><ul>
+<li><p><section> - a grouping of content, e.g. chapters or tabbed pages or a page is divided into Introduction, News Items and Contact Information</section></p>
+</li>
+<li><p>Example of an article about apples with two sections</p>
+<ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> <span class="tag">&lt;<span class="name">article</span>&gt;</span> <span class="tag">&lt;<span class="name">hgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Tasty, delicious fruit!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span> <span class="tag">&lt;/<span class="name">hgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The apple is the pomaceous fruit of the apple tree.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;<span class="name">section</span>&gt;</span> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Red Delicious<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>These bright red apples are the most common found in many supermarkets.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Granny Smith<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>These juicy, green apples make a great filling for apple pies.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span> <span class="tag">&lt;/<span class="name">article</span>&gt;</span> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Defining-Sections-of-a-Web-Page-with-Element-1"><a href="#Defining-Sections-of-a-Web-Page-with-Element-1" class="headerlink" title="Defining Sections of a Web Page with  Element"></a>Defining Sections of a Web Page with <nav> Element</nav></h3><ul>
+<li><p><nav> - a section of a page that links to other pages or to parts within the page; a section with navigation links</nav></p>
+</li>
+<li><p>In the following example, the page has several places where links are present, but only<br>one of those places is considered a navigation section.</p>
+<ul>
+<li><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span> <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Wake up sheeple!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"news.html"</span>&gt;</span>News<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"blog.html"</span>&gt;</span>Blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"forums.html"</span>&gt;</span>Forums<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Last Modified: <span class="tag">&lt;<span class="name">time</span>&gt;</span>2009-04-01<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Navigation<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"articles.html"</span>&gt;</span>Index of all articles<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"today.html"</span>&gt;</span>Things needed to wake up for today<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span> <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"successes.html"</span>&gt;</span>Sheep manage to wake<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span> <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span> <span class="tag">&lt;<span class="name">header</span>&gt;</span> <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Day at the Beach<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><ul>
+<li>localStorage is a client-side key-value database,<ul>
+<li>–  data is stored in the users browser and remains there even across sessions (open/closebrowser)</li>
+<li>–  data is only available when on that machine and in that browser.</li>
+<li>–  localStorage is per browser not per computer.</li>
+<li>–  localStorage only supports storing of strings</li>
+</ul>
+</li>
+</ul>
+<h3 id="Session-Storage"><a href="#Session-Storage" class="headerlink" title="Session Storage"></a>Session Storage</h3><ul>
+<li>Session storage is designed for scenarios where the user is carrying out a singletransaction, but could be carrying out multiple transactions in different windows atthe same time.</li>
+<li>To address this, this specification introduces the sessionStorage IDL attribute(An IDL attribute determines the behavior of script data). Sites can add data to thesession storage, and it will be accessible to any page from the same site opened inthat window. The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. The data is deleted when the user closes the specific browser tab.</li>
+</ul>
+<h3 id="Related-URLs"><a href="#Related-URLs" class="headerlink" title="Related URLs"></a>Related URLs</h3><ul>
+<li><p><a href="http://www.chromeexperiments.com/" target="_blank" rel="noopener">http://www.chromeexperiments.com/</a></p>
+</li>
+<li><p><a href="http://www.creativebloq.com/web-design/examples-of-html-1233547" target="_blank" rel="noopener">http://www.creativebloq.com/web-design/examples-of-html-1233547</a></p>
+</li>
+<li><p><a href="https://www.noupe.com/essentials/freebies-tools-templates/40-beautiful-free-html5-css3-templates.html" target="_blank" rel="noopener">https://www.noupe.com/essentials/freebies-tools-templates/40-beautiful-free-html5-css3-templates.html</a></p>
+</li>
+<li><p><a href="http://html5gallery.com" target="_blank" rel="noopener">http://html5gallery.com</a></p>
+</li>
+<li><p><a href="https://www.juicebox.net/demos/" target="_blank" rel="noopener">https://www.juicebox.net/demos/</a></p>
+</li>
+<li><p><a href="http://wowslider.com/html5-gallery-puzzle-collage-demo.html" target="_blank" rel="noopener">http://wowslider.com/html5-gallery-puzzle-collage-demo.html</a></p>
+<p>video element:<a href="https://html.spec.whatwg.org/#video" target="_blank" rel="noopener">https://html.spec.whatwg.org/#video</a></p>
+</li>
+<li><p>audio element:<a href="https://html.spec.whatwg.org/#audio" target="_blank" rel="noopener">https://html.spec.whatwg.org/#audio</a>            </p>
+<p>​    </p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/01/HTML5/" data-id="cjh6yeos7000uc5f2369iar27" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/02/ReactJS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/01/Serverless Applications/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

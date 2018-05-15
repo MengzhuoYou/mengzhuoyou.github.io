@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mengzhuo You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Secure Web CommunicationRSA Public Key Encryption RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission  A user of RSA creates two large prime number">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mengzhuo You">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/Secure Web Communication/index.html">
+<meta property="og:site_name" content="Mengzhuo You">
+<meta property="og:description" content="Secure Web CommunicationRSA Public Key Encryption RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission  A user of RSA creates two large prime number">
+<meta property="og:updated_time" content="2018-04-28T00:04:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mengzhuo You">
+<meta name="twitter:description" content="Secure Web CommunicationRSA Public Key Encryption RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission  A user of RSA creates two large prime number">
+  
+    <link rel="alternate" href="/atom.xml" title="Mengzhuo You" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mengzhuo You</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Secure Web Communication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/28/Secure Web Communication/" class="article-date">
+  <time datetime="2018-04-28T00:04:29.000Z" itemprop="datePublished">2018-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Secure-Web-Communication"><a href="#Secure-Web-Communication" class="headerlink" title="Secure Web Communication"></a>Secure Web Communication</h2><h2 id="RSA-Public-Key-Encryption"><a href="#RSA-Public-Key-Encryption" class="headerlink" title="RSA Public Key Encryption"></a>RSA Public Key Encryption</h2><ul>
+<li><p>RSA is one of the first practical public-keycryptosystems and is widely used for secure datatransmission</p>
+</li>
+<li><p>A user of RSA creates two large prime numbers and thenpublishes one of them as his public key</p>
+<p>– the numbers are typically 1024 digits or more</p>
+<p>– there are a few more steps involved</p>
+</li>
+<li><p>The most popular algorithm for public key encryption is</p>
+<p>the RSA algorithm (Rivest, Shamir Adleman)</p>
+<h2 id="Cryptographic-Hash-Functions"><a href="#Cryptographic-Hash-Functions" class="headerlink" title="Cryptographic Hash Functions"></a>Cryptographic Hash Functions</h2></li>
+</ul>
+<ul>
+<li><p>Given a data item X (X could be a word or afile), H is called a cryptographic hash function if it is computationally infeasible to find another data item Y, not equal to X, such that the hash value H(X) is equal to the hash value H(Y).</p>
+<p>– H(X) is called the <strong>message digest</strong> or <strong>digital signature</strong> of X under the hashing algorithm H.</p>
+</li>
+<li><p>Two well known cryptographic hash functions are <strong>MD5</strong> and <strong>SHA</strong>.</p>
+<h2 id="Certificate-Authority"><a href="#Certificate-Authority" class="headerlink" title="Certificate Authority"></a>Certificate Authority</h2></li>
+<li><p>A certificate authority (CA) is an organizationthat both parties involved in a securecommunication, trust</p>
+</li>
+<li><p>the role of the CA is to verify the identity ofan entity (client/server)</p>
+</li>
+<li><p>once the CA verifies the entity, it issues adigitally signed electronic certificate</p>
+<p>– it is signed with the CA s private key</p>
+<p>​</p>
+<h2 id="Introduction-to-SSL"><a href="#Introduction-to-SSL" class="headerlink" title="Introduction to SSL"></a>Introduction to SSL</h2></li>
+<li><p>Given public key encryption, cryptographic hashing, message digests and digital certificates, how are these put together to produce secure electronic commerce?</p>
+</li>
+<li><p>The answer: SSL, is a protocol for establishing an encrypted link between server and client, that uses authentication and encryption of transactional data</p>
+</li>
+<li><p>SSL is occasionally called TLS, <strong>Transport Layer Security protocol</strong>.</p>
+</li>
+<li><p>Secure Sockets Layer (SSL) provides end-to-end security between client and server.</p>
+</li>
+<li><p>SSL for HTTP is referred to as HTTPS and operates on port 443.</p>
+<h2 id="How-SSL-Works-–-Detailed-Steps"><a href="#How-SSL-Works-–-Detailed-Steps" class="headerlink" title="How SSL Works – Detailed Steps"></a>How SSL Works – Detailed Steps</h2></li>
+</ul>
+<ol>
+<li>Client contacts a secure server using https and asks that server identify itself</li>
+<li>Server sends client its digital certificate including the server’s public key, thereby verifying that the server is who he says he is</li>
+<li>Client checks the certificate root against its list of trusted CAs and that the certificate is unexpired; if all is OK, client generates a session key, encrypts it with server s public key and sends the cipher back to the server</li>
+<li>Server decrypts the symmetric session key using its private key and sends back an acknowledgement and a secure channel is established</li>
+<li>Client and server now exchange data that is always encrypted</li>
+<li>Before each data transfer, a message digest calculated from the data is sent on the secure channel</li>
+<li>Receiving party uses the message digest to guarantee the data has not been modified.</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>SSL Protocol Version 3.0 Specification:</li>
+</ol>
+<p>– <a href="http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt" target="_blank" rel="noopener">http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt</a></p>
+<ol>
+<li><p>TLS Protocol Version 1.0 Specification:– <a href="http://www.ietf.org/rfc/rfc2246.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2246.txt</a></p>
+</li>
+<li><p>Extensions to TLS:</p>
+<p>–  Kerberos:<a href="http://www.ietf.org/rfc/rfc2712.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2712.txt</a></p>
+<p>–  TLS with HTTP/1.1:<a href="http://www.ietf.org/rfc/rfc2817.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2817.txt</a></p>
+<p>–  HTTP over TLS:<a href="http://www.ietf.org/rfc/rfc2818.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc2818.txt</a></p>
+<p>–  AES Ciphersuites for TLS:<a href="http://www.ietf.org/rfc/rfc3268.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc3268.txt</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/28/Secure Web Communication/" data-id="cjh6yeoyh002vc5f21yol64ms" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/28/Analyzing Web Server Performance/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/30/AngularJS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">AngularJS</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data-Process/">Big Data Process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-Interview/">Cracking the Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cracking-the-interview/">Cracking the interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Project/">Java Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Big-Data-Process/" style="font-size: 15px;">Big Data Process</a> <a href="/tags/Cracking-the-Interview/" style="font-size: 17.5px;">Cracking the Interview</a> <a href="/tags/Cracking-the-interview/" style="font-size: 12.5px;">Cracking the interview</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/JVM/" style="font-size: 12.5px;">JVM</a> <a href="/tags/Java-Project/" style="font-size: 12.5px;">Java Project</a> <a href="/tags/Leetcode/" style="font-size: 20px;">Leetcode</a> <a href="/tags/PHP/" style="font-size: 12.5px;">PHP</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/http/" style="font-size: 12.5px;">http</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/15/Leetcode-105/">Leetcode-105-preorder and inorder</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/02/Firebase/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/02/ReactJS/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/HTML5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/01/Serverless Applications/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mengzhuo You<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
